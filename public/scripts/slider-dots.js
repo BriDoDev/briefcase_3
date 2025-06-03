@@ -43,7 +43,7 @@ function initSlider(sliderName) {
   if (slides.length > 0 && bg) {
     bg.style.backgroundImage = `url(${slides[0].dataset.bg})`;
     updateSlider(0);
-    setInterval(autoAdvance, 6000);
+    setInterval(autoAdvance, 10000);
   }
 }
 

@@ -8,7 +8,9 @@ import Layout from "../layouts/main.astro";
 ---
 
 <Layout title="Brian Domínguez Vázquez">
-  <div class="h-screen overflow-y-scroll snap-y snap-mandatory scroll-smooth">
+  <div
+    class="h-screen overflow-x-hidden overflow-y-scroll snap-y snap-mandatory scroll-smooth"
+  >
     <!-- Hero section -->
     <section class="snap-start min-h-screen h-full image-hero__container z-10">
       <div class="image-hero__container--item">
@@ -48,7 +50,7 @@ import Layout from "../layouts/main.astro";
     <!-- Proyectos -->
     <section
       id="proyectos"
-      class="relative snap-start min-h-screen h-full p-12 flex flex-col justify-center items-center gap-8"
+      class="relative snap-start min-h-screen overflow-hidden h-full p-12 flex flex-col justify-center items-center gap-8"
     >
       <div
         id="background-blur-projects"
