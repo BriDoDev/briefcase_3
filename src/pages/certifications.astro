@@ -1,6 +1,5 @@
 ---
 import certifications from "../collections/certifications.json";
-import Certification from "../components/certification.astro";
 import PageHeading from "../components/page-heading.astro";
 import Layout from "../layouts/main.astro";
 ---
@@ -15,7 +14,7 @@ import Layout from "../layouts/main.astro";
     <div
       class="z-50 grid items-stretch w-full grid-cols-1 my-8 gap-7 sm:gap-5 sm:grid-cols-2"
     >
-      {
+      <!-- {
         certifications.map((project) => {
           return (
             <Certification
@@ -26,7 +25,7 @@ import Layout from "../layouts/main.astro";
             />
           );
         })
-      }
+      } -->
     </div>
   </section>
 </Layout>
