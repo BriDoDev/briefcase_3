@@ -15,24 +15,24 @@ import Project from "../project.astro";
           data-index-projects={index}
           data-bg={project.image}
         >
-          <div class="pointer-events-auto max-w-7xl w-full px-4 md:px-6 flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16">
+          <div class="pointer-events-auto bg-white p-6 sm:p-6 rounded-lg shadow-2xl max-w-7xl w-full px-4 md:px-6 flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16">
             <img
               src={project.image}
               alt={project.name}
-              class="w-full max-w-sm md:max-w-md lg:max-w-lg rounded-lg shadow-xl border"
+              class="w-full max-w-sm md:max-w-md lg:max-w-xl rounded-lg shadow-xl border"
             />
-            <div class="bg-white p-4 sm:p-6 shadow-2xl w-full md:w-1/2 text-sm sm:text-base rounded-lg">
+            <div class="w-full md:w-1/2 text-sm sm:text-base">
               <h2 class="text-xl font-semibold mb-2 text-neutral-800">
                 {project.name}
               </h2>
-              <p class="text-gray-500 text-base leading-relaxed mb-4">
+              <p class="text-gray-500 text-lg leading-relaxed mb-4">
                 {project.description}
               </p>
               <a
                 href={project.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="inline-block mt-2 text-sm font-medium text-blue-600 hover:underline"
+                class="inline-block mt-2 text-base font-medium text-blue-600 hover:underline"
               >
                 Ver proyecto →
               </a>
