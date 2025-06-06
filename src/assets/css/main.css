@@ -21,34 +21,66 @@ p {
 }
 
 .image-hero__container {
-  @apply relative w-full grid grid-cols-1 justify-center items-center gap-12 p-12 bg-fixed bg-center bg-cover bg-no-repeat shadow-md;
-  @apply md:grid-cols-2 md:gap-52;
+  @apply relative w-full grid-cols-1 justify-center md:gap-10 lg:gap-12 bg-fixed bg-center bg-cover bg-no-repeat shadow-md;
+  @apply md:gap-52;
   @apply xl:grid-cols-2 xl:gap-[34rem] xl:bg-contain;
-  background-image: url("/assets/images/Duo.webp");
+  @apply bg-[url("/assets/images/Duo.webp")] bg-cover;
 }
 
-.image-hero__container::after {
+.image-hero__container.desktop {
+  @apply hidden xl:grid;
+}
+
+.image-hero__container.mobile {
+  @apply grid md:grid xl:hidden;
+}
+
+.image-hero__container.right {
+  background-position: calc(100% + 773px) center;
+}
+
+.image-hero__container.right h1,
+.image-hero__container.right p {
+  @apply text-left xl:text-center;
+}
+
+.image-hero__container.left {
+  background-position: calc(0% - 775px) center;
+}
+
+.image-hero__container.left h1,
+.image-hero__container.left p {
+  @apply text-right xl:text-center;
+}
+
+@layer utilities {
+  .transition-bg-position {
+    transition: background-position 0.8s ease-in-out;
+  }
+}
+
+/* .image-hero__container::after {
   content: "";
-  @apply absolute inset-0 bg-black bg-opacity-25;
+  @apply md:absolute inset-0 md:bg-black md:bg-opacity-25 lg:bg-black lg:bg-opacity-25;
   @apply md:hidden;
   @apply xl:hidden;
-  z-index: 0; /* Asegúrate de que quede detrás del contenido */
-}
+  z-index: 0;
+} */
 
 .image-hero__container .image-hero__container--item {
   @apply flex flex-col justify-center items-center gap-8;
 }
 
 .image-hero__container .image-hero__container--item > h1 {
-  @apply text-5xl font-bold text-center text-gray-50 z-10 drop-shadow-sm;
-  @apply md:font-semibold md:text-gray-950;
-  @apply xl:font-semibold xl:text-gray-950;
+  @apply text-4xl font-bold text-gray-950 z-10 drop-shadow-sm;
+  @apply md:font-semibold md:text-5xl;
+  @apply xl:font-semibold;
 }
 
 .image-hero__container .image-hero__container--item > p {
-  @apply text-xl font-normal text-center text-gray-100 z-10 drop-shadow-sm;
-  @apply md:font-light md:text-gray-500;
-  @apply xl:font-light xl:text-gray-500;
+  @apply text-base font-normal text-gray-500 z-10 drop-shadow-sm;
+  @apply md:font-light md:text-xl;
+  @apply xl:font-light;
 }
 
 /* .image-hero__container {

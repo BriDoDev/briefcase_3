@@ -8,10 +8,15 @@ import Layout from "../layouts/main.astro";
 ---
 
 <Layout title="Brian Domínguez Vázquez">
-  <div class="h-screen overflow-y-scroll snap-y snap-mandatory scroll-smooth">
+  <div
+    id="SnapMandatory"
+    class="h-screen overflow-y-scroll overflow-x-hidden snap-y snap-mandatory scroll-smooth"
+  >
     <!-- Hero section -->
-    <section class="snap-start min-h-screen h-full image-hero__container z-10">
-      <div class="image-hero__container--item">
+    <section
+      class="snap-start min-h-screen h-full image-hero__container desktop z-10"
+    >
+      <div class="image-hero__container--item p-12">
         <h1>UI/UX Design</h1>
         <p>
           Soy un diseñador de UI/UX apasionado por construir interfaces
@@ -20,7 +25,34 @@ import Layout from "../layouts/main.astro";
           usuarios.
         </p>
       </div>
-      <div class="image-hero__container--item">
+      <div class="image-hero__container--item p-12">
+        <h1>Web Developer</h1>
+        <p>
+          Como desarrollador web, traduzco ideas en proyectos tangibles.
+          Descubre cómo utilizo tecnologías modernas para crear sitios
+          dinámicos, rápidos y optimizados para todo dispositivo.
+        </p>
+      </div>
+    </section>
+
+    <section
+      class="items-start md:items-center snap-start min-h-screen h-full image-hero__container mobile z-10 right transition-bg-position"
+    >
+      <div class="image-hero__container--item p-12 pr-32 md:pb-36">
+        <h1>UI/UX Design</h1>
+        <p>
+          Soy un diseñador de UI/UX apasionado por construir interfaces
+          funcionales y visualmente atractivas. Mi portafolio refleja cómo
+          combino creatividad y estrategia para resolver problemas reales de los
+          usuarios.
+        </p>
+      </div>
+    </section>
+
+    <section
+      class="items-start md:items-center snap-start min-h-screen h-full image-hero__container mobile z-10 left transition-bg-position"
+    >
+      <div class="image-hero__container--item p-12 pl-36 md:pb-36">
         <h1>Web Developer</h1>
         <p>
           Como desarrollador web, traduzco ideas en proyectos tangibles.
