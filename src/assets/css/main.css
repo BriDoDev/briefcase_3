@@ -21,13 +21,13 @@ p {
 }
 
 .image-hero__container {
-  @apply relative w-full grid-cols-1 justify-center md:gap-10 lg:gap-12 bg-fixed bg-center bg-cover bg-no-repeat shadow-md;
+  @apply relative w-full grid-cols-1 justify-center md:gap-10 lg:gap-12 bg-center bg-cover bg-no-repeat shadow-md;
   @apply md:gap-52;
   @apply xl:grid-cols-2 xl:gap-[34rem] xl:bg-contain;
-  @apply bg-[url("/assets/images/Duo.webp")] bg-cover;
 }
 
 .image-hero__container.desktop {
+  @apply bg-[url("/assets/images/Duo.webp")] bg-cover;
   @apply hidden xl:grid;
 }
 
@@ -36,20 +36,22 @@ p {
 }
 
 .image-hero__container.right {
-  background-position: calc(100% + 773px) center;
+  @apply bg-[url("/assets/images/DuoLeft.png")] bg-cover;
+  background-position: left center;
 }
 
-.image-hero__container.right h1,
-.image-hero__container.right p {
+.image-hero__container.right .image-hero__container--item > h1,
+.image-hero__container.right .image-hero__container--item > p {
   @apply text-left xl:text-center;
 }
 
 .image-hero__container.left {
-  background-position: calc(0% - 775px) center;
+  @apply bg-[url("/assets/images/DuoRight.png")] bg-cover;
+  background-position: right center;
 }
 
-.image-hero__container.left h1,
-.image-hero__container.left p {
+.image-hero__container.left .image-hero__container--item > h1,
+.image-hero__container.left .image-hero__container--item > p {
   @apply text-right xl:text-center;
 }
 
@@ -58,14 +60,6 @@ p {
     transition: background-position 0.8s ease-in-out;
   }
 }
-
-/* .image-hero__container::after {
-  content: "";
-  @apply md:absolute inset-0 md:bg-black md:bg-opacity-25 lg:bg-black lg:bg-opacity-25;
-  @apply md:hidden;
-  @apply xl:hidden;
-  z-index: 0;
-} */
 
 .image-hero__container .image-hero__container--item {
   @apply flex flex-col justify-center items-center gap-8;
