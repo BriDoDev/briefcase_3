@@ -1,20 +1,20 @@
 [
   {
     "name": "Mamás autonomas",
-    "description": "Diseño web centrado en una receta de cocina, destacando usabilidad y diseño visual atractivo.",
+    "description": "Landing page que conecta a mamás solteras para formar redes de apoyo mutuo. Facilita el primer contacto entre ellas y promueve el intercambio de servicios como cuidado infantil, traslados o ayuda doméstica dentro de una comunidad solidaria.",
     "image": "/assets/images/projects/mamasAutonomas.png",
     "url": "https://mamasautonomas.com/"
   },
   {
     "name": "Pinwheel",
-    "description": "SaaS landing page.",
+    "description": "Página de presentación para una empresa tipo SaaS enfocada en captar leads y explicar el valor del producto. Utiliza una estructura clara, secciones de beneficio, testimonios y un llamado a la acción destacado para facilitar la conversión de usuarios interesados.",
     "image": "/assets/images/projects/pinwheel.png",
     "url": "https://pinwheel-bdv.netlify.app/"
   },
   {
-    "name": "Astro Saas",
-    "description": "Astro landing page.",
-    "image": "/assets/images/projects/astroSaas.png",
-    "url": "https://astrosaas-bdv.netlify.app/"
+    "name": "Material UI Design System",
+    "description": "Showcase de componentes personalizados construidos sobre Material UI. Este sistema de diseño integra tokens, theming y patrones visuales consistentes para acelerar el desarrollo frontend con una base escalable y coherente.",
+    "image": "/assets/images/projects/design-system.jpg",
+    "url": "https://www.figma.com/design/U94MGv2nJPPvYL3YnfE3cH/Design-System-Material-UI?node-id=55343-13516&t=AorVyOQR2gcMCuzx-1"
   }
 ]
