@@ -7,7 +7,7 @@
 *::after {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: border-box !important;
 }
 h1 {
   font-family: "proxima-nova", sans-serif;
@@ -36,8 +36,8 @@ p {
 }
 
 .image-hero__container.right {
-  @apply bg-[url("/assets/images/DuoLeft.png")] bg-cover;
-  background-position: left center;
+  @apply bg-[url("/assets/images/DuoLeft.png")] bg-contain;
+  background-position: right;
 }
 
 .image-hero__container.right .image-hero__container--item > h1,
@@ -46,8 +46,8 @@ p {
 }
 
 .image-hero__container.left {
-  @apply bg-[url("/assets/images/DuoRight.png")] bg-cover;
-  background-position: right center;
+  @apply bg-[url("/assets/images/DuoRight.png")] bg-contain;
+  background-position: left;
 }
 
 .image-hero__container.left .image-hero__container--item > h1,

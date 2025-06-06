@@ -1,0 +1,140 @@
+---
+const { items = [], bgId = "", type = "", title = "" } = Astro.props;
+const swiperClass = `swiper-${type}`;
+---
+
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+/>
+
+<section
+  class="snap-start min-h-screen h-full p-6 sm:p-12 relative flex flex-col justify-evenly items-center gap-8 overflow-hidden shadow-md"
+>
+  <div
+    id={bgId}
+    class="absolute inset-0 bg-center bg-cover blur-xl transition-all scale-125 duration-700"
+  ></div>
+
+  <h1 class="text-3xl md:text-4xl z-50 font-semibold text-center">{title}</h1>
+
+  <div class={`relative w-full max-w-7xl z-50 ${swiperClass}-wrapper`}>
+    <div class={`swiper !overflow-visible ${swiperClass}`} data-bg-id={bgId}>
+      <div class="swiper-wrapper">
+        {
+          items.map((item) => (
+            <div class="swiper-slide h-screen w-full flex items-center justify-center p-6 sm:p-12">
+              <div class="bg-white w-full h-full rounded-xl shadow-2xl flex flex-col xl:flex-row items-center justify-center gap-6 md:gap-12 p-6 md:p-10 max-w-6xl max-h-[90vh] overflow-y-auto">
+                <img
+                  src={item.image}
+                  alt={item.name}
+                  class="w-full max-w-[300px] md:max-w-[400px] rounded-lg shadow-xl border object-contain"
+                />
+                <div class="text-center md:text-left text-sm sm:text-base w-full max-w-xl">
+                  <h2 class="text-lg md:text-2xl font-semibold mb-2 text-neutral-800">
+                    {item.name}
+                  </h2>
+                  <p
+                    class="text-gray-500 text-sm leading-relaxed mb-4 h-full min-h-14 max-h-20 md:max-h-max overflow-y-auto"
+                  >
+                    {item.description.trim()}
+                  </p>
+                  {item.url && (
+                    <a
+                      href={item.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="inline-block mt-2 text-sm font-medium text-blue-600 hover:underline"
+                    >
+                      Ver más →
+                    </a>
+                  )}
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+
+      <div class="swiper-pagination !bottom-6"></div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+  </div>
+
+  {type === "certifications" && (
+    <script type="module">
+      import Swiper from "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs";
+
+      const container = document.querySelector('.swiper-certifications');
+      const bgId = container?.dataset?.bgId;
+      const bgElement = document.getElementById(bgId);
+
+      const updateBackground = () => {
+        const activeImg = container.querySelector(".swiper-slide-active img");
+        if (activeImg && bgElement) {
+          bgElement.style.backgroundImage = `url('${activeImg.src}')`;
+        }
+      };
+
+      const swiper = new Swiper(container, {
+        loop: true,
+        autoplay: {
+          delay: 10000,
+          disableOnInteraction: false
+        },
+        pagination: {
+          el: container.querySelector(".swiper-pagination"),
+          clickable: true,
+        },
+        navigation: {
+          nextEl: container.querySelector(".swiper-button-next"),
+          prevEl: container.querySelector(".swiper-button-prev"),
+        },
+        on: {
+          transitionEnd: updateBackground,
+        },
+      });
+
+      requestAnimationFrame(updateBackground);
+    </script>
+  )}
+
+  {type === "projects" && (
+    <script type="module">
+      import Swiper from "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs";
+
+      const container = document.querySelector('.swiper-projects');
+      const bgId = container?.dataset?.bgId;
+      const bgElement = document.getElementById(bgId);
+
+      const updateBackground = () => {
+        const activeImg = container.querySelector(".swiper-slide-active img");
+        if (activeImg && bgElement) {
+          bgElement.style.backgroundImage = `url('${activeImg.src}')`;
+        }
+      };
+
+      const swiper = new Swiper(container, {
+        loop: true,
+        autoplay: {
+          delay: 10000,
+          disableOnInteraction: false
+        },
+        pagination: {
+          el: container.querySelector(".swiper-pagination"),
+          clickable: true,
+        },
+        navigation: {
+          nextEl: container.querySelector(".swiper-button-next"),
+          prevEl: container.querySelector(".swiper-button-prev"),
+        },
+        on: {
+          transitionEnd: updateBackground,
+        },
+      });
+
+      requestAnimationFrame(updateBackground);
+    </script>
+  )}
+</section>

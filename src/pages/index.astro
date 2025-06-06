@@ -1,10 +1,11 @@
 ---
 import Button from "../components/button.astro";
-import Projects from "../components/home/projects.astro";
-import Certifications from "../components/home/certifications.astro";
+import projects from "../collections/projects.json";
+import certifications from "../collections/certifications.json";
 import Separator from "../components/home/separator.astro";
 import Writings from "../components/home/writings.astro";
 import Layout from "../layouts/main.astro";
+import Slider from "../components/home/slider.astro";
 ---
 
 <Layout title="Brian Domínguez Vázquez">
@@ -62,35 +63,20 @@ import Layout from "../layouts/main.astro";
       </div>
     </section>
 
-    <section
-      id="certificaciones"
-      class="snap-start min-h-screen h-full p-12 relative flex flex-col justify-center items-center gap-8 overflow-hidden shadow-md"
-    >
-      <div
-        id="background-blur-certifications"
-        class="absolute inset-0 z-10 bg-center bg-cover blur-xl transition-all scale-125 duration-700"
-      >
-      </div>
-      <h1 class="text-4xl z-50 font-semibold text-center">
-        Mis certificaciones 🎓
-      </h1>
-      <Certifications />
-    </section>
+    <!-- Certificaciones -->
+    <Slider
+      title="Mis certificaciones 🎓"
+      items={certifications}
+      bgId="background-blur-certifications"
+      type="certifications"
+    />
 
     <!-- Proyectos -->
-    <section
-      id="proyectos"
-      class="relative snap-start min-h-screen h-full p-12 flex flex-col justify-center items-center gap-8"
-    >
-      <div
-        id="background-blur-projects"
-        class="absolute inset-0 z-10 bg-center bg-cover blur-xl transition-all scale-125 duration-700"
-      >
-      </div>
-      <h1 class="text-4xl z-50 font-semibold text-center">
-        Algunos de mis últimos trabajos 💼
-      </h1>
-      <Projects />
-    </section>
+    <Slider
+      title="Algunos de mis últimos trabajos 💼"
+      items={projects}
+      bgId="background-blur-projects"
+      type="projects"
+    />
   </div>
 </Layout>
