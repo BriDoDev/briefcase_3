@@ -7,7 +7,7 @@
 *::after {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: border-box !important;
 }
 h1 {
   font-family: "proxima-nova", sans-serif;
@@ -21,18 +21,44 @@ p {
 }
 
 .image-hero__container {
-  @apply relative w-full grid grid-cols-1 justify-center items-center gap-12 p-12 bg-fixed bg-center bg-cover bg-no-repeat shadow-md;
-  @apply md:grid-cols-2 md:gap-52;
+  @apply relative w-full grid-cols-1 justify-center md:gap-10 lg:gap-12 bg-center bg-cover bg-no-repeat shadow-md;
+  @apply md:gap-52;
   @apply xl:grid-cols-2 xl:gap-[34rem] xl:bg-contain;
-  background-image: url("/assets/images/Duo.webp");
 }
 
-.image-hero__container::after {
-  content: "";
-  @apply absolute inset-0 bg-black bg-opacity-25;
-  @apply md:hidden;
-  @apply xl:hidden;
-  z-index: 0; /* Asegúrate de que quede detrás del contenido */
+.image-hero__container.desktop {
+  @apply bg-[url("/assets/images/Duo.webp")] bg-cover;
+  @apply hidden xl:grid;
+}
+
+.image-hero__container.mobile {
+  @apply grid md:grid xl:hidden;
+}
+
+.image-hero__container.right {
+  @apply bg-[url("/assets/images/DuoLeft.png")] bg-contain;
+  background-position: right;
+}
+
+.image-hero__container.right .image-hero__container--item > h1,
+.image-hero__container.right .image-hero__container--item > p {
+  @apply text-left xl:text-center;
+}
+
+.image-hero__container.left {
+  @apply bg-[url("/assets/images/DuoRight.png")] bg-contain;
+  background-position: left;
+}
+
+.image-hero__container.left .image-hero__container--item > h1,
+.image-hero__container.left .image-hero__container--item > p {
+  @apply text-right xl:text-center;
+}
+
+@layer utilities {
+  .transition-bg-position {
+    transition: background-position 0.8s ease-in-out;
+  }
 }
 
 .image-hero__container .image-hero__container--item {
@@ -40,15 +66,15 @@ p {
 }
 
 .image-hero__container .image-hero__container--item > h1 {
-  @apply text-5xl font-bold text-center text-gray-50 z-10 drop-shadow-sm;
-  @apply md:font-semibold md:text-gray-950;
-  @apply xl:font-semibold xl:text-gray-950;
+  @apply text-4xl font-bold text-gray-950 z-10 drop-shadow-sm;
+  @apply md:font-semibold md:text-5xl;
+  @apply xl:font-semibold;
 }
 
 .image-hero__container .image-hero__container--item > p {
-  @apply text-xl font-normal text-center text-gray-100 z-10 drop-shadow-sm;
-  @apply md:font-light md:text-gray-500;
-  @apply xl:font-light xl:text-gray-500;
+  @apply text-base font-normal text-gray-500 z-10 drop-shadow-sm;
+  @apply md:font-light md:text-xl;
+  @apply xl:font-light;
 }
 
 /* .image-hero__container {

@@ -1,19 +1,23 @@
 ---
 import Button from "../components/button.astro";
-import Projects from "../components/home/projects.astro";
-import Certifications from "../components/home/certifications.astro";
+import projects from "../collections/projects.json";
+import certifications from "../collections/certifications.json";
 import Separator from "../components/home/separator.astro";
 import Writings from "../components/home/writings.astro";
 import Layout from "../layouts/main.astro";
+import Slider from "../components/home/slider.astro";
 ---
 
 <Layout title="Brian Domínguez Vázquez">
   <div
-    class="h-screen overflow-x-hidden overflow-y-scroll snap-y snap-mandatory scroll-smooth"
+    id="SnapMandatory"
+    class="h-screen overflow-y-scroll overflow-x-hidden snap-y snap-mandatory scroll-smooth"
   >
     <!-- Hero section -->
-    <section class="snap-start min-h-screen h-full image-hero__container z-10">
-      <div class="image-hero__container--item">
+    <section
+      class="snap-start min-h-screen h-full image-hero__container desktop z-10"
+    >
+      <div class="image-hero__container--item p-12">
         <h1>UI/UX Design</h1>
         <p>
           Soy un diseñador de UI/UX apasionado por construir interfaces
@@ -22,7 +26,7 @@ import Layout from "../layouts/main.astro";
           usuarios.
         </p>
       </div>
-      <div class="image-hero__container--item">
+      <div class="image-hero__container--item p-12">
         <h1>Web Developer</h1>
         <p>
           Como desarrollador web, traduzco ideas en proyectos tangibles.
@@ -33,34 +37,46 @@ import Layout from "../layouts/main.astro";
     </section>
 
     <section
-      id="certificaciones"
-      class="snap-start min-h-screen h-full p-12 relative flex flex-col justify-center items-center gap-8 overflow-hidden shadow-md"
+      class="items-start md:items-center snap-start min-h-screen h-full image-hero__container mobile z-10 right"
     >
-      <div
-        id="background-blur-certifications"
-        class="absolute inset-0 z-10 bg-center bg-cover blur-xl transition-all scale-125 duration-700"
-      >
+      <div class="image-hero__container--item p-12 pr-32 md:pb-36">
+        <h1>UI/UX Design</h1>
+        <p>
+          Soy un diseñador de UI/UX apasionado por construir interfaces
+          funcionales y visualmente atractivas. Mi portafolio refleja cómo
+          combino creatividad y estrategia para resolver problemas reales de los
+          usuarios.
+        </p>
       </div>
-      <h1 class="text-4xl z-50 font-semibold text-center">
-        Mis certificaciones 🎓
-      </h1>
-      <Certifications />
     </section>
 
-    <!-- Proyectos -->
     <section
-      id="proyectos"
-      class="relative snap-start min-h-screen overflow-hidden h-full p-12 flex flex-col justify-center items-center gap-8"
+      class="items-start md:items-center snap-start min-h-screen h-full image-hero__container mobile z-10 left"
     >
-      <div
-        id="background-blur-projects"
-        class="absolute inset-0 z-10 bg-center bg-cover blur-xl transition-all scale-125 duration-700"
-      >
+      <div class="image-hero__container--item p-12 pl-36 md:pb-36">
+        <h1>Web Developer</h1>
+        <p>
+          Como desarrollador web, traduzco ideas en proyectos tangibles.
+          Descubre cómo utilizo tecnologías modernas para crear sitios
+          dinámicos, rápidos y optimizados para todo dispositivo.
+        </p>
       </div>
-      <h1 class="text-4xl z-50 font-semibold text-center">
-        Algunos de mis últimos trabajos 💼
-      </h1>
-      <Projects />
     </section>
+
+    <!-- Certificaciones -->
+    <Slider
+      title="Mis certificaciones 🎓"
+      items={certifications}
+      bgId="background-blur-certifications"
+      type="certifications"
+    />
+
+    <!-- Proyectos -->
+    <Slider
+      title="Algunos de mis últimos trabajos 💼"
+      items={projects}
+      bgId="background-blur-projects"
+      type="projects"
+    />
   </div>
 </Layout>
