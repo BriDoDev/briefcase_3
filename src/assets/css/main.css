@@ -36,7 +36,7 @@ p {
 }
 
 .image-hero__container.right {
-  @apply bg-[url("/assets/images/DuoLeft.png")] bg-contain;
+  @apply bg-[url("/assets/images/DuoLeft.webp")] bg-contain;
   background-position: right;
 }
 
@@ -46,7 +46,7 @@ p {
 }
 
 .image-hero__container.left {
-  @apply bg-[url("/assets/images/DuoRight.png")] bg-contain;
+  @apply bg-[url("/assets/images/DuoRight.webp")] bg-contain;
   background-position: left;
 }
 
@@ -65,45 +65,20 @@ p {
   @apply flex flex-col justify-center items-center gap-8;
 }
 
-.image-hero__container .image-hero__container--item > h1 {
+.image-hero__container .image-hero__container--item > h1,
+.section h1 {
   @apply text-4xl font-bold text-gray-950 z-10 drop-shadow-sm;
   @apply md:font-semibold md:text-5xl;
   @apply xl:font-semibold;
 }
 
-.image-hero__container .image-hero__container--item > p {
+.image-hero__container .image-hero__container--item > p,
+.section p {
   @apply text-base font-normal text-gray-500 z-10 drop-shadow-sm;
   @apply md:font-light md:text-xl;
   @apply xl:font-light;
 }
 
-/* .image-hero__container {
-  @apply relative flex w-full h-screen;
+.tiktok-embed iframe {
+  @apply min-h-[500px];
 }
-
-.half {
-  @apply absolute flex flex-col gap-8 p-12 justify-center items-center top-0 h-full w-1/2 bg-fixed bg-center bg-cover hover:w-full;
-  transition: width 0.5s ease-in-out;
-}
-
-.half > h1 {
-  @apply text-3xl;
-}
-
-.half.left {
-  @apply left-0;
-  background-image: url("/assets/images/Color_4k.webp");
-}
-
-.half.right {
-  @apply right-0;
-  background-image: url("/assets/images/B&W_4k.webp");
-}
-
-.half.left:hover + .half.right {
-  @apply w-0;
-}
-
-.half.right:hover + .half.left {
-  @apply w-0;
-} */
