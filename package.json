@@ -21,6 +21,7 @@
 	},
 	"packageManager": "pnpm@9.12.2",
 	"dependencies": {
+		"aos": "^2.3.4",
 		"swiper": "^11.2.8",
 		"tailwind-scrollbar-hide": "^4.0.0"
 	}

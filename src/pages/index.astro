@@ -18,8 +18,8 @@ import Slider from "../components/home/slider.astro";
       class="snap-start min-h-screen h-full image-hero__container desktop z-10"
     >
       <div class="image-hero__container--item p-12">
-        <h1>UI/UX Design</h1>
-        <p>
+        <h1 data-aos="fade-up">UI/UX Design</h1>
+        <p data-aos="fade-up">
           Soy un diseñador de UI/UX apasionado por construir interfaces
           funcionales y visualmente atractivas. Mi portafolio refleja cómo
           combino creatividad y estrategia para resolver problemas reales de los
@@ -27,11 +27,12 @@ import Slider from "../components/home/slider.astro";
         </p>
       </div>
       <div class="image-hero__container--item p-12">
-        <h1>Web Developer</h1>
-        <p>
-          Como desarrollador web, traduzco ideas en proyectos tangibles.
-          Descubre cómo utilizo tecnologías modernas para crear sitios
-          dinámicos, rápidos y optimizados para todo dispositivo.
+        <h1 data-aos="fade-up">Web Developer</h1>
+        <p data-aos="fade-up">
+          Transformo ideas en soluciones web eficientes y escalables. Utilizo
+          tecnologías modernas para desarrollar sitios dinámicos, optimizados
+          para rendimiento, accesibilidad y compatibilidad con todos los
+          dispositivos.
         </p>
       </div>
     </section>
@@ -40,12 +41,12 @@ import Slider from "../components/home/slider.astro";
       class="items-start md:items-center snap-start min-h-screen h-full image-hero__container mobile z-10 right"
     >
       <div class="image-hero__container--item p-12 pr-32 md:pb-36">
-        <h1>UI/UX Design</h1>
-        <p>
-          Soy un diseñador de UI/UX apasionado por construir interfaces
-          funcionales y visualmente atractivas. Mi portafolio refleja cómo
-          combino creatividad y estrategia para resolver problemas reales de los
-          usuarios.
+        <h1 data-aos="fade-up">UI/UX Design</h1>
+        <p data-aos="fade-up">
+          Diseño experiencias digitales centradas en el usuario, combinando
+          estética y funcionalidad. A través de un enfoque estratégico, creo
+          interfaces intuitivas que no solo lucen bien, sino que también
+          resuelven problemas reales y mejoran la interacción del usuario.
         </p>
       </div>
     </section>
@@ -54,8 +55,8 @@ import Slider from "../components/home/slider.astro";
       class="items-start md:items-center snap-start min-h-screen h-full image-hero__container mobile z-10 left"
     >
       <div class="image-hero__container--item p-12 pl-36 md:pb-36">
-        <h1>Web Developer</h1>
-        <p>
+        <h1 data-aos="fade-up">Web Developer</h1>
+        <p data-aos="fade-up">
           Como desarrollador web, traduzco ideas en proyectos tangibles.
           Descubre cómo utilizo tecnologías modernas para crear sitios
           dinámicos, rápidos y optimizados para todo dispositivo.
@@ -63,9 +64,39 @@ import Slider from "../components/home/slider.astro";
       </div>
     </section>
 
+    <section class="items-center snap-start min-h-screen h-full z-10">
+      <div
+        class="p-8 h-full flex flex-col gap-4 justify-center items-center section"
+      >
+        <h1 class="text-center">Creación de Contenido</h1>
+        <p class="max-w-5xl text-center">
+          Enseño desarrollo frontend y diseño UI/UX para que desarrolladores y
+          diseñadores comprendan mejor ambos campos, creando contenido práctico
+          y claro que une tecnología y diseño
+        </p>
+        <blockquote
+          class="tiktok-embed"
+          cite="https://www.tiktok.com/@briandv198"
+          data-unique-id="briandv198"
+          data-embed-from="embed_page"
+          data-embed-type="creator"
+          style=""
+        >
+          <section>
+            <a
+              target="_blank"
+              href="https://www.tiktok.com/@briandv198?refer=creator_embed"
+              >@briandv198</a
+            >
+          </section>
+        </blockquote>
+        <script async src="https://www.tiktok.com/embed.js"></script>
+      </div>
+    </section>
+
     <!-- Certificaciones -->
     <Slider
-      title="Mis certificaciones 🎓"
+      title="Mis certificaciones"
       items={certifications}
       bgId="background-blur-certifications"
       type="certifications"
@@ -73,7 +104,7 @@ import Slider from "../components/home/slider.astro";
 
     <!-- Proyectos -->
     <Slider
-      title="Algunos de mis últimos trabajos 💼"
+      title="Algunos de mis últimos trabajos"
       items={projects}
       bgId="background-blur-projects"
       type="projects"

@@ -3,13 +3,26 @@
     "name": "Mamás autonomas",
     "description": "Landing page que conecta a mamás solteras para formar redes de apoyo mutuo. Facilita el primer contacto entre ellas y promueve el intercambio de servicios como cuidado infantil, traslados o ayuda doméstica dentro de una comunidad solidaria.",
     "image": "/assets/images/projects/mamasAutonomas.png",
-    "url": "https://mamasautonomas.com/"
+    "url": "https://mamasautonomas.com/",
+    "style": "text-white"
   },
   {
     "name": "Pinwheel",
     "description": "Página de presentación para una empresa tipo SaaS enfocada en captar leads y explicar el valor del producto. Utiliza una estructura clara, secciones de beneficio, testimonios y un llamado a la acción destacado para facilitar la conversión de usuarios interesados.",
     "image": "/assets/images/projects/pinwheel.png",
     "url": "https://pinwheel-bdv.netlify.app/"
+  },
+  {
+    "name": "Back Office",
+    "description": "Backoffice de usuarios desarrollado con React, TypeScript, MUI y Tailwind CSS. Permite gestionar roles y datos de usuario con autenticación segura vía JWT. Interfaz responsiva, accesible y moderna, enfocada en eficiencia operativa y usabilidad.",
+    "image": "/assets/images/projects/bo.png",
+    "url": "https://bo-bdv.netlify.app/login"
+  },
+  {
+    "name": "SaaS",
+    "description": "Presenta un servicio digital con secciones de beneficios, precios y CTA. Enfocada en conversión, UI moderna y responsive. Construida con React y Tailwind CSS, siguiendo buenas prácticas de UX.",
+    "image": "/assets/images/projects/saas.png",
+    "url": "https://saas-bdv.netlify.app/"
   },
   {
     "name": "Material UI Design System",

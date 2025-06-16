@@ -3,6 +3,7 @@ import Footer from "../components/footer.astro";
 import Header from "../components/header.astro";
 import SquareLines from "../components/square-lines.astro";
 const { title } = Astro.props;
+import "aos/dist/aos.css";
 ---
 
 <!doctype html>
@@ -32,6 +33,8 @@ const { title } = Astro.props;
     <slot />
     <Footer />
     <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/aos-init.js"></script>
+
     <!-- <script>
       document.addEventListener("DOMContentLoaded", () => {
         const container = document.getElementById("SnapMandatory");
