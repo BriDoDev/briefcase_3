@@ -1,0 +1,41 @@
+---
+// src/components/FloatingContact.astro
+---
+
+<a
+  id="fab"
+  href="mailto:contacto@brian-dominguez.dev"
+  class="fixed bottom-6 right-6 z-50 flex items-center gap-2 px-4 py-4 rounded-lg shadow-xl text-black font-semibold overflow-hidden group hover:animate-shake"
+  aria-label="Contacto"
+>
+  <!-- Fondo animado -->
+  <div
+    class="absolute inset-0 z-0 animate-gradient bg-gradient-to-r from-fuchsia-600 via-indigo-600 to-purple-600 bg-[length:300%_300%]"
+  >
+  </div>
+
+  <!-- Ícono y texto encima -->
+  <span
+    class="material-icons text-black text-2xl xl:text-3xl group-hover:rotate-12 transition-transform duration-300 relative z-10"
+  >
+    mail
+  </span>
+  <span
+    class="hidden md:inline-block group-hover:translate-x-1 transition-transform duration-300 text-base xl:text-lg relative z-10"
+  >
+    Envíame un correo
+  </span>
+</a>
+
+<script is:inline>
+  const fab = document.getElementById("fab");
+
+  if (fab) {
+    setInterval(() => {
+      fab.classList.add("animate-shake");
+      setTimeout(() => {
+        fab.classList.remove("animate-shake");
+      }, 500); // duración de la animación
+    }, 10000); // cada 10 segundos
+  }
+</script>
