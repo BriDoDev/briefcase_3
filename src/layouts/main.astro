@@ -1,4 +1,5 @@
 ---
+import FloatingContact from "../components/FloatingContact.astro";
 import Footer from "../components/footer.astro";
 import Header from "../components/header.astro";
 import SquareLines from "../components/square-lines.astro";
@@ -24,6 +25,10 @@ import "aos/dist/aos.css";
     </script>
     <link rel="stylesheet" href="https://use.typekit.net/lap0far.css" />
     <link rel="icon" type="image/png" href="/assets/favicon.png" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
     <script src="../assets/css/main.css"></script>
   </head>
   <body
@@ -32,6 +37,8 @@ import "aos/dist/aos.css";
     <SquareLines />
     <slot />
     <Footer />
+
+    <FloatingContact />
     <script src="../assets/js/main.js"></script>
     <script src="../assets/js/aos-init.js"></script>
 
