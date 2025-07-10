@@ -1,60 +1,160 @@
 ---
-import experiences from "../collections/experiences.json";
-import AboutExperience from "../components/about-experience.astro";
-import PageHeading from "../components/page-heading.astro";
+import Button from "../components/button.astro";
 import Layout from "../layouts/main.astro";
 ---
 
-<Layout title="About Me">
-  <section class="relative z-20 max-w-2xl mx-auto my-12 px-7 lg:px-0">
-    <PageHeading
-      title="About Me"
-      description="Hello 👋 I'm a frontend engineer from Nanjing, China. I'm passionate about building new products and learning new technology."
-    />
-
-    <img src="/assets/images/about.jpg" class="relative z-30 w-full my-10 rounded-xl" />
-
-    <h2 class="mb-2 text-2xl font-bold dark:text-neutral-200">Short Bio</h2>
-    <p
-      class="text-sm leading-6 text-gray-600 dark:text-neutral-400 sm:leading-7 lg:leading-8 sm:text-base lg:text-lg"
+<Layout title="Sobre mí">
+  <section
+    class="px-6 md:px-12 py-16 max-w-7xl mx-auto prose prose-neutral dark:prose-invert"
+  >
+    <h1
+      class="text-4xl md:text-5xl font-extrabold mb-8 text-xiketic leading-tight"
     >
-      Front-end cutter 🧑🏻‍💻, back-end amateur 🤷🏻‍♂️, operations digging holes person 🤦🏻‍♂️.
+      Sobre mí
+    </h1>
+
+    <p class="text-xl font-medium text-palatinate leading-relaxed">
+      Soy <strong class="text-pink font-bold">Brian Domínguez</strong>,
+      <strong class="text-xiketic"> desarrollador web</strong> especializado en el
+      <strong class="text-xiketic">frontend</strong> con enfoque en
+      <strong class="text-xiketic">UI/UX</strong> y
+      <strong class="text-pink">creador de contenido</strong>.
     </p>
 
-    <h2
-      class="mt-5 mb-2 text-2xl font-bold lg:mt-10 sm:mt-6 dark:text-neutral-200"
-    >
-      Experience
-    </h2>
-    <div class="px-5 py-10">
-      {
-        experiences.map((experience) => {
-          return (
-            <div class="pb-10 border-l border-gray-200 last:border-l-0 dark:border-neutral-700">
-              <AboutExperience
-                dates={experience.dates}
-                role={experience.role}
-                company={experience.company}
-                description={experience.description}
-                logo={experience.logo}
-              />
-            </div>
-          )
-        })
-      }
+    <p class="text-lg leading-relaxed text-gray-700">
+      Me gusta compartir lo que aprendo mientras diseño y desarrollo interfaces.
+      A través de mis videos, explico conceptos de frontend, muestro buenas
+      prácticas en diseño UI/UX y analizo cómo mejorar la experiencia del
+      usuario. Para mí, crear contenido es una forma de reflexionar sobre mi
+      propio proceso mientras ayudo a otros a construir productos más usables y
+      visualmente coherentes.
+    </p>
+
+    <p class="text-lg leading-relaxed text-gray-700">
+      Me gustan los videojuegos y hacer reír a la gente mientras juego. Lo hago
+      porque me encanta conectar con las personas, conocer sus historias y
+      compartir un buen momento. A veces solo juego, a veces narro, a veces me
+      burlo de mí mismo.
+    </p>
+
+    <!-- Desarrollo Web & UI/UX -->
+    <div class="mt-16">
+      <h2 class="text-3xl font-bold text-xiketic mb-4">
+        🌐 Desarrollo Web & UI/UX
+      </h2>
+
+      <p class="text-base text-gray-700 leading-relaxed">
+        Creo experiencias digitales que no solo se ven bien, sino que se sienten
+        bien. Trabajo con tecnologías como <strong>React</strong>,
+        <strong>TailwindCSS</strong> y <strong>Astro</strong> para construir interfaces
+        centradas en el usuario, escalables y con enfoque en rendimiento.
+      </p>
+
+      <Button text="Ver mis proyectos" link="/#projects" />
+
+      <!-- Embed de TikTok - Desarrollo Web -->
+      <div class="mt-8">
+        <h3 class="text-xl font-semibold text-xiketic mb-2">
+          📱 Mi contenido en TikTok (Frontend/UI/UX)
+        </h3>
+        <blockquote
+          class="tiktok-embed mt-10 border-0"
+          cite="https://www.tiktok.com/@briandv198"
+          data-unique-id="briandv198"
+          data-embed-from="embed_page"
+          data-embed-type="creator"
+        >
+          <section>
+            <a
+              target="_blank"
+              href="https://www.tiktok.com/@briandv198?refer=creator_embed"
+              >@briandv198</a
+            >
+          </section>
+        </blockquote>
+      </div>
     </div>
 
-    <h2 class="mt-5 mb-2 text-2xl font-bold lg:mt-10 sm:mt-6 dark:text-neutral-200">Let's Connect</h2>
-    <p
-      class="text-sm leading-6 text-gray-600 dark:text-neutral-400 sm:leading-7 lg:leading-8 sm:text-base lg:text-lg"
-    >
-      If you want to stay up to date with my work be sure to <a
-        href="https://x.com/0xKaibi"
-        target="_blank"
-        class="text-indigo-600 underline">follow me on twitter</a
-      >, or you can send me an <a href="mailto:astro-aria#miantiao.me" class="text-indigo-600 underline"
-        >email</a
-      > and I'll be sure to get back to you.
-    </p>
+    <!-- Creación de contenido de videojuegos -->
+    <div class="mt-20">
+      <h2 class="text-3xl font-bold text-xiketic mb-4">
+        🎮 Creación de contenido sobre videojuegos
+      </h2>
+
+      <p class="text-base text-gray-700 leading-relaxed">
+        Exploro videojuegos no solo como jugador, sino como narrador. Me
+        apasionan los juegos de supervivencia, estrategia y narrativa profunda.
+        En mis videos combino análisis, humor seco y storytelling para conectar
+        con la audiencia.
+      </p>
+
+      <!-- Embed de TikTok - Videojuegos -->
+      <div class="mt-6">
+        <h3 class="text-xl font-semibold text-xiketic mb-2">
+          🎬 TikTok Gaming
+        </h3>
+        <blockquote
+          class="tiktok-embed mt-10 border-0"
+          cite="https://www.tiktok.com/@soy_kumma"
+          data-unique-id="soy_kumma"
+          data-embed-from="embed_page"
+          data-embed-type="creator"
+        >
+          <section>
+            <a
+              target="_blank"
+              href="https://www.tiktok.com/@soy_kumma?refer=creator_embed"
+              >@soy_kumma</a
+            >
+          </section>
+        </blockquote>
+      </div>
+
+      <!-- Embed de Twitch -->
+      <div class="mt-10">
+        <h3 class="text-xl font-semibold text-xiketic mb-2">
+          📺 En vivo en Twitch
+        </h3>
+        <div class="mt-10 aspect-video w-full max-w-4xl mx-auto">
+          <iframe
+            src="https://player.twitch.tv/?channel=soy_kumma&parent=localhost&parent=brian-dominguez.dev"
+            allowfullscreen
+            allow="autoplay; fullscreen"
+            width="100%"
+            height="100%"
+            frameborder="0"
+            class="rounded-lg shadow-lg"></iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- Datos personales -->
+    <div class="mt-20">
+      <h2 class="text-3xl font-bold text-xiketic mb-4">
+        🧍 Un poco más sobre mí
+      </h2>
+      <ul
+        class="list-disc pl-6 space-y-2 text-palatinate text-base leading-relaxed"
+      >
+        <li>📍 Vivo en CDMX</li>
+        <li>
+          🎓 Estudié Matemáticas Aplicadas un tiempo, pero mi camino me llevó al
+          código
+        </li>
+        <li>
+          🎧 Me inspiran la música, el cine y los videojuegos con historias
+          profundas
+        </li>
+        <li>💡 Siempre estoy aprendiendo algo nuevo</li>
+      </ul>
+    </div>
+
+    <!-- Script para TikTok -->
+    <script is:inline>
+      const tiktokScript = document.createElement("script");
+      tiktokScript.src = "https://www.tiktok.com/embed.js";
+      tiktokScript.async = true;
+      document.body.appendChild(tiktokScript);
+    </script>
   </section>
 </Layout>

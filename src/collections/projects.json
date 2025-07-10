@@ -19,6 +19,12 @@
     "url": "https://bo-bdv.netlify.app/login"
   },
   {
+    "name": "SIMEEX",
+    "description": "Sitio web institucional desarrollado con Astro, enfocado en comunicar los servicios de SIMEEX: soluciones integrales en metal-mecánica, estructuras metálicas e inspección de soldaduras. Implementa buenas prácticas de SEO, soporte multilenguaje con i18next y efectos visuales modernos para resaltar la identidad de marca.",
+    "image": "/assets/images/projects/simeex.png",
+    "url": "https://simeex.com.mx/"
+  },
+  {
     "name": "SaaS",
     "description": "Presenta un servicio digital con secciones de beneficios, precios y CTA. Enfocada en conversión, UI moderna y responsive. Construida con React y Tailwind CSS, siguiendo buenas prácticas de UX.",
     "image": "/assets/images/projects/saas.png",

@@ -9,7 +9,8 @@ const swiperClass = `swiper-${type}`;
 />
 
 <section
-  class="snap-start min-h-screen h-full p-6 sm:p-12 relative flex flex-col justify-evenly items-center gap-8 overflow-hidden shadow-md"
+  id={type}
+  class="snap-start min-h-[100vh] h-auto p-6 sm:p-12 relative flex flex-col justify-evenly items-center gap-8 overflow-hidden shadow-md"
 >
   <div
     id={bgId}
@@ -23,8 +24,8 @@ const swiperClass = `swiper-${type}`;
       <div class="swiper-wrapper">
         {
           items.map((item) => (
-            <div class="swiper-slide h-screen w-full flex items-center justify-center p-6 sm:p-12">
-              <div class="bg-white w-full h-full rounded-xl shadow-2xl flex flex-col xl:flex-row items-center justify-center gap-6 md:gap-12 p-6 md:p-10 max-w-6xl max-h-[90vh] overflow-y-auto">
+            <div class="swiper-slide max-h-[80vh] h-auto w-full flex items-center justify-center p-6 sm:p-12">
+              <div class="bg-white w-full h-auto max-h-[90vh] rounded-xl shadow-2xl flex flex-col xl:flex-row items-center justify-center gap-6 md:gap-12 p-6 md:p-10 max-w-6xl overflow-y-auto">
                 <img
                   src={item.image}
                   alt={item.name}
@@ -34,9 +35,7 @@ const swiperClass = `swiper-${type}`;
                   <h2 class="text-lg md:text-2xl font-semibold mb-2 text-neutral-800">
                     {item.name}
                   </h2>
-                  <p
-                    class="text-gray-500 text-sm leading-relaxed mb-4 h-full min-h-14 max-h-20 md:max-h-max overflow-y-auto"
-                  >
+                  <p class="text-gray-500 text-sm leading-relaxed mb-4 max-h-40 md:max-h-max overflow-y-auto">
                     {item.description.trim()}
                   </p>
                   {item.url && (

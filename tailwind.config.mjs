@@ -23,6 +23,13 @@ export default {
         shake: "shake 0.5s ease-in-out",
         gradient: "gradient 10s ease infinite",
       },
+      colors: {
+        aqua: "#00FFFF",
+        pink: "#FF19C2",
+        xiketic: "#170312",
+        darkpurple: "#33032F",
+        palatinate: "#531253",
+      },
     },
   },
   plugins: [
