@@ -3,64 +3,111 @@ import FloatingContact from "../components/FloatingContact.astro";
 import Footer from "../components/footer.astro";
 import Header from "../components/header.astro";
 import SquareLines from "../components/square-lines.astro";
-const { title } = Astro.props;
+import { SEO } from "astro-seo";
 import "aos/dist/aos.css";
+
+const { title = "", lang = "es" } = Astro.props;
+
+const site = Astro.site; // lo sacamos explícitamente
+const canonicalURL = new URL(Astro.url.pathname, site).toString();
+const resolvedImageWithDomain = new URL("/meta/opengraph.png", site).toString();
+
+const makeTitle = title
+  ? `${title} | Brian Domínguez – Frontend UI/UX`
+  : "Brian Domínguez – Frontend UI/UX";
 ---
 
 <!doctype html>
-<html lang="es" class="h-full">
+<html lang={lang} class="h-full scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{title}</title>
-    <script is:inline>
-      if (typeof Storage !== "undefined") {
-        if (
-          localStorage.getItem("dark_mode") &&
-          localStorage.getItem("dark_mode") == "true"
-        ) {
-          document.documentElement.classList.add("dark");
-        }
-      }
-    </script>
-    <link rel="stylesheet" href="https://use.typekit.net/lap0far.css" />
+
+    <!-- SEO y redes sociales -->
+    <SEO
+      title={makeTitle}
+      description="Portafolio de Brian Domínguez, desarrollador web especializado en el frontend enfocado en UI/UX. Experto en construir interfaces intuitivas, accesibles y visualmente atractivas con tecnologías modernas como React, TailwindCSS y Astro."
+      canonical={canonicalURL}
+      openGraph={{
+        basic: {
+          url: canonicalURL,
+          type: "website",
+          title: makeTitle,
+          image: resolvedImageWithDomain,
+        },
+        image: {
+          alt: "Brian Domínguez – Frontend UI/UX",
+        },
+      }}
+    />
+
+    <meta http-equiv="Content-Language" content="es" />
+
+    <!-- Iconografía y fuentes -->
     <link rel="icon" type="image/png" href="/assets/favicon.png" />
+    <link rel="stylesheet" href="https://use.typekit.net/lap0far.css" />
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
     />
+
+    <!-- Estilos globales -->
     <script src="../assets/css/main.css"></script>
+
+    <!-- Modo oscuro (evita parpadeo inicial) -->
+    <script is:inline>
+      if (typeof Storage !== "undefined") {
+        if (localStorage.getItem("dark_mode") === "true") {
+          document.documentElement.classList.add("dark");
+        }
+      }
+    </script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FEPRLMTYFE"
+    ></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+      gtag("config", "G-FEPRLMTYFE");
+    </script>
   </head>
+
   <body
-    class="bg-white dark:bg-neutral-950 text-black dark:text-white h-screen"
+    class="bg-white dark:bg-neutral-950 text-black dark:text-white h-full font-sans"
   >
     <SquareLines />
-    <slot />
-    <!-- <Footer /> -->
-
+    <main>
+      <slot />
+    </main>
     <FloatingContact />
+
+    <!-- JS global -->
     <script src="../assets/js/main.js"></script>
     <script src="../assets/js/aos-init.js"></script>
 
-    <!-- <script>
+    <!-- Auto scroll opcional entre secciones -->
+    {
+      /*
+    <script is:inline>
       document.addEventListener("DOMContentLoaded", () => {
         const container = document.getElementById("SnapMandatory");
-        const snapSections = container.querySelectorAll(".snap-start");
+        const snapSections = container?.querySelectorAll(".snap-start") ?? [];
         let currentIndex = 0;
 
         setInterval(() => {
-          currentIndex++;
-
-          if (currentIndex >= snapSections.length) {
-            currentIndex = 0;
-          }
-
+          currentIndex = (currentIndex + 1) % snapSections.length;
           snapSections[currentIndex].scrollIntoView({
             behavior: "smooth",
-            block: "start",
+            block: "start"
           });
-        }, 5000); // Cada 5 segundos
+        }, 5000);
       });
-    </script> -->
+    </script>
+    */
+    }
   </body>
 </html>
