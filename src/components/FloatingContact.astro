@@ -3,15 +3,16 @@ import { Icon } from "astro-icon/components";
 ---
 
 <div
-  class="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3 group/fab focus-within:gap-3"
+  class="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3"
   id="fab-wrapper"
 >
-  <!-- FAB secundario: WhatsApp -->
+  <!-- Opciones de contacto -->
   <div
-    class="opacity-0 scale-0 group-hover/fab:opacity-100 group-hover/fab:scale-100 group-focus-within/fab:opacity-100 group-focus-within/fab:scale-100 transform transition-all duration-300 ease-out"
+    id="fab-options"
+    class="flex flex-col justify-end items-end gap-3 opacity-0 scale-0 transform transition-all duration-300 ease-out pointer-events-none"
   >
     <a
-      href="https://wa.me/5215512345678"
+      href="https://wa.me/5215580858318"
       target="_blank"
       rel="noopener"
       class="transform hover:scale-105 transition-transform duration-200 flex items-center gap-3 px-4 py-3 rounded-full shadow-xl bg-green-500 text-white text-base font-medium"
@@ -19,27 +20,47 @@ import { Icon } from "astro-icon/components";
       <Icon name="simple-icons:whatsapp" class="w-5 h-5 text-white" />
       <span class="hidden md:inline">WhatsApp</span>
     </a>
-  </div>
-
-  <!-- FAB secundario: Correo -->
-  <div
-    class="opacity-0 scale-0 group-hover/fab:opacity-100 group-hover/fab:scale-100 group-focus-within/fab:opacity-100 group-focus-within/fab:scale-100 transform transition-all duration-300 ease-out"
-  >
     <a
       href="mailto:contacto@brian-dominguez.dev"
-      class="transform hover:scale-105 transition-transform duration-200 flex items-center gap-3 px-4 py-3 rounded-full shadow-xl bg-white text-black text-base font-medium"
+      class="w-max transform hover:scale-105 transition-transform duration-200 flex items-center gap-3 px-4 py-3 rounded-full shadow-xl bg-white text-black text-base font-medium"
     >
       <span class="material-icons text-black text-lg">contact_mail</span>
       <span class="hidden md:inline">Correo</span>
     </a>
   </div>
 
-  <!-- FAB principal -->
+  <!-- Botón principal -->
   <button
     type="button"
-    class="group relative z-10 flex items-center justify-center p-5 rounded-full shadow-xl bg-gradient-to-r from-fuchsia-600 via-indigo-600 to-purple-600 bg-[length:300%_300%] animate-gradient text-white font-semibold overflow-hidden transition-all duration-300 ease-out aspect-square"
+    id="fab-toggle"
+    class="relative z-10 flex items-center justify-center p-5 rounded-full shadow-xl bg-gradient-to-r from-fuchsia-600 via-indigo-600 to-purple-600 bg-[length:300%_300%] animate-gradient text-white font-semibold overflow-hidden transition-all duration-300 ease-out aspect-square"
     aria-label="Contacto"
   >
     <span class="material-icons text-white text-xl">chat</span>
   </button>
 </div>
+
+<script is:inline>
+  const fabToggle = document.getElementById("fab-toggle");
+  const fabOptions = document.getElementById("fab-options");
+  const fabWrapper = document.getElementById("fab-wrapper");
+
+  let isOpen = false;
+
+  fabToggle.addEventListener("click", () => {
+    isOpen = !isOpen;
+    fabOptions.classList.toggle("opacity-100", isOpen);
+    fabOptions.classList.toggle("scale-100", isOpen);
+    fabOptions.classList.toggle("opacity-0", !isOpen);
+    fabOptions.classList.toggle("scale-0", !isOpen);
+    fabOptions.classList.toggle("pointer-events-none", !isOpen);
+  });
+
+  document.addEventListener("click", (e) => {
+    if (!fabWrapper.contains(e.target)) {
+      isOpen = false;
+      fabOptions.classList.add("opacity-0", "scale-0", "pointer-events-none");
+      fabOptions.classList.remove("opacity-100", "scale-100");
+    }
+  });
+</script>

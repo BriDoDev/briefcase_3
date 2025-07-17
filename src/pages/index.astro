@@ -8,6 +8,11 @@ import Layout from "../layouts/main.astro";
 import Slider from "../components/home/slider.astro";
 ---
 
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+/>
+
 <Layout title="Brian Domínguez Vázquez">
   <div
     id="SnapMandatory"
@@ -66,32 +71,43 @@ import Slider from "../components/home/slider.astro";
 
     <section class="items-center snap-start min-h-screen h-full z-10">
       <div
-        class="p-8 h-full flex flex-col gap-4 justify-center items-center section"
+        class="p-8 h-full flex flex-col gap-6 justify-center items-center section"
       >
-        <h1 class="text-center">Creación de Contenido</h1>
+        <h1 class="text-center">Sobre mí</h1>
         <p class="max-w-5xl text-center">
-          Enseño desarrollo frontend y diseño UI/UX para que desarrolladores y
-          diseñadores comprendan mejor ambos campos, creando contenido práctico
-          y claro que une tecnología y diseño
+          Soy <strong class="text-pink font-bold"
+            >Brian Domínguez Vázquez</strong
+          >, <strong class="text-pink font-bold">desarrollador frontend</strong>
+          apasionado por el <strong class="text-pink font-bold">UI/UX</strong> y
+          las <strong class="text-xiketic font-semibold"
+            >interfaces intuitivas</strong
+          >, <strong class="text-xiketic font-semibold">accesibles</strong> y <strong
+            class="text-xiketic font-semibold">llamativas</strong
+          >. Amo los <strong class="text-pink font-bold">videojuegos</strong> y <strong
+            class="text-pink font-bold">hacer reír</strong
+          >. Desde niño sueño con <strong class="text-pink font-bold"
+            >crear contenido</strong
+          > y vivir de ello.
         </p>
-        <Button text="Sobre mi" link="/about" />
-        <blockquote
-          class="tiktok-embed"
-          cite="https://www.tiktok.com/@briandv198"
-          data-unique-id="briandv198"
-          data-embed-from="embed_page"
-          data-embed-type="creator"
-          style=""
-        >
-          <section>
-            <a
-              target="_blank"
-              href="https://www.tiktok.com/@briandv198?refer=creator_embed"
-              >@briandv198</a
-            >
-          </section>
-        </blockquote>
-        <script async src="https://www.tiktok.com/embed.js"></script>
+        <Button text="Conóceme" link="/about" />
+        <div class="swiper image-slider w-full max-w-2xl">
+          <div class="swiper-wrapper p-6">
+            <div class="swiper-slide px-8">
+              <img
+                src="./assets/images/SD1.webp"
+                alt="Slide 1"
+                class="w-full aspect-video object-cover rounded-xl shadow-lg"
+              />
+            </div>
+            <div class="swiper-slide px-8">
+              <img
+                src="./assets/images/Game3.webp"
+                alt="Slide 3"
+                class="w-full aspect-video object-cover rounded-xl shadow-lg"
+              />
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -112,3 +128,23 @@ import Slider from "../components/home/slider.astro";
     />
   </div>
 </Layout>
+
+<script type="module">
+  import Swiper from "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs";
+
+  new Swiper(".image-slider", {
+    loop: true,
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false,
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
+</script>
