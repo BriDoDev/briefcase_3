@@ -69,41 +69,54 @@ import Slider from "../components/home/slider.astro";
       </div>
     </section>
 
-    <section class="items-center snap-start min-h-screen h-full z-10">
+    <section
+      class="items-center snap-start min-h-screen h-full z-10 py-24 px-6"
+    >
       <div
-        class="p-8 h-full flex flex-col gap-6 justify-center items-center section"
+        class="h-full flex flex-col justify-center items-center gap-10 max-w-5xl mx-auto text-center"
       >
-        <h1 class="text-center">Sobre mí</h1>
-        <p class="max-w-5xl text-center">
+        <!-- Título -->
+        <h1 class="text-4xl md:text-5xl font-bold text-xiketic">Sobre mí</h1>
+
+        <!-- Descripción -->
+        <p class="text-lg text-gray-700 leading-relaxed max-w-3xl">
           Soy <strong class="text-pink font-bold"
             >Brian Domínguez Vázquez</strong
-          >, <strong class="text-pink font-bold">desarrollador frontend</strong>
-          apasionado por el <strong class="text-pink font-bold">UI/UX</strong> y
-          las <strong class="text-xiketic font-semibold"
+          >,
+          <strong class="text-pink font-bold">desarrollador frontend</strong> apasionado
+          por el
+          <strong class="text-pink font-bold">UI/UX</strong> y las
+          <strong class="text-xiketic font-semibold"
             >interfaces intuitivas</strong
-          >, <strong class="text-xiketic font-semibold">accesibles</strong> y <strong
-            class="text-xiketic font-semibold">llamativas</strong
-          >. Amo los <strong class="text-pink font-bold">videojuegos</strong> y <strong
-            class="text-pink font-bold">hacer reír</strong
-          >. Desde niño sueño con <strong class="text-pink font-bold"
-            >crear contenido</strong
-          > y vivir de ello.
+          >,
+          <strong class="text-xiketic font-semibold">accesibles</strong> y
+          <strong class="text-xiketic font-semibold">llamativas</strong>. Amo
+          los <strong class="text-pink font-bold">videojuegos</strong> y
+          <strong class="text-pink font-bold">hacer reír</strong>. Desde niño
+          sueño con <strong class="text-pink font-bold">crear contenido</strong>
+          y vivir de ello.
         </p>
-        <Button text="Conóceme" link="/about" />
-        <div class="swiper image-slider w-full max-w-2xl">
-          <div class="swiper-wrapper p-6">
-            <div class="swiper-slide px-8">
+
+        <!-- Botón -->
+        <div class="mt-2">
+          <Button text="Conóceme" link="/about" />
+        </div>
+
+        <!-- Slider -->
+        <div class="swiper image-slider w-full max-w-5xl px-4 mt-8">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide p-4">
               <img
                 src="./assets/images/SD1.webp"
                 alt="Slide 1"
-                class="w-full aspect-video object-cover rounded-xl shadow-lg"
+                class="w-full aspect-video object-cover rounded-xl shadow"
               />
             </div>
-            <div class="swiper-slide px-8">
+            <div class="swiper-slide p-4">
               <img
                 src="./assets/images/Game3.webp"
                 alt="Slide 3"
-                class="w-full aspect-video object-cover rounded-xl shadow-lg"
+                class="w-full aspect-video object-cover rounded-xl shadow"
               />
             </div>
           </div>
@@ -134,17 +147,11 @@ import Slider from "../components/home/slider.astro";
 
   new Swiper(".image-slider", {
     loop: true,
+    slidesPerView: 1,
+    spaceBetween: 24,
     autoplay: {
       delay: 5000,
       disableOnInteraction: false,
-    },
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-    },
-    navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
     },
   });
 </script>
