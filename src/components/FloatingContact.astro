@@ -1,41 +1,45 @@
 ---
-// src/components/FloatingContact.astro
+import { Icon } from "astro-icon/components";
 ---
 
-<a
-  id="fab"
-  href="mailto:contacto@brian-dominguez.dev"
-  class="fixed bottom-6 right-6 z-50 flex items-center gap-2 px-4 py-4 rounded-full shadow-xl text-black font-semibold overflow-hidden group hover:animate-shake"
-  aria-label="Contacto"
+<div
+  class="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3 group/fab focus-within:gap-3"
+  id="fab-wrapper"
 >
-  <!-- Fondo animado -->
+  <!-- FAB secundario: WhatsApp -->
   <div
-    class="absolute inset-0 z-0 animate-gradient bg-gradient-to-r from-fuchsia-600 via-indigo-600 to-purple-600 bg-[length:300%_300%]"
+    class="opacity-0 scale-0 group-hover/fab:opacity-100 group-hover/fab:scale-100 group-focus-within/fab:opacity-100 group-focus-within/fab:scale-100 transform transition-all duration-300 ease-out"
   >
+    <a
+      href="https://wa.me/5215512345678"
+      target="_blank"
+      rel="noopener"
+      class="transform hover:scale-105 transition-transform duration-200 flex items-center gap-3 px-4 py-3 rounded-full shadow-xl bg-green-500 text-white text-base font-medium"
+    >
+      <Icon name="simple-icons:whatsapp" class="w-5 h-5 text-white" />
+      <span class="hidden md:inline">WhatsApp</span>
+    </a>
   </div>
 
-  <!-- Ícono y texto encima -->
-  <span
-    class="material-icons text-white text-2xl xl:text-3xl group-hover:rotate-12 transition-transform duration-300 relative z-10"
+  <!-- FAB secundario: Correo -->
+  <div
+    class="opacity-0 scale-0 group-hover/fab:opacity-100 group-hover/fab:scale-100 group-focus-within/fab:opacity-100 group-focus-within/fab:scale-100 transform transition-all duration-300 ease-out"
   >
-    mail
-  </span>
-  <span
-    class="hidden md:inline-block group-hover:translate-x-1 transition-transform duration-300 text-base xl:text-lg relative z-10 text-white"
+    <a
+      href="mailto:contacto@brian-dominguez.dev"
+      class="transform hover:scale-105 transition-transform duration-200 flex items-center gap-3 px-4 py-3 rounded-full shadow-xl bg-white text-black text-base font-medium"
+    >
+      <span class="material-icons text-black text-lg">contact_mail</span>
+      <span class="hidden md:inline">Correo</span>
+    </a>
+  </div>
+
+  <!-- FAB principal -->
+  <button
+    type="button"
+    class="group relative z-10 flex items-center justify-center p-5 rounded-full shadow-xl bg-gradient-to-r from-fuchsia-600 via-indigo-600 to-purple-600 bg-[length:300%_300%] animate-gradient text-white font-semibold overflow-hidden transition-all duration-300 ease-out aspect-square"
+    aria-label="Contacto"
   >
-    Envíame un correo
-  </span>
-</a>
-
-<script is:inline>
-  const fab = document.getElementById("fab");
-
-  if (fab) {
-    setInterval(() => {
-      fab.classList.add("animate-shake");
-      setTimeout(() => {
-        fab.classList.remove("animate-shake");
-      }, 500); // duración de la animación
-    }, 10000); // cada 10 segundos
-  }
-</script>
+    <span class="material-icons text-white text-xl">chat</span>
+  </button>
+</div>

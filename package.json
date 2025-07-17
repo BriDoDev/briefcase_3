@@ -20,8 +20,11 @@
     "typescript": "^5.4.5"
   },
   "dependencies": {
+    "@iconify-json/simple-icons": "^1.2.43",
     "aos": "^2.3.4",
+    "astro-icon": "^1.1.5",
     "astro-seo": "^0.8.4",
+    "simple-icons-astro": "^15.6.0",
     "swiper": "^11.2.8",
     "tailwind-scrollbar-hide": "^4.0.0"
   },
