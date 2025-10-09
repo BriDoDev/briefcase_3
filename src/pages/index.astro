@@ -196,3 +196,77 @@ import Slider from "../components/home/slider.astro";
     },
   });
 </script>
+
+<script type="module">
+  // Util: devuelve el primer background-color NO transparente (del nodo hacia arriba).
+  function getEffectiveBgColor(el) {
+    let node = el;
+    while (node) {
+      const c = getComputedStyle(node).backgroundColor;
+      if (c && c !== "rgba(0, 0, 0, 0)" && c !== "transparent") return c;
+      node = node.parentElement;
+    }
+    // fallback al body
+    return getComputedStyle(document.body).backgroundColor || "#ffffff";
+  }
+
+  // Crea un fade absoluto en el borde indicado de la sección s.
+  function addEdgeFade(s, edge, toColor, heightPx = 64) {
+    const fade = document.createElement("div");
+    fade.style.position = "absolute";
+    fade.style.pointerEvents = "none";
+    fade.style.left = "0";
+    fade.style.right = "0";
+    fade.style.height = heightPx + "px";
+    fade.style.zIndex = "10";
+    // gradiente según borde
+    if (edge === "bottom") {
+      fade.style.bottom = "0";
+      fade.style.backgroundImage = `linear-gradient(to bottom, rgba(0,0,0,0), ${toColor})`;
+    } else {
+      fade.style.top = "0";
+      fade.style.backgroundImage = `linear-gradient(to top, rgba(0,0,0,0), ${toColor})`;
+    }
+    s.appendChild(fade);
+  }
+
+  // Aplica máscara de desvanecido inferior a imágenes "hero" para evitar corte duro.
+  function applyImageSoftMask(container, percent = 12) {
+    const imgs = container.querySelectorAll("img, picture, video, canvas");
+    imgs.forEach((img) => {
+      img.style.webkitMaskImage = `linear-gradient(to bottom, black ${100 - percent}%, transparent 100%)`;
+      img.style.maskImage = `linear-gradient(to bottom, black ${100 - percent}%, transparent 100%)`;
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const sections = Array.from(document.querySelectorAll("section"));
+
+    sections.forEach((s, idx) => {
+      // asegurar posicionamiento relativo para poder colocar overlays
+      s.style.position ||= "relative";
+
+      // color del anterior y del siguiente (o body si no hay)
+      const prev = sections[idx - 1];
+      const next = sections[idx + 1];
+
+      const prevColor = prev
+        ? getEffectiveBgColor(prev)
+        : getEffectiveBgColor(document.body);
+      const nextColor = next
+        ? getEffectiveBgColor(next)
+        : getEffectiveBgColor(document.body);
+
+      // fade superior hacia el color de la sección anterior
+      addEdgeFade(s, "top", prevColor, 56);
+      // fade inferior hacia el color de la sección siguiente
+      addEdgeFade(s, "bottom", nextColor, 72);
+
+      // Si esta sección tiene un "hero" con imagen, suaviza el borde inferior de la imagen.
+      // Ajusta el selector a tus contenedores de hero:
+      if (s.classList.contains("image-hero__container")) {
+        applyImageSoftMask(s, 14); // 14% de desvanecido inferior
+      }
+    });
+  });
+</script>
