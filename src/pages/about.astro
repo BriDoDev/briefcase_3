@@ -10,190 +10,166 @@ import { Icon } from "astro-icon/components";
 />
 
 <Layout title="Sobre mí">
-  <div class="px-8 md:px-12 py-20 max-w-7xl mx-auto space-y-32">
-    <!-- Encabezado -->
+  <div class="px-8 md:px-12 py-20 max-w-7xl mx-auto space-y-24">
     <section class="w-full flex flex-col justify-center items-center gap-10">
-      <div class="text-center flex flex-col gap-4">
+      <div class="text-center flex flex-col gap-6 max-w-3xl">
         <h1
-          class="text-4xl md:text-2xl font-extrabold text-xiketic leading-tight"
+          class="text-4xl md:text-5xl font-extrabold text-xiketic leading-tight"
         >
-          Hola, mucho gusto 👋
+          Hola, soy Brian Domínguez 👋
         </h1>
-        <p class="text-lg font-medium text-palatinate leading-relaxed">
-          Soy <strong class="text-pink font-bold">Brian Domínguez</strong>,
-          <strong class="text-xiketic"> desarrollador frontend</strong> enfocado
-          en
-          <strong class="text-xiketic"> UI/UX</strong> y
-          <strong class="text-pink font-semibold"> creador de contenido</strong>
-          educativo y de entretenimiento.
+        <p class="text-lg text-gray-700 leading-relaxed">
+          Más allá de mi rol profesional, encuentro una gran satisfacción en
+          <strong class="text-xiketic font-semibold">compartir lo que sé</strong
+          > sobre tecnología y desarrollo. Mi filosofía es simple: el conocimiento
+          es más valioso cuando se pone en práctica y se comparte con otros.
         </p>
       </div>
 
-      <!-- Botones -->
       <div
         class="w-full flex flex-col md:flex-row justify-center items-center gap-3 md:gap-6 mt-2"
       >
-        <Button variant="secondary" text="Frontend/UI/UX" link="#developer" />
-        <Button variant="secondary" text="Videojuegos" link="#games" />
+        <Button
+          variant="primary"
+          text="Ver mi contenido"
+          link="https://www.youtube.com/@bridodev"
+        />
+        <Button
+          variant="secondary"
+          text="Contacto Profesional"
+          link="mailto:contacto@brian-dominguez.dev"
+        />
       </div>
     </section>
 
-    <!-- Desarrollo Web & UI/UX -->
     <section
-      id="developer"
       class="w-full flex flex-col items-center gap-12 text-center border-t border-gray-200 pt-16"
     >
-      <div class="max-w-3xl">
-        <h2 class="text-3xl md:text-4xl font-bold text-xiketic mb-4">
-          🌐 Desarrollo Web & UI/UX
+      <div class="max-w-3xl space-y-6">
+        <h2 class="text-3xl md:text-4xl font-bold text-xiketic">
+          Crear para Compartir
         </h2>
         <p class="text-base text-gray-700 leading-relaxed">
-          Diseño y desarrollo experiencias digitales que combinan estética y
-          funcionalidad. Me enfoco en construir interfaces intuitivas,
-          accesibles y con excelente rendimiento usando tecnologías como <strong
-            >React</strong
-          >, <strong>TailwindCSS</strong> y <strong>Astro</strong>.
+          Esta filosofía la aplico a través de proyectos personales que
+          disfruto, moviéndome principalmente en dos áreas que se complementan:
+        </p>
+        <p class="text-base text-gray-700 leading-relaxed">
+          Por un lado, el
+          <strong class="text-pink font-bold"
+            >diseño de interfaces (UI/UX)</strong
+          >, donde construyo experiencias digitales intuitivas y funcionales con
+          herramientas como React, Astro y TailwindCSS. Por otro, exploro el
+          <strong class="text-pink font-bold">desarrollo de videojuegos</strong
+          >, un campo fascinante donde la lógica del código se encuentra con la
+          creatividad del storytelling.
+        </p>
+        <p class="text-base text-gray-700 leading-relaxed">
+          En ambos casos, mi objetivo con los <strong class="text-xiketic"
+            >videos que creo</strong
+          > sobre estos temas es simple: <strong class="text-xiketic"
+            >ser de ayuda para quien esté aprendiendo</strong
+          >, desglosando conceptos y documentando mis propios procesos de
+          descubrimiento.
         </p>
       </div>
 
-      <!-- Iconos Desarrollo Web & UI/UX -->
-      <div class="flex gap-4 justify-center items-center">
-        <!-- <a
-          href="https://www.instagram.com/tuusuario"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="w-10 h-10 rounded-full bg-gray-100 dark:bg-neutral-800 flex items-center justify-center hover:scale-105 transition"
-        >
-          <Icon name="simple-icons:instagram" class="w-5 h-5 text-pink" />
-        </a> -->
+      <div class="flex flex-wrap gap-4 justify-center items-center">
         <a
           href="https://www.youtube.com/@bridodev"
           target="_blank"
           rel="noopener noreferrer"
           class="w-10 h-10 rounded-full bg-gray-100 dark:bg-neutral-800 flex items-center justify-center hover:scale-105 transition"
+          title="YouTube (Dev)"
         >
           <Icon name="simple-icons:youtube" class="w-5 h-5 text-red-600" />
         </a>
+        <!-- <a
+          href="https://www.youtube.com/@soy_kumma"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="w-10 h-10 rounded-full bg-gray-100 dark:bg-neutral-800 flex items-center justify-center hover:scale-105 transition"
+          title="YouTube (Gaming)"
+        >
+          <Icon name="simple-icons:youtube" class="w-5 h-5 text-red-600" />
+        </a> -->
         <a
           href="https://www.linkedin.com/in/bridodev/"
           target="_blank"
           rel="noopener noreferrer"
           class="w-10 h-10 rounded-full bg-gray-100 dark:bg-neutral-800 flex items-center justify-center hover:scale-105 transition"
+          title="LinkedIn"
         >
           <Icon name="simple-icons:linkedin" class="w-5 h-5 text-blue-700" />
-        </a>
-        <a
-          href="https://www.tiktok.com/@briandv198"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="w-10 h-10 rounded-full bg-gray-100 dark:bg-neutral-800 flex items-center justify-center hover:scale-105 transition"
-        >
-          <Icon
-            name="simple-icons:tiktok"
-            class="w-5 h-5 text-black dark:text-white"
-          />
-        </a>
-      </div>
-
-      <!-- Slider -->
-      <div class="swiper image-slider w-full max-w-4xl px-4">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide p-4">
-            <img
-              src="/assets/images/SD1.webp"
-              class="w-full aspect-video object-cover rounded-xl shadow"
-            />
-          </div>
-          <div class="swiper-slide p-4">
-            <img
-              src="/assets/images/SD2.webp"
-              class="w-full aspect-video object-cover rounded-xl shadow"
-            />
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Creación de contenido de videojuegos -->
-    <section
-      id="games"
-      class="w-full flex flex-col items-center gap-12 text-center border-t border-gray-200 pt-16"
-    >
-      <div class="max-w-3xl">
-        <h2 class="text-3xl md:text-4xl font-bold text-xiketic mb-4">
-          🎮 Creación de contenido sobre videojuegos
-        </h2>
-        <p class="text-base text-gray-700 leading-relaxed">
-          Exploro videojuegos no solo como jugador, sino como narrador. Me
-          apasionan los juegos de supervivencia, estrategia y narrativa
-          profunda. En mis videos combino análisis, humor seco y storytelling
-          para conectar con la audiencia.
-        </p>
-      </div>
-
-      <!-- Iconos Creación de contenido de videojuegos -->
-      <div class="flex gap-4 justify-center items-center">
-        <a
-          href="https://discord.gg/neThqsgQ"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="w-10 h-10 rounded-full bg-gray-100 dark:bg-neutral-800 flex items-center justify-center hover:scale-105 transition"
-        >
-          <Icon name="simple-icons:discord" class="w-5 h-5 text-purple-600" />
-        </a>
-        <a
-          href="https://www.instagram.com/soy_kumma/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="w-10 h-10 rounded-full bg-gray-100 dark:bg-neutral-800 flex items-center justify-center hover:scale-105 transition"
-        >
-          <Icon name="simple-icons:instagram" class="w-5 h-5 text-pink" />
-        </a>
-        <a
-          href="https://www.tiktok.com/@soy_kumma"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="w-10 h-10 rounded-full bg-gray-100 dark:bg-neutral-800 flex items-center justify-center hover:scale-105 transition"
-        >
-          <Icon
-            name="simple-icons:tiktok"
-            class="w-5 h-5 text-black dark:text-white"
-          />
-        </a>
-        <a
-          href="https://www.youtube.com/@soy_kumma"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="w-10 h-10 rounded-full bg-gray-100 dark:bg-neutral-800 flex items-center justify-center hover:scale-105 transition"
-        >
-          <Icon name="simple-icons:youtube" class="w-5 h-5 text-red-600" />
         </a>
         <a
           href="https://www.twitch.tv/soy_kumma"
           target="_blank"
           rel="noopener noreferrer"
           class="w-10 h-10 rounded-full bg-gray-100 dark:bg-neutral-800 flex items-center justify-center hover:scale-105 transition"
+          title="Twitch"
         >
           <Icon name="simple-icons:twitch" class="w-5 h-5 text-purple-600" />
         </a>
+        <a
+          href="https://www.tiktok.com/@briandv198"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="w-10 h-10 rounded-full bg-gray-100 dark:bg-neutral-800 flex items-center justify-center hover:scale-105 transition"
+          title="TikTok (Dev)"
+        >
+          <Icon
+            name="simple-icons:tiktok"
+            class="w-5 h-5 text-black dark:text-white"
+          />
+        </a>
+        <!-- <a
+          href="https://www.tiktok.com/@soy_kumma"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="w-10 h-10 rounded-full bg-gray-100 dark:bg-neutral-800 flex items-center justify-center hover:scale-105 transition"
+          title="TikTok (Gaming)"
+        >
+          <Icon
+            name="simple-icons:tiktok"
+            class="w-5 h-5 text-black dark:text-white"
+          />
+        </a> -->
       </div>
 
-      <!-- Slider -->
-      <div class="swiper image-slider w-full max-w-4xl px-4">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide p-4">
-            <img
-              src="/assets/images/Game1.webp"
-              alt="Juego 1"
-              class="w-full aspect-video object-cover rounded-xl shadow"
-            />
-          </div>
-          <div class="swiper-slide p-4">
-            <img
-              src="/assets/images/Game3.webp"
-              alt="Juego 2"
-              class="w-full aspect-video object-cover rounded-xl shadow"
-            />
+      <div class="w-full pt-8">
+        <h3 class="text-2xl font-bold text-xiketic mb-8">
+          Proyectos y Contenido
+        </h3>
+        <div class="swiper image-slider w-full max-w-4xl px-4">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide p-4">
+              <img
+                src="/assets/images/SD1.webp"
+                alt="Proyecto de desarrollo"
+                class="w-full aspect-video object-cover rounded-xl shadow"
+              />
+            </div>
+            <div class="swiper-slide p-4">
+              <img
+                src="/assets/images/Game1.webp"
+                alt="Contenido de videojuegos"
+                class="w-full aspect-video object-cover rounded-xl shadow"
+              />
+            </div>
+            <div class="swiper-slide p-4">
+              <img
+                src="/assets/images/SD2.webp"
+                alt="Otro proyecto de desarrollo"
+                class="w-full aspect-video object-cover rounded-xl shadow"
+              />
+            </div>
+            <div class="swiper-slide p-4">
+              <img
+                src="/assets/images/Game3.webp"
+                alt="Otro contenido de videojuegos"
+                class="w-full aspect-video object-cover rounded-xl shadow"
+              />
+            </div>
           </div>
         </div>
       </div>
