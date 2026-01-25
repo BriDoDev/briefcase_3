@@ -5,23 +5,25 @@ import Logo from "../components/logo.astro";
 
 <header
   id="header"
-  class="fixed top-0 z-50 w-full h-20 bg-white/30 dark:bg-neutral-900/30 backdrop-blur-md shadow-md transition-all"
+  class="fixed top-0 z-50 w-full h-16 bg-white/80 dark:bg-primary-950/80 backdrop-blur-md border-b border-primary-100 dark:border-primary-800 transition-all"
 >
   <div
-    class="flex items-center justify-between h-full max-w-7xl px-4 md:px-6 mx-auto border-b border-transparent select-none"
+    class="flex items-center justify-between h-full max-w-5xl px-6 mx-auto select-none"
   >
     <Logo />
 
     <nav
-      class="relative z-30 flex flex-row-reverse justify-start w-full text-sm sm:justify-end text-neutral-500 dark:text-neutral-400 sm:flex-row"
+      class="relative z-30 flex flex-row-reverse justify-start w-full text-sm sm:justify-end text-primary-500 dark:text-primary-400 sm:flex-row"
     >
       <!-- Botón abrir menú mobile -->
-      <div
+      <button
+        type="button"
         id="openMenu"
-        class="flex flex-col items-end justify-center w-6 h-6 ml-4 cursor-pointer sm:hidden"
+        class="flex flex-col items-center justify-center w-10 h-10 ml-4 cursor-pointer sm:hidden rounded-lg hover:bg-primary-100 dark:hover:bg-primary-800 transition-colors"
+        aria-label="Abrir menú"
       >
         <svg
-          class="w-8 h-8 dark:text-neutral-200"
+          class="w-6 h-6 text-primary-700 dark:text-primary-200"
           fill="none"
           stroke="currentColor"
           stroke-width="2"
@@ -29,15 +31,17 @@ import Logo from "../components/logo.astro";
         >
           <path d="M4 8h16M4 16h16"></path>
         </svg>
-      </div>
+      </button>
 
       <!-- Botón cerrar menú mobile -->
-      <div
+      <button
+        type="button"
         id="closeMenu"
-        class="flex flex-col items-end justify-center w-6 h-6 ml-4 -translate-x-1 cursor-pointer sm:hidden"
+        class="hidden flex-col items-center justify-center w-10 h-10 ml-4 cursor-pointer sm:hidden rounded-lg hover:bg-primary-100 dark:hover:bg-primary-800 transition-colors"
+        aria-label="Cerrar menú"
       >
         <svg
-          class="w-6 h-6 text-neutral-600 dark:text-neutral-200"
+          class="w-6 h-6 text-primary-700 dark:text-primary-200"
           fill="none"
           stroke="currentColor"
           stroke-width="2"
@@ -45,17 +49,17 @@ import Logo from "../components/logo.astro";
         >
           <path d="M6 18L18 6M6 6l12 12"></path>
         </svg>
-      </div>
+      </button>
 
       <!-- Menú de navegación -->
       <div
         id="menu"
-        class="fixed top-[75px] ease-out duration-300 sm:top-0 w-full left-0 sm:py-0 pt-7 pb-4 z-40 flex-col items-end justify-start hidden sm:relative sm:flex-row sm:flex sm:w-auto"
+        class="fixed top-16 ease-out duration-300 w-full left-0 pt-4 pb-4 z-40 flex-col items-end justify-start hidden sm:relative sm:top-0 sm:flex-row sm:flex sm:w-auto sm:pt-0 sm:pb-0"
       >
         <!-- Fondo blur para mobile -->
-        <div class="absolute inset-0 sm:hidden px-3">
+        <div class="absolute inset-0 sm:hidden px-4">
           <div
-            class="relative w-full h-full bg-white border border-dashed border-neutral-300 dark:border-neutral-700 backdrop-blur-sm rounded-xl dark:bg-neutral-950"
+            class="relative w-full h-full bg-white/95 dark:bg-primary-950/95 backdrop-blur-md border border-primary-100 dark:border-primary-800 rounded-xl shadow-lg"
           >
           </div>
         </div>
@@ -64,7 +68,7 @@ import Logo from "../components/logo.astro";
           menus.map((menu) => (
             <a
               href={menu.url}
-              class="relative flex items-center justify-center w-full px-3 py-2 font-medium tracking-wide text-center duration-200 ease-out sm:py-0 sm:mb-0 md:w-auto hover:text-neutral-900 dark:hover:text-white"
+              class="relative flex items-center justify-center w-full px-4 py-3 font-medium tracking-tight text-center duration-200 ease-out sm:py-0 sm:mb-0 md:w-auto hover:text-primary-900 dark:hover:text-white"
             >
               {menu.name}
             </a>
@@ -74,3 +78,55 @@ import Logo from "../components/logo.astro";
     </nav>
   </div>
 </header>
+
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    const openMenuBtn = document.getElementById("openMenu");
+    const closeMenuBtn = document.getElementById("closeMenu");
+    const menu = document.getElementById("menu");
+
+    if (openMenuBtn && closeMenuBtn && menu) {
+      openMenuBtn.addEventListener("click", () => {
+        menu.classList.remove("hidden");
+        menu.classList.add("flex");
+        openMenuBtn.classList.add("hidden");
+        closeMenuBtn.classList.remove("hidden");
+        closeMenuBtn.classList.add("flex");
+      });
+
+      closeMenuBtn.addEventListener("click", () => {
+        menu.classList.add("hidden");
+        menu.classList.remove("flex");
+        closeMenuBtn.classList.add("hidden");
+        closeMenuBtn.classList.remove("flex");
+        openMenuBtn.classList.remove("hidden");
+      });
+
+      // Cerrar menú al hacer click en un enlace
+      menu.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          menu.classList.add("hidden");
+          menu.classList.remove("flex");
+          closeMenuBtn.classList.add("hidden");
+          closeMenuBtn.classList.remove("flex");
+          openMenuBtn.classList.remove("hidden");
+        });
+      });
+
+      // Cerrar menú al hacer click fuera
+      document.addEventListener("click", (e) => {
+        if (
+          !menu.contains(e.target) &&
+          !openMenuBtn.contains(e.target) &&
+          !closeMenuBtn.contains(e.target)
+        ) {
+          menu.classList.add("hidden");
+          menu.classList.remove("flex");
+          closeMenuBtn.classList.add("hidden");
+          closeMenuBtn.classList.remove("flex");
+          openMenuBtn.classList.remove("hidden");
+        }
+      });
+    }
+  });
+</script>

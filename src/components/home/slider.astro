@@ -10,32 +10,42 @@ const swiperClass = `swiper-${type}`;
 
 <section
   id={type}
-  class="snap-start min-h-[80svh] p-6 sm:p-12 relative flex flex-col justify-evenly items-center gap-8 overflow-hidden shadow-md"
+  class="min-h-[80svh] px-6 md:px-12 py-16 relative flex flex-col justify-center items-center gap-12"
 >
+  <!-- Clean gradient background instead of blur -->
   <div
-    id={bgId}
-    class="absolute inset-0 bg-center bg-cover blur-xl transition-all scale-125 duration-700"
+    class="absolute inset-0 bg-gradient-to-b from-transparent via-primary-50/50 to-transparent dark:via-primary-900/20"
   ></div>
 
-  <h1 class="text-3xl md:text-4xl z-50 font-semibold text-center">{title}</h1>
+  <div class="relative z-10 text-center space-y-4">
+    <h2
+      class="text-3xl md:text-4xl font-bold text-primary-900 dark:text-white tracking-tight"
+    >
+      {title}
+    </h2>
+    <p class="text-primary-500 dark:text-primary-400 max-w-2xl mx-auto">
+      Proyectos donde el diseño estratégico generó resultados de negocio
+      medibles.
+    </p>
+  </div>
 
-  <div class={`relative w-full max-w-7xl z-50 ${swiperClass}-wrapper`}>
+  <div class={`relative w-full max-w-5xl z-10 ${swiperClass}-wrapper`}>
     <div class={`swiper !overflow-visible ${swiperClass}`} data-bg-id={bgId}>
       <div class="swiper-wrapper">
         {
           items.map((item) => (
-            <div class="swiper-slide max-h-[80vh] h-auto w-full flex items-center justify-center p-6 sm:p-12">
-              <div class="bg-white w-full h-auto max-h-[90vh] rounded-xl shadow-2xl flex flex-col xl:flex-row items-center justify-center gap-6 md:gap-12 p-6 md:p-10 max-w-6xl overflow-y-auto">
+            <div class="swiper-slide h-auto w-full flex items-center justify-center p-4">
+              <div class="card w-full h-auto flex flex-col xl:flex-row items-center gap-8 p-8 max-w-4xl">
                 <img
                   src={item.image}
                   alt={item.name}
-                  class="w-full max-w-[300px] md:max-w-[400px] rounded-lg shadow-xl border object-contain"
+                  class="w-full max-w-[280px] md:max-w-[320px] rounded-lg border border-primary-100 dark:border-primary-700 object-contain"
                 />
-                <div class="text-center md:text-left text-sm sm:text-base w-full max-w-xl">
-                  <h2 class="text-lg md:text-2xl font-semibold mb-2 text-neutral-800">
+                <div class="text-center xl:text-left w-full max-w-xl space-y-4">
+                  <h3 class="text-xl md:text-2xl font-semibold text-primary-900 dark:text-white">
                     {item.name}
-                  </h2>
-                  <p class="text-gray-500 text-sm leading-relaxed mb-4 max-h-40 md:max-h-max overflow-y-auto">
+                  </h3>
+                  <p class="text-primary-500 dark:text-primary-400 text-sm leading-relaxed">
                     {item.description.trim()}
                   </p>
                   {item.url && (
@@ -43,9 +53,22 @@ const swiperClass = `swiper-${type}`;
                       href={item.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      class="inline-block mt-2 text-sm font-medium text-blue-600 hover:underline"
+                      class="inline-flex items-center gap-2 text-sm font-medium text-accent hover:text-accent-dark transition-colors"
                     >
-                      Ver más →
+                      Ver caso de estudio
+                      <svg
+                        class="w-4 h-4"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="M17 8l4 4m0 0l-4 4m4-4H3"
+                        />
+                      </svg>
                     </a>
                   )}
                 </div>
@@ -55,85 +78,110 @@ const swiperClass = `swiper-${type}`;
         }
       </div>
 
-      <div class="swiper-pagination !bottom-6"></div>
-      <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div>
+      <!-- Cleaner navigation -->
+      <div class="flex justify-center gap-4 mt-8">
+        <button
+          class={`swiper-button-prev-${type} w-10 h-10 rounded-lg bg-primary-100 dark:bg-primary-800 flex items-center justify-center hover:bg-primary-200 dark:hover:bg-primary-700 transition-colors`}
+        >
+          <svg
+            class="w-5 h-5 text-primary-600 dark:text-primary-300"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M15 19l-7-7 7-7"></path>
+          </svg>
+        </button>
+        <div class={`swiper-pagination-${type} flex justify-center items-center gap-2`}></div>
+        <button
+          class={`swiper-button-next-${type} w-10 h-10 rounded-lg bg-primary-100 dark:bg-primary-800 flex items-center justify-center hover:bg-primary-200 dark:hover:bg-primary-700 transition-colors`}
+        >
+          <svg
+            class="w-5 h-5 text-primary-600 dark:text-primary-300"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 5l7 7-7 7"></path>
+          </svg>
+        </button>
+      </div>
     </div>
   </div>
-
-  {type === "certifications" && (
-    <script type="module">
-      import Swiper from "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs";
-
-      const container = document.querySelector('.swiper-certifications');
-      const bgId = container?.dataset?.bgId;
-      const bgElement = document.getElementById(bgId);
-
-      const updateBackground = () => {
-        const activeImg = container.querySelector(".swiper-slide-active img");
-        if (activeImg && bgElement) {
-          bgElement.style.backgroundImage = `url('${activeImg.src}')`;
-        }
-      };
-
-      const swiper = new Swiper(container, {
-        loop: true,
-        autoplay: {
-          delay: 10000,
-          disableOnInteraction: false
-        },
-        pagination: {
-          el: container.querySelector(".swiper-pagination"),
-          clickable: true,
-        },
-        navigation: {
-          nextEl: container.querySelector(".swiper-button-next"),
-          prevEl: container.querySelector(".swiper-button-prev"),
-        },
-        on: {
-          transitionEnd: updateBackground,
-        },
-      });
-
-      requestAnimationFrame(updateBackground);
-    </script>
-  )}
-
-  {type === "projects" && (
-    <script type="module">
-      import Swiper from "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs";
-
-      const container = document.querySelector('.swiper-projects');
-      const bgId = container?.dataset?.bgId;
-      const bgElement = document.getElementById(bgId);
-
-      const updateBackground = () => {
-        const activeImg = container.querySelector(".swiper-slide-active img");
-        if (activeImg && bgElement) {
-          bgElement.style.backgroundImage = `url('${activeImg.src}')`;
-        }
-      };
-
-      const swiper = new Swiper(container, {
-        loop: true,
-        autoplay: {
-          delay: 10000,
-          disableOnInteraction: false
-        },
-        pagination: {
-          el: container.querySelector(".swiper-pagination"),
-          clickable: true,
-        },
-        navigation: {
-          nextEl: container.querySelector(".swiper-button-next"),
-          prevEl: container.querySelector(".swiper-button-prev"),
-        },
-        on: {
-          transitionEnd: updateBackground,
-        },
-      });
-
-      requestAnimationFrame(updateBackground);
-    </script>
-  )}
 </section>
+
+{
+  type === "certifications" && (
+    <script type="module">
+      import Swiper from "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs";
+
+      const container = document.querySelector(".swiper-certifications");
+
+      new Swiper(container, {
+        loop: true,
+        autoplay: {
+          delay: 10000,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: ".swiper-pagination-certifications",
+          clickable: true,
+          bulletClass:
+            "w-2 h-2 rounded-full bg-primary-300 dark:bg-primary-600 cursor-pointer transition-all",
+          bulletActiveClass: "!bg-accent w-6",
+        },
+        navigation: {
+          nextEl: ".swiper-button-next-certifications",
+          prevEl: ".swiper-button-prev-certifications",
+        },
+      });
+    </script>
+  )
+}
+
+{
+  type === "projects" && (
+    <script type="module">
+      import Swiper from "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs";
+
+      const container = document.querySelector(".swiper-projects");
+
+      new Swiper(container, {
+        loop: true,
+        autoplay: {
+          delay: 10000,
+          disableOnInteraction: false,
+        },
+        pagination: {
+          el: ".swiper-pagination-projects",
+          clickable: true,
+          bulletClass:
+            "w-2 h-2 rounded-full bg-primary-300 dark:bg-primary-600 cursor-pointer transition-all",
+          bulletActiveClass: "!bg-accent w-6",
+        },
+        navigation: {
+          nextEl: ".swiper-button-next-projects",
+          prevEl: ".swiper-button-prev-projects",
+        },
+      });
+    </script>
+  )
+}
+
+<style>
+  .swiper-button-next,
+  .swiper-button-prev {
+    display: none !important;
+  }
+  .swiper-pagination {
+    position: static !important;
+  }
+</style>

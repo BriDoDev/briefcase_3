@@ -8,13 +8,13 @@ import "aos/dist/aos.css";
 
 const { title = "", lang = "es" } = Astro.props;
 
-const site = Astro.site; // lo sacamos explícitamente
+const site = Astro.site;
 const canonicalURL = new URL(Astro.url.pathname, site).toString();
 const resolvedImageWithDomain = new URL("/meta/opengraph.png", site).toString();
 
 const makeTitle = title
-  ? `${title} | Brian Domínguez – Frontend UI/UX`
-  : "Brian Domínguez – Frontend UI/UX";
+  ? `${title} | Product Design Strategist`
+  : "Brian Dominguez Vazquez – Product Design Strategist";
 ---
 
 <!doctype html>
@@ -26,7 +26,7 @@ const makeTitle = title
     <!-- SEO y redes sociales -->
     <SEO
       title={makeTitle}
-      description="Portafolio de Brian Domínguez, desarrollador web especializado en el frontend enfocado en UI/UX. Experto en construir interfaces intuitivas, accesibles y visualmente atractivas con tecnologías modernas como React, TailwindCSS y Astro."
+      description="Product Design Strategist especializado en SaaS y Enterprise. Transformo interfaces complejas en resultados de negocio medibles: sistemas de diseño escalables, auditorías de UX y optimización de conversión."
       canonical={canonicalURL}
       openGraph={{
         basic: {
@@ -36,7 +36,7 @@ const makeTitle = title
           image: resolvedImageWithDomain,
         },
         image: {
-          alt: "Brian Domínguez – Frontend UI/UX",
+          alt: "Brian Dominguez Vazquez – Product Design Strategist",
         },
       }}
     />
@@ -46,6 +46,12 @@ const makeTitle = title
     <!-- Iconografía y fuentes -->
     <link rel="icon" type="image/png" href="/assets/favicon.png" />
     <link rel="stylesheet" href="https://use.typekit.net/lap0far.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
@@ -77,37 +83,17 @@ const makeTitle = title
   </head>
 
   <body
-    class="bg-white dark:bg-neutral-950 text-black dark:text-white h-full font-sans"
+    class="bg-white dark:bg-primary-950 text-primary-900 dark:text-white h-full font-sans antialiased"
   >
-    <SquareLines />
-    <main>
+    <Header />
+    <main class="pt-20">
       <slot />
     </main>
+    <Footer />
     <FloatingContact />
 
     <!-- JS global -->
     <script src="../assets/js/main.js"></script>
     <script src="../assets/js/aos-init.js"></script>
-
-    <!-- Auto scroll opcional entre secciones -->
-    {
-      /*
-    <script is:inline>
-      document.addEventListener("DOMContentLoaded", () => {
-        const container = document.getElementById("SnapMandatory");
-        const snapSections = container?.querySelectorAll(".snap-start") ?? [];
-        let currentIndex = 0;
-
-        setInterval(() => {
-          currentIndex = (currentIndex + 1) % snapSections.length;
-          snapSections[currentIndex].scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-          });
-        }, 5000);
-      });
-    </script>
-    */
-    }
   </body>
 </html>

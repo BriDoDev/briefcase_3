@@ -9,76 +9,128 @@
   padding: 0;
   box-sizing: border-box !important;
 }
-h1 {
-  font-family: "proxima-nova", sans-serif;
-  font-weight: 700;
+
+/* Typography - High-Tech Minimalist */
+h1,
+h2,
+h3 {
+  font-family: "proxima-nova", "Inter", system-ui, sans-serif;
+  font-weight: 600;
   font-style: normal;
-}
-p {
-  font-family: "proxima-nova", sans-serif;
-  font-weight: 300;
-  font-style: normal;
+  letter-spacing: -0.02em;
 }
 
+h1 {
+  font-weight: 700;
+  letter-spacing: -0.04em;
+}
+
+p {
+  font-family: "proxima-nova", "Inter", system-ui, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.7;
+}
+
+/* Hero Container - Cleaner, more professional */
 .image-hero__container {
-  @apply relative w-full grid-cols-1 justify-center md:gap-10 lg:gap-12 bg-center bg-cover bg-no-repeat shadow-md;
-  @apply md:gap-52;
-  @apply xl:grid-cols-2 xl:gap-[34rem] xl:bg-contain;
+  @apply relative w-full flex flex-col justify-center items-center bg-white dark:bg-primary-950;
 }
 
 .image-hero__container.desktop {
-  @apply bg-[url("/assets/images/Duo.webp")] bg-cover;
-  @apply hidden xl:grid;
+  @apply hidden xl:flex;
 }
 
 .image-hero__container.mobile {
-  @apply grid md:grid xl:hidden;
+  @apply flex xl:hidden;
 }
 
-.image-hero__container.right {
-  @apply bg-[url("/assets/images/DuoLeft.webp")] bg-contain;
-  background-position: right;
+/* Clean section styling */
+.section {
+  @apply relative;
 }
 
-.image-hero__container.right .image-hero__container--item > h1,
-.image-hero__container.right .image-hero__container--item > p {
-  @apply text-left xl:text-center;
-}
-
-.image-hero__container.left {
-  @apply bg-[url("/assets/images/DuoRight.webp")] bg-contain;
-  background-position: left;
-}
-
-.image-hero__container.left .image-hero__container--item > h1,
-.image-hero__container.left .image-hero__container--item > p {
-  @apply text-right xl:text-center;
-}
-
-@layer utilities {
-  .transition-bg-position {
-    transition: background-position 0.8s ease-in-out;
-  }
-}
-
-.image-hero__container .image-hero__container--item {
-  @apply flex flex-col justify-center items-center gap-8;
-}
-
-.image-hero__container .image-hero__container--item > h1,
 .section h1 {
-  @apply text-4xl font-bold text-gray-950 z-10 drop-shadow-sm;
-  @apply md:font-semibold md:text-5xl;
-  @apply xl:font-semibold;
+  @apply text-4xl font-bold text-primary-900 dark:text-white z-10;
+  @apply md:text-5xl lg:text-6xl;
 }
 
-.image-hero__container .image-hero__container--item > p,
+.section h2 {
+  @apply text-2xl font-semibold text-primary-800 dark:text-primary-100 z-10;
+  @apply md:text-3xl lg:text-4xl;
+}
+
 .section p {
-  @apply text-base font-normal text-gray-500 z-10 drop-shadow-sm;
-  @apply md:font-light md:text-xl;
-  @apply xl:font-light;
+  @apply text-base font-normal text-primary-500 dark:text-primary-400 z-10;
+  @apply md:text-lg;
 }
 
-.tiktok-embed iframe {
-  @apply min-h-[500px];
+/* Subtle grid background pattern */
+.grid-pattern {
+  background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.03) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.03) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+.dark .grid-pattern {
+  background-image: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.03) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+/* Gradient text utility */
+.gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-accent to-accent-light;
+}
+
+/* Card styling */
+.card {
+  @apply bg-white dark:bg-primary-900 border border-primary-100 dark:border-primary-800 rounded-xl p-6 transition-all duration-200;
+}
+
+.card:hover {
+  @apply border-primary-200 dark:border-primary-700 shadow-lg;
+}
+
+/* Badge styling */
+.badge {
+  @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary-100 dark:bg-primary-800 text-primary-700 dark:text-primary-300;
+}
+
+.badge-accent {
+  @apply bg-accent/10 text-accent;
+}
+
+/* Divider */
+.divider {
+  @apply w-full h-px bg-gradient-to-r from-transparent via-primary-200 dark:via-primary-700 to-transparent;
+}
+
+/* Service card hover effect */
+.service-card {
+  @apply relative overflow-hidden;
+}
+
+.service-card::before {
+  content: "";
+  @apply absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 transition-opacity duration-300;
+}
+
+.service-card:hover::before {
+  @apply opacity-100;
+}
+
+/* Smooth transitions */
+@layer utilities {
+  .transition-colors-fast {
+    transition: color 0.15s ease, background-color 0.15s ease,
+      border-color 0.15s ease;
+  }
 }

@@ -1,272 +1,330 @@
 ---
 import Button from "../components/button.astro";
 import projects from "../collections/projects.json";
-import certifications from "../collections/certifications.json";
-import Separator from "../components/home/separator.astro";
-import Writings from "../components/home/writings.astro";
 import Layout from "../layouts/main.astro";
 import Slider from "../components/home/slider.astro";
 ---
 
-<link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-/>
+<Layout title="Brian Dominguez Vazquez">
+  <!-- Hero Section -->
+  <section
+    class="relative min-h-screen flex flex-col justify-center items-center px-6 md:px-12 py-32 grid-pattern"
+  >
+    <!-- Subtle gradient overlay -->
+    <div
+      class="absolute inset-0 bg-gradient-to-b from-white via-white/95 to-white dark:from-primary-950 dark:via-primary-950/95 dark:to-primary-950"
+    >
+    </div>
 
-<Layout title="Brian Domínguez Vázquez">
-  <!-- antes: h-screen overflow-y-scroll snap-y snap-mandatory scroll-smooth -->
-  <div id="SnapMandatory" class="overflow-x-hidden snap-none">
-    <!-- Hero section -->
-    <section class="min-h-screen h-dvh image-hero__container desktop z-10">
-      <div class="image-hero__container--item p-12">
-        <h1>UI/UX Designer</h1>
-        <p class="text-lg text-gray-700 leading-relaxed max-w-3xl">
-          Mi experiencia en UI/UX me permite ser el
-          <strong class="text-pink font-bold"
-            >puente entre diseño y desarrollo</strong
-          >. Traduzco visiones creativas en
-          <strong class="text-xiketic font-semibold"
-            >interfaces funcionales e intuitivas</strong
-          >, garantizando que el producto final sea
-          <strong class="text-pink font-bold">técnicamente sólido</strong> y
-          <strong class="text-xiketic font-semibold">fácil de usar</strong>.
-        </p>
+    <div class="relative z-10 max-w-4xl mx-auto text-center space-y-8">
+      <!-- Badge -->
+      <div class="inline-flex items-center gap-2 badge-accent">
+        <span class="w-2 h-2 bg-accent rounded-full animate-pulse"></span>
+        <span>Disponible para proyectos Q1 2026</span>
+      </div>
 
+      <!-- Name -->
+      <h1
+        class="text-4xl md:text-6xl lg:text-7xl font-bold text-primary-900 dark:text-white tracking-tighter"
+      >
+        Brian Dominguez Vazquez
+      </h1>
+
+      <!-- Title -->
+      <h2
+        class="text-2xl md:text-3xl lg:text-4xl font-semibold text-primary-500 dark:text-primary-400 tracking-tight"
+      >
+        Product Design Strategist
+      </h2>
+
+      <!-- Tagline -->
+      <p
+        class="text-lg md:text-xl text-primary-600 dark:text-primary-300 max-w-2xl mx-auto leading-relaxed"
+      >
+        Transformando interfaces complejas en
+        <strong class="text-primary-900 dark:text-white font-semibold"
+          >resultados de negocio medibles</strong
+        >
+        para SaaS y Enterprise.
+      </p>
+
+      <!-- CTAs -->
+      <div
+        class="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4"
+      >
         <Button
           variant="primary"
-          text="Contacto Profesional"
-          link="mailto:contacto@brian-dominguez.dev"
+          size="large"
+          text="Ver Estudios de Caso (ROI)"
+          link="#proyectos"
+        />
+        <Button
+          variant="secondary"
+          size="large"
+          text="Agendar Llamada"
+          link="https://wa.me/5215580858318"
         />
       </div>
-      <div class="image-hero__container--item p-12">
-        <h1>Frontend Developer</h1>
-        <p class="text-lg text-gray-700 leading-relaxed max-w-3xl">
-          Con <strong class="text-pink font-bold"
-            >más de 4 años de experiencia</strong
-          >, me especializo en construir
-          <strong class="text-xiketic font-semibold"
-            >aplicaciones web robustas y escalables</strong
-          >
-          con tecnologías como React.js. Mi rol a menudo incluye
-          <strong class="text-pink font-bold">liderar proyectos</strong>,
-          colaborar en equipos multidisciplinarios y asegurar la entrega de un
-          producto final pulido y de <strong class="text-pink font-semibold"
-            >alto rendimiento</strong
-          >.
+
+      <!-- Trust indicators -->
+      <div class="pt-12 flex flex-col items-center gap-4">
+        <p class="text-sm text-primary-400 dark:text-primary-500 uppercase tracking-wider">
+          Experiencia en
         </p>
-        <Button
-          variant="secondary"
-          text="Ver mi contenido"
-          link="https://www.youtube.com/@bridodev"
-        />
+        <div class="flex flex-wrap justify-center gap-6 text-primary-400 dark:text-primary-500">
+          <span class="text-sm font-medium">SaaS B2B</span>
+          <span class="text-primary-200 dark:text-primary-700">·</span>
+          <span class="text-sm font-medium">Enterprise</span>
+          <span class="text-primary-200 dark:text-primary-700">·</span>
+          <span class="text-sm font-medium">Fintech</span>
+          <span class="text-primary-200 dark:text-primary-700">·</span>
+          <span class="text-sm font-medium">E-commerce</span>
+        </div>
       </div>
-    </section>
-  </div>
+    </div>
 
-  <section
-    class="items-start md:items-center min-h-screen h-dvh image-hero__container mobile z-10 right"
-  >
-    <div class="image-hero__container--item p-12 pr-32 md:pb-36">
-      <h1>UI/UX Designer</h1>
-      <p class="text-lg text-gray-700 leading-relaxed max-w-3xl">
-        Mi experiencia en UI/UX me permite ser el
-        <strong class="text-pink font-bold"
-          >puente entre diseño y desarrollo</strong
-        >. Traduzco visiones creativas en
-        <strong class="text-xiketic font-semibold"
-          >interfaces funcionales e intuitivas</strong
-        >, garantizando que el producto final sea
-        <strong class="text-pink font-bold">técnicamente sólido</strong> y
-        <strong class="text-xiketic font-semibold">fácil de usar</strong>.
-      </p>
-      <Button
-        variant="primary"
-        text="Contacto Profesional"
-        link="mailto:contacto@brian-dominguez.dev"
-      />
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+      <svg
+        class="w-6 h-6 text-primary-300 dark:text-primary-600"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+      </svg>
     </div>
   </section>
 
-  <section
-    class="items-start md:items-center min-h-screen h-dvh image-hero__container mobile z-10 left"
-  >
-    <div class="image-hero__container--item p-12 pl-36 md:pb-36">
-      <h1>Frontend Developer</h1>
-      <p class="text-lg text-gray-700 leading-relaxed max-w-3xl">
-        Con <strong class="text-pink font-bold"
-          >más de 4 años de experiencia</strong
-        >, me especializo en construir
-        <strong class="text-xiketic font-semibold"
-          >aplicaciones web robustas y escalables</strong
-        >
-        con tecnologías como React.js. Mi rol a menudo incluye
-        <strong class="text-pink font-bold">liderar proyectos</strong>,
-        colaborar en equipos multidisciplinarios y asegurar la entrega de un
-        producto final pulido y de <strong class="text-pink font-semibold"
-          >alto rendimiento</strong
-        >.
-      </p>
-      <Button
-        variant="primary"
-        text="Ver mi contenido"
-        link="https://www.youtube.com/@bridodev"
-      />
-    </div>
-  </section>
-
-  <section class="items-center min-h-screen z-10 py-12 px-6">
-    <div
-      class="flex flex-col justify-center items-center gap-4 max-w-5xl mx-auto text-center"
-    >
-      <h1 class="text-4xl md:text-5xl font-bold text-xiketic">Sobre mí</h1>
-      <p class="text-lg text-gray-700 leading-relaxed max-w-3xl">
-        Hola, soy <strong class="text-pink font-bold"
-          >Brian Domínguez Vázquez</strong
-        >. Más allá de mi rol profesional, encuentro una gran satisfacción en
-        <strong class="text-xiketic font-semibold">compartir lo que sé</strong>
-        sobre tecnología y desarrollo.
-        <br /><br />
-        Lo hago a través de proyectos personales que disfruto, aplicando mis conocimientos
-        en el <strong class="text-pink font-bold">diseño de interfaces</strong> y
-        explorando el <strong class="text-pink font-bold"
-          >desarrollo de videojuegos</strong
-        >. Mi objetivo con los videos que creo sobre estos temas es simple:
-        <strong class="text-xiketic font-semibold"
-          >ser de ayuda para quien esté aprendiendo</strong
-        >.
-      </p>
-
-      <div class="mt-2 flex gap-4 flex-col md:flex-row">
-        <Button text="Conóceme" link="/about" />
-        <Button
-          variant="secondary"
-          text="Contacto Profesional"
-          link="mailto:contacto@brian-dominguez.dev"
-        />
-      </div>
-
-      <div class="swiper image-slider w-full max-w-5xl px-4 mt-8">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide p-4">
-            <img
-              src="./assets/images/SD1.webp"
-              alt="Slide 1"
-              class="w-full aspect-video object-cover rounded-xl shadow"
+  <!-- About Section -->
+  <section class="py-24 px-6 md:px-12 bg-primary-50 dark:bg-primary-900/50">
+    <div class="max-w-5xl mx-auto">
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div class="space-y-6">
+          <h2
+            class="text-3xl md:text-4xl font-bold text-primary-900 dark:text-white tracking-tight"
+          >
+            El puente entre el Diseño y el Negocio
+          </h2>
+          <div class="space-y-4 text-primary-600 dark:text-primary-300">
+            <p>
+              No entrego solo pantallas bonitas. Entrego
+              <strong class="text-primary-900 dark:text-white"
+                >sistemas de diseño escalables</strong
+              >
+              y flujos de usuario optimizados para la conversión.
+            </p>
+            <p>
+              Hablo el idioma de tus desarrolladores —puedo leer código,
+              entender limitaciones técnicas y diseñar con
+              <strong class="text-accent">feasibility</strong> en mente— y
+              entiendo las métricas que importan a tus inversores: CAC, LTV,
+              Churn Rate y NPS.
+            </p>
+            <p>
+              Con más de 4 años de experiencia en productos digitales, he
+              trabajado con equipos de producto, ingeniería y C-level para
+              alinear el diseño con los objetivos de negocio.
+            </p>
+          </div>
+          <div class="flex gap-4 pt-4">
+            <Button variant="primary" text="Conocer más" link="/about" />
+            <Button
+              variant="ghost"
+              text="LinkedIn"
+              link="https://www.linkedin.com/in/bridodev/"
             />
           </div>
-          <div class="swiper-slide p-4">
-            <img
-              src="./assets/images/Game3.webp"
-              alt="Slide 3"
-              class="w-full aspect-video object-cover rounded-xl shadow"
-            />
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+          <div class="card space-y-2">
+            <span class="text-3xl font-bold text-accent">4+</span>
+            <p class="text-sm text-primary-500 dark:text-primary-400">
+              Años de experiencia
+            </p>
+          </div>
+          <div class="card space-y-2">
+            <span class="text-3xl font-bold text-accent">20+</span>
+            <p class="text-sm text-primary-500 dark:text-primary-400">
+              Proyectos entregados
+            </p>
+          </div>
+          <div class="card space-y-2">
+            <span class="text-3xl font-bold text-accent">B2B</span>
+            <p class="text-sm text-primary-500 dark:text-primary-400">
+              Enfoque SaaS & Enterprise
+            </p>
+          </div>
+          <div class="card space-y-2">
+            <span class="text-3xl font-bold text-accent">ROI</span>
+            <p class="text-sm text-primary-500 dark:text-primary-400">
+              Diseño orientado a resultados
+            </p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Certificaciones -->
-  <Slider
-    title="Mis certificaciones"
-    items={certifications}
-    bgId="background-blur-certifications"
-    type="certifications"
-  />
+  <!-- Services Section -->
+  <section class="py-24 px-6 md:px-12">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center space-y-4 mb-16">
+        <h2
+          class="text-3xl md:text-4xl font-bold text-primary-900 dark:text-white tracking-tight"
+        >
+          Servicios Estratégicos
+        </h2>
+        <p class="text-lg text-primary-500 dark:text-primary-400 max-w-2xl mx-auto">
+          Soluciones de diseño enfocadas en generar impacto medible en tu
+          negocio.
+        </p>
+      </div>
 
-  <!-- Proyectos -->
-  <Slider
-    title="Algunos de mis últimos trabajos"
-    items={projects}
-    bgId="background-blur-projects"
-    type="projects"
-  />
+      <div class="grid md:grid-cols-3 gap-6">
+        <!-- Service 1 -->
+        <div class="card service-card space-y-4">
+          <div
+            class="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center"
+          >
+            <svg
+              class="w-6 h-6 text-accent"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+              ></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-primary-900 dark:text-white">
+            Auditoría de UX & CRO
+          </h3>
+          <p class="text-primary-500 dark:text-primary-400 text-sm">
+            Análisis profundo de tu producto para identificar fricciones y
+            oportunidades de optimización de conversión. Entregables
+            accionables con métricas de impacto esperado.
+          </p>
+          <div class="flex flex-wrap gap-2 pt-2">
+            <span class="badge">Conversion Rate</span>
+            <span class="badge">User Research</span>
+          </div>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="card service-card space-y-4">
+          <div
+            class="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center"
+          >
+            <svg
+              class="w-6 h-6 text-accent"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"
+              ></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-primary-900 dark:text-white">
+            Sistemas de Diseño Escalables
+          </h3>
+          <p class="text-primary-500 dark:text-primary-400 text-sm">
+            Creación e implementación de Design Systems que aceleran el
+            desarrollo, garantizan consistencia y reducen deuda técnica de UI.
+          </p>
+          <div class="flex flex-wrap gap-2 pt-2">
+            <span class="badge">Figma</span>
+            <span class="badge">Tokens</span>
+            <span class="badge">Documentación</span>
+          </div>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="card service-card space-y-4">
+          <div
+            class="w-12 h-12 rounded-lg bg-accent/10 flex items-center justify-center"
+          >
+            <svg
+              class="w-6 h-6 text-accent"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold text-primary-900 dark:text-white">
+            Product Strategy & Prototipado
+          </h3>
+          <p class="text-primary-500 dark:text-primary-400 text-sm">
+            Desde la ideación hasta prototipos de alta fidelidad. Validación
+            rápida de hipótesis con usuarios reales antes de invertir en
+            desarrollo.
+          </p>
+          <div class="flex flex-wrap gap-2 pt-2">
+            <span class="badge">Discovery</span>
+            <span class="badge">Prototyping</span>
+            <span class="badge">Testing</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="proyectos" class="py-24 px-6 md:px-12 bg-primary-50 dark:bg-primary-900/50 overflow-hidden">
+    <Slider
+      title="Estudios de Caso"
+      items={projects}
+      bgId="background-blur-projects"
+      type="projects"
+    />
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-24 px-6 md:px-12">
+    <div class="max-w-3xl mx-auto text-center space-y-8">
+      <h2
+        class="text-3xl md:text-4xl font-bold text-primary-900 dark:text-white tracking-tight"
+      >
+        ¿Listo para optimizar tu producto?
+      </h2>
+      <p class="text-lg text-primary-500 dark:text-primary-400">
+        Hablemos de cómo reducir tu Churn Rate o mejorar tu Conversión. Sin
+        compromiso, solo estrategia.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <Button
+          variant="primary"
+          size="large"
+          text="Agendar Consulta"
+          link="https://wa.me/5215580858318"
+        />
+        <Button
+          variant="secondary"
+          size="large"
+          text="contacto@brian-dominguez.dev"
+          link="mailto:contacto@brian-dominguez.dev"
+        />
+      </div>
+    </div>
+  </section>
 </Layout>
-
-<script type="module">
-  import Swiper from "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs";
-
-  new Swiper(".image-slider", {
-    loop: true,
-    slidesPerView: 1,
-    spaceBetween: 24,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false,
-    },
-  });
-</script>
-
-<script type="module">
-  // Util: devuelve el primer background-color NO transparente (del nodo hacia arriba).
-  function getEffectiveBgColor(el) {
-    let node = el;
-    while (node) {
-      const c = getComputedStyle(node).backgroundColor;
-      if (c && c !== "rgba(0, 0, 0, 0)" && c !== "transparent") return c;
-      node = node.parentElement;
-    }
-    // fallback al body
-    return getComputedStyle(document.body).backgroundColor || "#ffffff";
-  }
-
-  // Crea un fade absoluto en el borde indicado de la sección s.
-  function addEdgeFade(s, edge, toColor, heightPx = 64) {
-    const fade = document.createElement("div");
-    fade.style.position = "absolute";
-    fade.style.pointerEvents = "none";
-    fade.style.left = "0";
-    fade.style.right = "0";
-    fade.style.height = heightPx + "px";
-    fade.style.zIndex = "10";
-    // gradiente según borde
-    if (edge === "bottom") {
-      fade.style.bottom = "0";
-      fade.style.backgroundImage = `linear-gradient(to bottom, rgba(0,0,0,0), ${toColor})`;
-    } else {
-      fade.style.top = "0";
-      fade.style.backgroundImage = `linear-gradient(to top, rgba(0,0,0,0), ${toColor})`;
-    }
-    s.appendChild(fade);
-  }
-
-  // Aplica máscara de desvanecido inferior a imágenes "hero" para evitar corte duro.
-  function applyImageSoftMask(container, percent = 12) {
-    const imgs = container.querySelectorAll("img, picture, video, canvas");
-    imgs.forEach((img) => {
-      img.style.webkitMaskImage = `linear-gradient(to bottom, black ${100 - percent}%, transparent 100%)`;
-      img.style.maskImage = `linear-gradient(to bottom, black ${100 - percent}%, transparent 100%)`;
-    });
-  }
-
-  document.addEventListener("DOMContentLoaded", () => {
-    const sections = Array.from(document.querySelectorAll("section"));
-
-    sections.forEach((s, idx) => {
-      // asegurar posicionamiento relativo para poder colocar overlays
-      s.style.position ||= "relative";
-
-      // color del anterior y del siguiente (o body si no hay)
-      const prev = sections[idx - 1];
-      const next = sections[idx + 1];
-
-      const prevColor = prev
-        ? getEffectiveBgColor(prev)
-        : getEffectiveBgColor(document.body);
-      const nextColor = next
-        ? getEffectiveBgColor(next)
-        : getEffectiveBgColor(document.body);
-
-      // fade superior hacia el color de la sección anterior
-      addEdgeFade(s, "top", prevColor, 56);
-      // fade inferior hacia el color de la sección siguiente
-      addEdgeFade(s, "bottom", nextColor, 72);
-
-      // Si esta sección tiene un "hero" con imagen, suaviza el borde inferior de la imagen.
-      // Ajusta el selector a tus contenedores de hero:
-      if (s.classList.contains("image-hero__container")) {
-        applyImageSoftMask(s, 14); // 14% de desvanecido inferior
-      }
-    });
-  });
-</script>

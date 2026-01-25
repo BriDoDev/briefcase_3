@@ -1,34 +1,32 @@
 ---
-const { link, text, variant = "primary" } = Astro.props;
+const { link, text, variant = "primary", size = "default" } = Astro.props;
 
 const baseClasses =
-  "inline-flex items-center justify-center relative rounded-full min-h-[40px] px-6 text-sm font-medium transition-all duration-300 ease-out focus:outline-none focus:outline-offset-2 w-full sm:w-auto overflow-hidden z-0";
+  "inline-flex items-center justify-center relative rounded-lg font-medium transition-all duration-200 ease-out focus:outline-none focus:ring-2 focus:ring-offset-2 w-full sm:w-auto";
+
+const sizeClasses = {
+  small: "min-h-[36px] px-4 text-sm",
+  default: "min-h-[44px] px-6 text-sm",
+  large: "min-h-[52px] px-8 text-base",
+};
 
 const variantClasses = {
   primary:
-    "bg-gradient-to-r from-fuchsia-600 via-indigo-600 to-purple-600 bg-[length:300%_300%] animate-gradient text-white shadow-lg hover:brightness-110 focus:outline-fuchsia-600",
+    "bg-primary-900 dark:bg-white text-white dark:text-primary-900 hover:bg-primary-700 dark:hover:bg-primary-100 focus:ring-primary-500 shadow-sm",
 
-  secondary: `
-    bg-transparent border border-transparent 
-    before:absolute before:inset-0 before:rounded-full 
-    before:bg-gradient-to-r before:from-fuchsia-600 before:via-indigo-600 before:to-purple-600 
-    before:bg-[length:300%_300%] before:animate-gradient 
-    before:content-[''] before:p-[2px] before:z-[-1] 
-    after:absolute after:inset-[2px] after:rounded-full 
-    after:bg-white dark:after:bg-black after:content-[''] after:z-[-1]
-    focus:outline-fuchsia-600
-  `,
+  secondary:
+    "bg-transparent border border-primary-200 dark:border-primary-700 text-primary-900 dark:text-white hover:bg-primary-50 dark:hover:bg-primary-800 focus:ring-primary-500",
+
+  ghost:
+    "bg-transparent text-primary-600 dark:text-primary-300 hover:bg-primary-50 dark:hover:bg-primary-800 hover:text-primary-900 dark:hover:text-white focus:ring-primary-500",
+
+  accent:
+    "bg-accent text-white hover:bg-accent-dark focus:ring-accent shadow-sm",
 };
 
-const finalClass = `${baseClasses} ${variantClasses[variant]}`;
+const finalClass = `${baseClasses} ${sizeClasses[size]} ${variantClasses[variant]}`;
 ---
 
 <a href={link} class={finalClass}>
-  <span
-    class={variant === "secondary"
-      ? "bg-gradient-to-r from-fuchsia-600 via-indigo-600 to-purple-600 bg-[length:300%_300%] animate-gradient bg-clip-text text-transparent z-10 relative"
-      : "z-10 relative"}
-  >
-    {text}
-  </span>
+  <span class="relative">{text}</span>
 </a>

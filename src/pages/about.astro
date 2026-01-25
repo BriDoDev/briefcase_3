@@ -4,189 +4,281 @@ import Layout from "../layouts/main.astro";
 import { Icon } from "astro-icon/components";
 ---
 
-<link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-/>
-
 <Layout title="Sobre mí">
-  <div class="px-8 md:px-12 py-20 max-w-7xl mx-auto space-y-24">
-    <section class="w-full flex flex-col justify-center items-center gap-10">
-      <div class="text-center flex flex-col gap-6 max-w-3xl">
-        <h1
-          class="text-4xl md:text-5xl font-extrabold text-xiketic leading-tight"
-        >
-          Hola, soy Brian Domínguez 👋
-        </h1>
-        <p class="text-lg text-gray-700 leading-relaxed">
-          Más allá de mi rol profesional, encuentro una gran satisfacción en
-          <strong class="text-xiketic font-semibold">compartir lo que sé</strong
-          > sobre tecnología y desarrollo. Mi filosofía es simple: el conocimiento
-          es más valioso cuando se pone en práctica y se comparte con otros.
-        </p>
+  <div class="px-6 md:px-12 py-32 max-w-5xl mx-auto space-y-24">
+    <!-- Header -->
+    <section class="text-center space-y-6">
+      <h1
+        class="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-900 dark:text-white tracking-tighter"
+      >
+        Brian Dominguez Vazquez
+      </h1>
+      <p class="text-xl md:text-2xl text-primary-500 dark:text-primary-400">
+        Product Design Strategist
+      </p>
+    </section>
+
+    <!-- Value Proposition -->
+    <section class="space-y-8">
+      <div class="divider"></div>
+
+      <div class="grid md:grid-cols-2 gap-8 md:gap-12 py-8">
+        <div class="space-y-6">
+          <h2
+            class="text-2xl md:text-3xl font-bold text-primary-900 dark:text-white tracking-tight"
+          >
+            El puente entre el Diseño y el Negocio
+          </h2>
+          <div class="space-y-4 text-primary-600 dark:text-primary-300">
+            <p>
+              Mi enfoque va más allá de la estética. Me especializo en traducir
+              objetivos de negocio en experiencias de usuario que
+              <strong class="text-primary-900 dark:text-white"
+                >generan resultados medibles</strong
+              >.
+            </p>
+            <p>
+              Con experiencia en startups y empresas enterprise, entiendo que
+              cada pixel debe justificar su existencia con datos. Ya sea
+              optimizar un funnel de conversión, reducir el churn o mejorar el
+              time-to-value de un producto SaaS.
+            </p>
+          </div>
+        </div>
+
+        <div class="space-y-6">
+          <h3 class="text-lg font-semibold text-primary-900 dark:text-white">
+            Lo que me diferencia
+          </h3>
+          <ul class="space-y-5">
+            <li class="flex items-start gap-3">
+              <div
+                class="w-5 h-5 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0 mt-0.5"
+              >
+                <svg
+                  class="w-3 h-3 text-accent"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="3"
+                    d="M5 13l4 4L19 7"></path>
+                </svg>
+              </div>
+              <div class="text-primary-600 dark:text-primary-300 text-sm sm:text-base">
+                <strong class="text-primary-900 dark:text-white block sm:inline"
+                  >Dominio técnico:</strong
+                >
+                <span class="block sm:inline">
+                  Hablo el idioma de tus desarrolladores. Puedo leer código,
+                  entender limitaciones técnicas y diseñar soluciones
+                  implementables.
+                </span>
+              </div>
+            </li>
+            <li class="flex items-start gap-3">
+              <div
+                class="w-5 h-5 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0 mt-0.5"
+              >
+                <svg
+                  class="w-3 h-3 text-accent"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="3"
+                    d="M5 13l4 4L19 7"></path>
+                </svg>
+              </div>
+              <div class="text-primary-600 dark:text-primary-300 text-sm sm:text-base">
+                <strong class="text-primary-900 dark:text-white block sm:inline"
+                  >Mentalidad de negocio:</strong
+                >
+                <span class="block sm:inline">
+                  Entiendo las métricas que importan a tus inversores: CAC, LTV,
+                  Churn Rate, NPS.
+                </span>
+              </div>
+            </li>
+            <li class="flex items-start gap-3">
+              <div
+                class="w-5 h-5 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0 mt-0.5"
+              >
+                <svg
+                  class="w-3 h-3 text-accent"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="3"
+                    d="M5 13l4 4L19 7"></path>
+                </svg>
+              </div>
+              <div class="text-primary-600 dark:text-primary-300 text-sm sm:text-base">
+                <strong class="text-primary-900 dark:text-white block sm:inline"
+                  >Entrega pragmática:</strong
+                >
+                <span class="block sm:inline">
+                  No entrego solo mockups bonitos. Entrego sistemas escalables y
+                  documentación técnica lista para desarrollo.
+                </span>
+              </div>
+            </li>
+          </ul>
+        </div>
       </div>
 
-      <div
-        class="w-full flex flex-col md:flex-row justify-center items-center gap-3 md:gap-6 mt-2"
+      <div class="divider"></div>
+    </section>
+
+    <!-- Experience -->
+    <section class="space-y-8">
+      <h2
+        class="text-2xl md:text-3xl font-bold text-primary-900 dark:text-white tracking-tight"
       >
-        <Button
-          variant="primary"
-          text="Ver mi contenido"
-          link="https://www.youtube.com/@bridodev"
-        />
-        <Button
-          variant="secondary"
-          text="Contacto Profesional"
-          link="mailto:contacto@brian-dominguez.dev"
-        />
+        Experiencia
+      </h2>
+
+      <div class="grid gap-6">
+        <div class="card space-y-3">
+          <div class="flex justify-between items-start flex-wrap gap-2">
+            <div>
+              <h3 class="font-semibold text-primary-900 dark:text-white">
+                Product Design Lead
+              </h3>
+              <p class="text-sm text-primary-500 dark:text-primary-400">
+                Empresas SaaS B2B
+              </p>
+            </div>
+            <span class="badge">4+ años</span>
+          </div>
+          <p class="text-primary-600 dark:text-primary-300 text-sm">
+            Liderazgo de iniciativas de diseño estratégico, desde auditorías de
+            UX hasta la implementación de sistemas de diseño completos.
+            Colaboración directa con equipos de producto, ingeniería y C-level.
+          </p>
+        </div>
+
+        <div class="card space-y-3">
+          <div class="flex justify-between items-start flex-wrap gap-2">
+            <div>
+              <h3 class="font-semibold text-primary-900 dark:text-white">
+                Frontend Developer
+              </h3>
+              <p class="text-sm text-primary-500 dark:text-primary-400">
+                Stack: React, TypeScript, TailwindCSS, Astro
+              </p>
+            </div>
+            <span class="badge">Técnico</span>
+          </div>
+          <p class="text-primary-600 dark:text-primary-300 text-sm">
+            Capacidad de implementar diseños en código real. Esto permite una
+            comunicación más efectiva con equipos de desarrollo y entregas más
+            precisas.
+          </p>
+        </div>
       </div>
     </section>
 
-    <section
-      class="w-full flex flex-col items-center gap-12 text-center border-t border-gray-200 pt-16"
-    >
-      <div class="max-w-3xl space-y-6">
-        <h2 class="text-3xl md:text-4xl font-bold text-xiketic">
-          Crear para Compartir
+    <!-- Tech Stack -->
+    <section class="space-y-8">
+      <h2
+        class="text-2xl md:text-3xl font-bold text-primary-900 dark:text-white tracking-tight"
+      >
+        Stack & Herramientas
+      </h2>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="card text-center space-y-2">
+          <span class="text-2xl">🎨</span>
+          <p class="font-medium text-primary-900 dark:text-white text-sm">
+            Figma
+          </p>
+          <p class="text-xs text-primary-500 dark:text-primary-400">
+            Design & Prototyping
+          </p>
+        </div>
+        <div class="card text-center space-y-2">
+          <span class="text-2xl">⚛️</span>
+          <p class="font-medium text-primary-900 dark:text-white text-sm">
+            React
+          </p>
+          <p class="text-xs text-primary-500 dark:text-primary-400">Frontend</p>
+        </div>
+        <div class="card text-center space-y-2">
+          <span class="text-2xl">📊</span>
+          <p class="font-medium text-primary-900 dark:text-white text-sm">
+            Analytics
+          </p>
+          <p class="text-xs text-primary-500 dark:text-primary-400">
+            Data-Driven
+          </p>
+        </div>
+        <div class="card text-center space-y-2">
+          <span class="text-2xl">🔧</span>
+          <p class="font-medium text-primary-900 dark:text-white text-sm">
+            Dev Handoff
+          </p>
+          <p class="text-xs text-primary-500 dark:text-primary-400">
+            Specs & Documentation
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="space-y-8">
+      <div class="divider"></div>
+
+      <div class="text-center space-y-6 py-8">
+        <h2
+          class="text-2xl md:text-3xl font-bold text-primary-900 dark:text-white tracking-tight"
+        >
+          ¿Trabajamos juntos?
         </h2>
-        <p class="text-base text-gray-700 leading-relaxed">
-          Esta filosofía la aplico a través de proyectos personales que
-          disfruto, moviéndome principalmente en dos áreas que se complementan:
+        <p class="text-primary-500 dark:text-primary-400 max-w-xl mx-auto">
+          Si estás buscando mejorar la conversión de tu producto SaaS o
+          necesitas un sistema de diseño escalable, hablemos.
         </p>
-        <p class="text-base text-gray-700 leading-relaxed">
-          Por un lado, el
-          <strong class="text-pink font-bold"
-            >diseño de interfaces (UI/UX)</strong
-          >, donde construyo experiencias digitales intuitivas y funcionales con
-          herramientas como React, Astro y TailwindCSS. Por otro, exploro el
-          <strong class="text-pink font-bold">desarrollo de videojuegos</strong
-          >, un campo fascinante donde la lógica del código se encuentra con la
-          creatividad del storytelling.
-        </p>
-        <p class="text-base text-gray-700 leading-relaxed">
-          En ambos casos, mi objetivo con los <strong class="text-xiketic"
-            >videos que creo</strong
-          > sobre estos temas es simple: <strong class="text-xiketic"
-            >ser de ayuda para quien esté aprendiendo</strong
-          >, desglosando conceptos y documentando mis propios procesos de
-          descubrimiento.
-        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center pt-4">
+          <Button
+            variant="primary"
+            size="large"
+            text="Agendar Consulta"
+            link="https://wa.me/5215580858318"
+          />
+          <Button
+            variant="secondary"
+            text="contacto@brian-dominguez.dev"
+            link="mailto:contacto@brian-dominguez.dev"
+          />
+        </div>
       </div>
 
-      <div class="flex flex-wrap gap-4 justify-center items-center">
-        <a
-          href="https://www.youtube.com/@bridodev"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="w-10 h-10 rounded-full bg-gray-100 dark:bg-neutral-800 flex items-center justify-center hover:scale-105 transition"
-          title="YouTube (Dev)"
-        >
-          <Icon name="simple-icons:youtube" class="w-5 h-5 text-red-600" />
-        </a>
-        <!-- <a
-          href="https://www.youtube.com/@soy_kumma"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="w-10 h-10 rounded-full bg-gray-100 dark:bg-neutral-800 flex items-center justify-center hover:scale-105 transition"
-          title="YouTube (Gaming)"
-        >
-          <Icon name="simple-icons:youtube" class="w-5 h-5 text-red-600" />
-        </a> -->
+      <!-- Social Links -->
+      <div class="flex justify-center gap-4">
         <a
           href="https://www.linkedin.com/in/bridodev/"
           target="_blank"
           rel="noopener noreferrer"
-          class="w-10 h-10 rounded-full bg-gray-100 dark:bg-neutral-800 flex items-center justify-center hover:scale-105 transition"
+          class="w-10 h-10 rounded-lg bg-primary-100 dark:bg-primary-800 flex items-center justify-center hover:bg-primary-200 dark:hover:bg-primary-700 transition-colors"
           title="LinkedIn"
         >
-          <Icon name="simple-icons:linkedin" class="w-5 h-5 text-blue-700" />
-        </a>
-        <a
-          href="https://www.twitch.tv/soy_kumma"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="w-10 h-10 rounded-full bg-gray-100 dark:bg-neutral-800 flex items-center justify-center hover:scale-105 transition"
-          title="Twitch"
-        >
-          <Icon name="simple-icons:twitch" class="w-5 h-5 text-purple-600" />
-        </a>
-        <a
-          href="https://www.tiktok.com/@briandv198"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="w-10 h-10 rounded-full bg-gray-100 dark:bg-neutral-800 flex items-center justify-center hover:scale-105 transition"
-          title="TikTok (Dev)"
-        >
           <Icon
-            name="simple-icons:tiktok"
-            class="w-5 h-5 text-black dark:text-white"
+            name="simple-icons:linkedin"
+            class="w-5 h-5 text-primary-700 dark:text-primary-300"
           />
         </a>
-        <!-- <a
-          href="https://www.tiktok.com/@soy_kumma"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="w-10 h-10 rounded-full bg-gray-100 dark:bg-neutral-800 flex items-center justify-center hover:scale-105 transition"
-          title="TikTok (Gaming)"
-        >
-          <Icon
-            name="simple-icons:tiktok"
-            class="w-5 h-5 text-black dark:text-white"
-          />
-        </a> -->
-      </div>
-
-      <div class="w-full pt-8">
-        <h3 class="text-2xl font-bold text-xiketic mb-8">
-          Proyectos y Contenido
-        </h3>
-        <div class="swiper image-slider w-full max-w-4xl px-4">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide p-4">
-              <img
-                src="/assets/images/SD1.webp"
-                alt="Proyecto de desarrollo"
-                class="w-full aspect-video object-cover rounded-xl shadow"
-              />
-            </div>
-            <div class="swiper-slide p-4">
-              <img
-                src="/assets/images/Game1.webp"
-                alt="Contenido de videojuegos"
-                class="w-full aspect-video object-cover rounded-xl shadow"
-              />
-            </div>
-            <div class="swiper-slide p-4">
-              <img
-                src="/assets/images/SD2.webp"
-                alt="Otro proyecto de desarrollo"
-                class="w-full aspect-video object-cover rounded-xl shadow"
-              />
-            </div>
-            <div class="swiper-slide p-4">
-              <img
-                src="/assets/images/Game3.webp"
-                alt="Otro contenido de videojuegos"
-                class="w-full aspect-video object-cover rounded-xl shadow"
-              />
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   </div>
 </Layout>
-
-<script type="module">
-  import Swiper from "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs";
-
-  new Swiper(".image-slider", {
-    loop: true,
-    slidesPerView: 1,
-    spaceBetween: 24,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false,
-    },
-  });
-</script>

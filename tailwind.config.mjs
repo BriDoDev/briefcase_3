@@ -5,30 +5,48 @@ export default {
   theme: {
     extend: {
       keyframes: {
-        shake: {
-          "0%, 100%": { transform: "translateX(0)" },
-          "25%": { transform: "translateX(-5px)" },
-          "75%": { transform: "translateX(5px)" },
-        },
-        gradient: {
-          "0%, 100%": {
-            backgroundPosition: "0% 50%",
-          },
-          "50%": {
-            backgroundPosition: "100% 50%",
-          },
+        shimmer: {
+          "0%": { backgroundPosition: "-200% 0" },
+          "100%": { backgroundPosition: "200% 0" },
         },
       },
       animation: {
-        shake: "shake 0.5s ease-in-out",
-        gradient: "gradient 10s ease infinite",
+        shimmer: "shimmer 8s ease-in-out infinite",
       },
       colors: {
-        aqua: "#00FFFF",
+        // Paleta High-Tech inspirada en Vercel/Linear
+        primary: {
+          50: "#f5f5f5",
+          100: "#e5e5e5",
+          200: "#d4d4d4",
+          300: "#a3a3a3",
+          400: "#737373",
+          500: "#525252",
+          600: "#404040",
+          700: "#262626",
+          800: "#171717",
+          900: "#0a0a0a",
+          950: "#030303",
+        },
+        accent: {
+          DEFAULT: "#0070f3", // Azul Vercel
+          light: "#3291ff",
+          dark: "#0050b3",
+        },
+        success: "#10b981",
+        warning: "#f59e0b",
+        error: "#ef4444",
+        // Legacy colors (deprecated)
         pink: "#FF19C2",
-        xiketic: "#170312",
-        darkpurple: "#33032F",
-        palatinate: "#531253",
+        xiketic: "#0a0a0a",
+      },
+      fontFamily: {
+        sans: ["Inter", "system-ui", "-apple-system", "sans-serif"],
+        display: ["proxima-nova", "Inter", "system-ui", "sans-serif"],
+      },
+      letterSpacing: {
+        tight: "-0.02em",
+        tighter: "-0.04em",
       },
     },
   },
