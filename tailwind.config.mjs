@@ -4,17 +4,7 @@ export default {
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
   theme: {
     extend: {
-      keyframes: {
-        shimmer: {
-          "0%": { backgroundPosition: "-200% 0" },
-          "100%": { backgroundPosition: "200% 0" },
-        },
-      },
-      animation: {
-        shimmer: "shimmer 8s ease-in-out infinite",
-      },
       colors: {
-        // Paleta High-Tech inspirada en Vercel/Linear
         primary: {
           50: "#f5f5f5",
           100: "#e5e5e5",
@@ -29,16 +19,13 @@ export default {
           950: "#030303",
         },
         accent: {
-          DEFAULT: "#0070f3", // Azul Vercel
-          light: "#3291ff",
-          dark: "#0050b3",
+          DEFAULT: "#2563eb",
+          light: "#3b82f6",
+          dark: "#1d4ed8",
         },
         success: "#10b981",
         warning: "#f59e0b",
         error: "#ef4444",
-        // Legacy colors (deprecated)
-        pink: "#FF19C2",
-        xiketic: "#0a0a0a",
       },
       fontFamily: {
         sans: ["Inter", "system-ui", "-apple-system", "sans-serif"],

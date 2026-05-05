@@ -10,7 +10,7 @@
   box-sizing: border-box !important;
 }
 
-/* Typography - High-Tech Minimalist */
+/* Typography - Flat Design */
 h1,
 h2,
 h3 {
@@ -32,7 +32,7 @@ p {
   line-height: 1.7;
 }
 
-/* Hero Container - Cleaner, more professional */
+/* Hero Container */
 .image-hero__container {
   @apply relative w-full flex flex-col justify-center items-center bg-white dark:bg-primary-950;
 }
@@ -85,46 +85,37 @@ p {
     linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
 }
 
-/* Gradient text utility */
-.gradient-text {
-  @apply bg-clip-text text-transparent bg-gradient-to-r from-accent to-accent-light;
+/* Accent text utility */
+.accent-text {
+  @apply text-accent;
 }
 
-/* Card styling */
+/* Card styling - flat */
 .card {
-  @apply bg-white dark:bg-primary-900 border border-primary-100 dark:border-primary-800 rounded-xl p-6 transition-all duration-200;
+  @apply bg-white dark:bg-primary-900 border border-primary-100 dark:border-primary-800 rounded-lg p-6 transition-colors duration-200;
 }
 
 .card:hover {
-  @apply border-primary-200 dark:border-primary-700 shadow-lg;
+  @apply border-accent dark:border-accent;
 }
 
 /* Badge styling */
 .badge {
-  @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-primary-100 dark:bg-primary-800 text-primary-700 dark:text-primary-300;
+  @apply inline-flex items-center px-3 py-1 rounded-md text-xs font-medium bg-primary-100 dark:bg-primary-800 text-primary-700 dark:text-primary-300;
 }
 
 .badge-accent {
-  @apply bg-accent/10 text-accent;
+  @apply bg-accent text-white;
 }
 
-/* Divider */
+/* Divider - flat solid */
 .divider {
-  @apply w-full h-px bg-gradient-to-r from-transparent via-primary-200 dark:via-primary-700 to-transparent;
+  @apply w-full border-t border-primary-200 dark:border-primary-700;
 }
 
-/* Service card hover effect */
+/* Service card hover - flat */
 .service-card {
-  @apply relative overflow-hidden;
-}
-
-.service-card::before {
-  content: "";
-  @apply absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 transition-opacity duration-300;
-}
-
-.service-card:hover::before {
-  @apply opacity-100;
+  @apply relative overflow-hidden transition-colors duration-200;
 }
 
 /* Smooth transitions */

@@ -2,9 +2,9 @@
 import FloatingContact from "../components/FloatingContact.astro";
 import Footer from "../components/footer.astro";
 import Header from "../components/header.astro";
-import SquareLines from "../components/square-lines.astro";
 import { SEO } from "astro-seo";
 import "aos/dist/aos.css";
+import "../assets/css/main.css";
 
 const { title = "", lang = "es" } = Astro.props;
 
@@ -57,9 +57,6 @@ const makeTitle = title
       rel="stylesheet"
     />
 
-    <!-- Estilos globales -->
-    <script src="../assets/css/main.css"></script>
-
     <!-- Modo oscuro (evita parpadeo inicial) -->
     <script is:inline>
       if (typeof Storage !== "undefined") {
@@ -92,8 +89,6 @@ const makeTitle = title
     <Footer />
     <FloatingContact />
 
-    <!-- JS global -->
-    <script src="../assets/js/main.js"></script>
     <script src="../assets/js/aos-init.js"></script>
   </body>
 </html>
