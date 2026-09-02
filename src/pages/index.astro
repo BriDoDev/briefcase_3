@@ -1,323 +1,142 @@
 ---
-import Button from "../components/button.astro";
-import projects from "../collections/projects.json";
+import portfolio from "../collections/projects.json";
+import services from "../collections/services.json";
+import work from "../collections/work.json";
+import Media from "../components/media.astro";
+import ProjectCard from "../components/project-card.astro";
+import WorkCard from "../components/work-card.astro";
 import Layout from "../layouts/main.astro";
-import Slider from "../components/home/slider.astro";
+
+const stats = [
+	{ value: "5+ años", label: "construyendo software en producción" },
+	{ value: "FinTech", label: "pagos, 2FA, biometría y KYC" },
+	{ value: "80%", label: "menos tiempo en un proceso de facturación" },
+	{
+		value: "Web, iOS y Android",
+		label: "publicado en App Store y Google Play",
+	},
+];
+
+const socials = [
+	{ name: "YouTube", url: "#" },
+	{ name: "TikTok", url: "#" },
+	{ name: "Instagram", url: "#" },
+	{ name: "LinkedIn", url: "https://www.linkedin.com/in/bridodev/" },
+	{ name: "GitHub", url: "https://github.com/bridodev" },
+];
 ---
 
-<Layout title="Brian Dominguez Vazquez">
-  <!-- Hero Section -->
-  <section
-    class="relative min-h-screen flex flex-col justify-center items-center px-6 md:px-12 py-32 grid-pattern"
-  >
-
-    <div class="relative z-10 max-w-4xl mx-auto text-center space-y-8">
-      <!-- Badge -->
-      <div class="inline-flex items-center gap-2 badge-accent">
-        <span>Disponible para proyectos Q1 2026</span>
-      </div>
-
-      <!-- Name -->
-      <h1
-        class="text-4xl md:text-6xl lg:text-7xl font-bold text-primary-900 dark:text-white tracking-tighter"
-      >
-        Brian Dominguez Vazquez
-      </h1>
-
-      <!-- Title -->
-      <h2
-        class="text-2xl md:text-3xl lg:text-4xl font-semibold text-accent tracking-tight"
-      >
-        Product Design Strategist
-      </h2>
-
-      <!-- Tagline -->
-      <p
-        class="text-lg md:text-xl text-primary-600 dark:text-primary-300 max-w-2xl mx-auto leading-relaxed"
-      >
-        Transformando interfaces complejas en
-        <strong class="text-primary-900 dark:text-white font-semibold"
-          >resultados de negocio medibles</strong
-        >
-        para SaaS y Enterprise.
-      </p>
-
-      <!-- CTAs -->
-      <div
-        class="flex flex-col sm:flex-row gap-4 justify-center items-center pt-4"
-      >
-        <Button
-          variant="primary"
-          size="large"
-          text="Ver Estudios de Caso (ROI)"
-          link="#proyectos"
-        />
-        <Button
-          variant="secondary"
-          size="large"
-          text="Agendar Llamada"
-          link="https://wa.me/5215580858318"
-        />
-      </div>
-
-      <!-- Trust indicators -->
-      <div class="pt-12 flex flex-col items-center gap-4">
-        <p class="text-sm text-primary-400 dark:text-primary-500 uppercase tracking-wider">
-          Experiencia en
+<Layout>
+  <!-- Hero -->
+  <section class="px-4 pt-6 sm:px-6">
+    <div
+      class="grid max-w-6xl gap-10 p-10 mx-auto text-white md:p-14 bg-ink-deep rounded-lg lg:grid-cols-[1.15fr_1fr] lg:items-center"
+    >
+      <div class="flex flex-col gap-5">
+        <span class="text-xs tracking-[0.12em] uppercase text-white/60">
+          Brian Domínguez · Ingeniero de software · CDMX
+        </span>
+        <h1 class="text-5xl font-semibold tracking-tighter md:text-6xl">
+          Digitalizo negocios
+        </h1>
+        <p class="max-w-xl text-lg text-white/75">
+          Llevo más de cinco años construyendo software en producción: apps de
+          cliente, portales, back offices y aplicaciones móviles. Encuentro el
+          proceso manual que está frenando un negocio y construyo la
+          herramienta que lo resuelve.
         </p>
-        <div class="flex flex-wrap justify-center gap-6 text-primary-400 dark:text-primary-500">
-          <span class="text-sm font-medium">SaaS B2B</span>
-          <span class="text-primary-200 dark:text-primary-700">·</span>
-          <span class="text-sm font-medium">Enterprise</span>
-          <span class="text-primary-200 dark:text-primary-700">·</span>
-          <span class="text-sm font-medium">Fintech</span>
-          <span class="text-primary-200 dark:text-primary-700">·</span>
-          <span class="text-sm font-medium">E-commerce</span>
+        <div class="flex flex-col gap-3 pt-2 sm:flex-row">
+          <a href="/contacto" class="btn" style="background:#fff; color:var(--color-ink)">
+            Cuéntame tu proceso
+          </a>
+          <a href="/projects" class="btn btn-on-dark">Ver proyectos</a>
+        </div>
+        <div class="flex flex-wrap gap-5 pt-4 text-sm">
+          {
+            socials.map((social) => (
+              <a href={social.url} class="text-white/70 hover:text-white">
+                {social.name}
+              </a>
+            ))
+          }
         </div>
       </div>
-    </div>
-
-    <!-- Scroll indicator -->
-    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-      <svg
-        class="w-6 h-6 text-primary-300 dark:text-primary-600"
-        fill="none"
-        stroke="currentColor"
-        viewBox="0 0 24 24"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-      </svg>
+      <div class="h-64 overflow-hidden lg:h-96 rounded-md">
+        <Media src="/assets/images/profile.jpg" alt="Brian Domínguez" />
+      </div>
     </div>
   </section>
 
-  <!-- About Section -->
-  <section class="py-24 px-6 md:px-12 border-y border-primary-100 dark:border-primary-800">
-    <div class="max-w-5xl mx-auto">
-      <div class="grid md:grid-cols-2 gap-12 items-center">
-        <div class="space-y-6">
-          <h2
-            class="text-3xl md:text-4xl font-bold text-primary-900 dark:text-white tracking-tight"
-          >
-            El puente entre el Diseño y el Negocio
+  <!-- Métricas -->
+  <section class="px-4 py-12 sm:px-6">
+    <div class="grid max-w-6xl gap-4 mx-auto sm:grid-cols-2 lg:grid-cols-4">
+      {
+        stats.map((stat) => (
+          <div class="flex flex-col gap-1 p-7 bg-surface rounded-md">
+            <span class="text-2xl font-semibold tracking-tight text-ink">
+              {stat.value}
+            </span>
+            <span class="text-sm text-muted">{stat.label}</span>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <!-- Servicios -->
+  <section class="px-4 py-12 sm:px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="flex flex-col gap-4 mb-8 md:flex-row md:items-end md:justify-between">
+        <div class="flex flex-col gap-2 max-w-2xl">
+          <h2 class="text-4xl font-semibold tracking-tighter text-ink">
+            Qué puedo construir
           </h2>
-          <div class="space-y-4 text-primary-600 dark:text-primary-300">
-            <p>
-              No entrego solo pantallas bonitas. Entrego
-              <strong class="text-primary-900 dark:text-white"
-                >sistemas de diseño escalables</strong
-              >
-              y flujos de usuario optimizados para la conversión.
-            </p>
-            <p>
-              Hablo el idioma de tus desarrolladores —puedo leer código,
-              entender limitaciones técnicas y diseñar con
-              <strong class="text-accent">feasibility</strong> en mente— y
-              entiendo las métricas que importan a tus inversores: CAC, LTV,
-              Churn Rate y NPS.
-            </p>
-            <p>
-              Con más de 4 años de experiencia en productos digitales, he
-              trabajado con equipos de producto, ingeniería y C-level para
-              alinear el diseño con los objetivos de negocio.
-            </p>
-          </div>
-          <div class="flex gap-4 pt-4">
-            <Button variant="primary" text="Conocer más" link="/about" />
-            <Button
-              variant="ghost"
-              text="LinkedIn"
-              link="https://www.linkedin.com/in/bridodev/"
-            />
-          </div>
+          <p class="text-muted">
+            Lo mismo que hago para una institución financiera, a la escala de tu
+            negocio.
+          </p>
         </div>
-
-        <div class="grid grid-cols-2 gap-4">
-          <div class="card space-y-2">
-            <span class="text-3xl font-bold text-accent">4+</span>
-            <p class="text-sm text-primary-500 dark:text-primary-400">
-              Años de experiencia
-            </p>
-          </div>
-          <div class="card space-y-2">
-            <span class="text-3xl font-bold text-accent">20+</span>
-            <p class="text-sm text-primary-500 dark:text-primary-400">
-              Proyectos entregados
-            </p>
-          </div>
-          <div class="card space-y-2">
-            <span class="text-3xl font-bold text-accent">B2B</span>
-            <p class="text-sm text-primary-500 dark:text-primary-400">
-              Enfoque SaaS & Enterprise
-            </p>
-          </div>
-          <div class="card space-y-2">
-            <span class="text-3xl font-bold text-accent">ROI</span>
-            <p class="text-sm text-primary-500 dark:text-primary-400">
-              Diseño orientado a resultados
-            </p>
-          </div>
-        </div>
+        <a href="/servicios" class="btn btn-ghost self-start">Servicios y proceso →</a>
+      </div>
+      <div class="grid gap-4 md:grid-cols-3">
+        {
+          services.map((service) => (
+            <div class="flex flex-col gap-3 p-8 bg-surface rounded-md">
+              <span class="kicker">{service.kicker}</span>
+              <h3 class="text-xl font-semibold tracking-tight text-ink">
+                {service.title}
+              </h3>
+              <p class="text-sm text-muted">{service.description}</p>
+            </div>
+          ))
+        }
       </div>
     </div>
   </section>
 
-  <!-- Services Section -->
-  <section class="py-24 px-6 md:px-12">
-    <div class="max-w-5xl mx-auto">
-      <div class="text-center space-y-4 mb-16">
-        <h2
-          class="text-3xl md:text-4xl font-bold text-primary-900 dark:text-white tracking-tight"
-        >
-          Servicios Estratégicos
-        </h2>
-        <p class="text-lg text-primary-500 dark:text-primary-400 max-w-2xl mx-auto">
-          Soluciones de diseño enfocadas en generar impacto medible en tu
-          negocio.
-        </p>
+  <!-- Proyectos -->
+  <section class="px-4 py-12 pb-20 sm:px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="flex flex-col gap-4 mb-8 md:flex-row md:items-end md:justify-between">
+        <div class="flex flex-col max-w-2xl gap-2">
+          <h2 class="text-4xl font-semibold tracking-tighter text-ink">
+            Lo que ya construí
+          </h2>
+          <p class="text-muted">
+            Trabajo publicado que puedes abrir, y el software en producción que
+            vive detrás de un login.
+          </p>
+        </div>
+        <a href="/projects" class="self-start btn btn-ghost">Ver todos los proyectos →</a>
       </div>
 
-      <div class="grid md:grid-cols-3 gap-6">
-        <!-- Service 1 -->
-        <div class="card service-card space-y-4">
-          <div
-            class="w-12 h-12 border-2 border-accent flex items-center justify-center"
-          >
-            <svg
-              class="w-6 h-6 text-accent"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
-              ></path>
-            </svg>
-          </div>
-          <h3 class="text-xl font-semibold text-primary-900 dark:text-white">
-            Auditoría de UX & CRO
-          </h3>
-          <p class="text-primary-500 dark:text-primary-400 text-sm">
-            Análisis profundo de tu producto para identificar fricciones y
-            oportunidades de optimización de conversión. Entregables
-            accionables con métricas de impacto esperado.
-          </p>
-          <div class="flex flex-wrap gap-2 pt-2">
-            <span class="badge">Conversion Rate</span>
-            <span class="badge">User Research</span>
-          </div>
-        </div>
-
-        <!-- Service 2 -->
-        <div class="card service-card space-y-4">
-          <div
-            class="w-12 h-12 border-2 border-accent flex items-center justify-center"
-          >
-            <svg
-              class="w-6 h-6 text-accent"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"
-              ></path>
-            </svg>
-          </div>
-          <h3 class="text-xl font-semibold text-primary-900 dark:text-white">
-            Sistemas de Diseño Escalables
-          </h3>
-          <p class="text-primary-500 dark:text-primary-400 text-sm">
-            Creación e implementación de Design Systems que aceleran el
-            desarrollo, garantizan consistencia y reducen deuda técnica de UI.
-          </p>
-          <div class="flex flex-wrap gap-2 pt-2">
-            <span class="badge">Figma</span>
-            <span class="badge">Tokens</span>
-            <span class="badge">Documentación</span>
-          </div>
-        </div>
-
-        <!-- Service 3 -->
-        <div class="card service-card space-y-4">
-          <div
-            class="w-12 h-12 border-2 border-accent flex items-center justify-center"
-          >
-            <svg
-              class="w-6 h-6 text-accent"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-            </svg>
-          </div>
-          <h3 class="text-xl font-semibold text-primary-900 dark:text-white">
-            Product Strategy & Prototipado
-          </h3>
-          <p class="text-primary-500 dark:text-primary-400 text-sm">
-            Desde la ideación hasta prototipos de alta fidelidad. Validación
-            rápida de hipótesis con usuarios reales antes de invertir en
-            desarrollo.
-          </p>
-          <div class="flex flex-wrap gap-2 pt-2">
-            <span class="badge">Discovery</span>
-            <span class="badge">Prototyping</span>
-            <span class="badge">Testing</span>
-          </div>
-        </div>
+      <div class="grid gap-4 md:grid-cols-3">
+        {portfolio.slice(0, 3).map((project) => <ProjectCard project={project} />)}
       </div>
-    </div>
-  </section>
 
-  <!-- Projects Section -->
-  <section id="proyectos" class="py-24 px-6 md:px-12 overflow-hidden">
-    <Slider
-      title="Estudios de Caso"
-      items={projects}
-      bgId="background-blur-projects"
-      type="projects"
-    />
-  </section>
-
-  <!-- CTA Section -->
-  <section class="py-24 px-6 md:px-12">
-    <div class="max-w-3xl mx-auto text-center space-y-8">
-      <h2
-        class="text-3xl md:text-4xl font-bold text-primary-900 dark:text-white tracking-tight"
-      >
-        ¿Listo para optimizar tu producto?
-      </h2>
-      <p class="text-lg text-primary-500 dark:text-primary-400">
-        Hablemos de cómo reducir tu Churn Rate o mejorar tu Conversión. Sin
-        compromiso, solo estrategia.
-      </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <Button
-          variant="primary"
-          size="large"
-          text="Agendar Consulta"
-          link="https://wa.me/5215580858318"
-        />
-        <Button
-          variant="secondary"
-          size="large"
-          text="contacto@brian-dominguez.dev"
-          link="mailto:contacto@brian-dominguez.dev"
-        />
+      <h3 class="mt-10 mb-4 kicker">Software en producción</h3>
+      <div class="grid gap-4 md:grid-cols-3">
+        {work.slice(0, 3).map((item) => <WorkCard item={item} />)}
       </div>
     </div>
   </section>

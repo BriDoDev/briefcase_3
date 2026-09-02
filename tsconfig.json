@@ -1,7 +1,7 @@
 {
 	"extends": "astro/tsconfigs/base",
-	  "compilerOptions": {
-    "allowSyntheticDefaultImports": true,
-    "esModuleInterop": true
-  }
+	"compilerOptions": {
+		"allowSyntheticDefaultImports": true,
+		"esModuleInterop": true
+	}
 }

@@ -6,6 +6,6 @@ import astroIcon from "astro-icon";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://brian-dominguez.dev",
-  integrations: [tailwind(), astroIcon()],
+	site: "https://brian-dominguez.dev",
+	integrations: [tailwind(), astroIcon()],
 });

@@ -1,0 +1,22 @@
+[
+	{
+		"step": "01",
+		"title": "Escuchar",
+		"description": "Me cuentas qué haces a mano y cuánto tiempo te cuesta. Si hace falta, voy a verlo."
+	},
+	{
+		"step": "02",
+		"title": "Acordar",
+		"description": "Alcance, tiempo y precio por escrito antes de escribir una línea de código."
+	},
+	{
+		"step": "03",
+		"title": "Construir",
+		"description": "Avances que puedes usar desde la primera semana, no una entrega única al final."
+	},
+	{
+		"step": "04",
+		"title": "Entregar y probar",
+		"description": "Lo probamos con tu operación real, capacito a quien lo va a usar y queda soporte."
+	}
+]

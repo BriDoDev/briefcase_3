@@ -1,0 +1,38 @@
+[
+	{
+		"kicker": "FinTech · nov 2025 – actualidad",
+		"title": "App de cliente con pasarela de pagos",
+		"description": "Mercado Pago con tokenización de tarjetas, 3D Secure y comprobantes en PDF; métodos alternos en BBVA, PayCash, PuntoRed y GestoPago. Doble factor, biometría, control de sesiones y validación de CURP/RFC.",
+		"stack": ["React", "Redux Toolkit", "Tailwind"]
+	},
+	{
+		"kicker": "Portal público",
+		"title": "Sitio corporativo desde cero",
+		"description": "Landing, micrositios de producto, formularios de contacto y localizador de sucursales con Google Maps. Optimización de Lighthouse, imágenes WebP y SEO, consumiendo el CMS propio.",
+		"stack": ["React", "Vite", "TypeScript"]
+	},
+	{
+		"kicker": "Back office",
+		"title": "CMS de autogestión",
+		"description": "Editor WYSIWYG, gestión de banners y FAQs, biblioteca de medios, configuración de marca, roles y permisos con auditoría, y dashboards de operación integrando Power BI.",
+		"stack": ["React", "RBAC", "Power BI"]
+	},
+	{
+		"kicker": "Móvil",
+		"title": "Apps iOS y Android",
+		"description": "Mantenimiento y evolución de las apps nativas y de su capa de comunicación con la aplicación web, con gestión de versiones y releases en App Store y Google Play.",
+		"stack": ["Swift", "Kotlin", "WebView"]
+	},
+	{
+		"kicker": "E-commerce",
+		"title": "Storefront con Medusa y Stripe",
+		"description": "Tienda en Next.js con Medusa y Stripe, localizada a español de México y con sistema de diseño documentado en Storybook.",
+		"stack": ["Next.js", "Medusa", "Stripe"]
+	},
+	{
+		"kicker": "Digitalización de procesos",
+		"title": "Facturación interna, 80% menos tiempo",
+		"description": "Optimización del proceso de facturación interno de una suite en .NET con SQL Server, y estandarización del frontend con un design system junto a diseño y QA.",
+		"stack": [".NET Core", "SQL Server", "DevExpress"]
+	}
+]

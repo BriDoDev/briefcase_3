@@ -1,0 +1,32 @@
+[
+	{
+		"kicker": "Punto de partida",
+		"title": "Diagnóstico de procesos",
+		"description": "Una visita a tu negocio para ver la operación como pasa. Sales con el cuello de botella identificado, una propuesta de qué construir primero y una estimación.",
+		"bullets": [
+			"Recorrido y entrevistas",
+			"Mapa del proceso actual",
+			"Propuesta y estimación"
+		]
+	},
+	{
+		"kicker": "Lo más común",
+		"title": "Herramienta a medida",
+		"description": "El sistema que te falta, hecho para tu operación: pedidos, inventario, citas, cotizaciones, cortes y reportes. Funciona en el teléfono del mostrador y en la computadora de la oficina.",
+		"bullets": [
+			"Diseño de la interfaz",
+			"Desarrollo y pruebas",
+			"Capacitación y soporte"
+		]
+	},
+	{
+		"kicker": "Producto completo",
+		"title": "Portal, app y móvil",
+		"description": "Sitio público, app de cliente y aplicaciones iOS/Android, con pasarela de pagos, autenticación de doble factor, biometría y verificación de identidad.",
+		"bullets": [
+			"Pagos e integraciones",
+			"Back office de autogestión",
+			"Publicación en las tiendas"
+		]
+	}
+]

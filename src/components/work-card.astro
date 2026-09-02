@@ -1,0 +1,12 @@
+---
+const { item } = Astro.props;
+---
+
+<article class="flex flex-col gap-3 p-8 bg-surface rounded-md">
+  <span class="kicker">{item.kicker}</span>
+  <h3 class="text-lg font-semibold tracking-tight text-ink">{item.title}</h3>
+  <p class="text-sm text-muted">{item.description}</p>
+  <div class="flex flex-wrap gap-2 pt-1">
+    {item.stack.map((tech) => <span class="tag tag-outline">{tech}</span>)}
+  </div>
+</article>

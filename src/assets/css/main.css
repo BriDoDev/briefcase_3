@@ -14,7 +14,7 @@
 h1,
 h2,
 h3 {
-  font-family: "proxima-nova", "Inter", system-ui, sans-serif;
+  font-family: "Archivo", "Inter", system-ui, sans-serif;
   font-weight: 600;
   font-style: normal;
   letter-spacing: -0.02em;
@@ -26,7 +26,7 @@ h1 {
 }
 
 p {
-  font-family: "proxima-nova", "Inter", system-ui, sans-serif;
+  font-family: "Archivo", "Inter", system-ui, sans-serif;
   font-weight: 400;
   font-style: normal;
   line-height: 1.7;
@@ -124,4 +124,208 @@ p {
     transition: color 0.15s ease, background-color 0.15s ease,
       border-color 0.15s ease;
   }
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   v3 brand system — primitives ported from the design canvas
+   (design/_ds/modernist-…/styles.css plus the :root overrides that the
+   .dc.html applies on top of it: pill radii on controls, 24px on cards).
+   ══════════════════════════════════════════════════════════════════════ */
+
+:root {
+  --color-bg: #f6f7f9;
+  --color-surface: #ffffff;
+  --color-text: #10151c;
+  --color-ink: #0d1520;
+  --color-ink-2: #16202e;
+  --color-accent: #1f4fd8;
+  --color-accent-100: #eef2ff;
+  --color-accent-200: #dbe4ff;
+  --color-accent-700: #16389c;
+  --color-accent-800: #122c78;
+  --color-accent-900: #0d1f52;
+  --color-mint: #7fe3c0;
+  --color-mint-100: #e6fbf3;
+  --color-mint-800: #14523f;
+  --color-divider: rgba(16, 21, 28, 0.1);
+}
+
+@layer components {
+/* — buttons — */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 1.2;
+  color: var(--color-text);
+  background: transparent;
+  border: 1px solid transparent;
+  padding: 12px 22px;
+  border-radius: 999px;
+  transition: background-color 0.15s ease, color 0.15s ease,
+    border-color 0.15s ease;
+}
+.btn-primary {
+  background: var(--color-accent);
+  color: #fff;
+}
+.btn-primary:hover {
+  background: var(--color-accent-700);
+  color: #fff;
+}
+.btn-secondary {
+  border-color: var(--color-divider);
+}
+.btn-secondary:hover {
+  background: rgba(16, 21, 28, 0.05);
+}
+.btn-ghost {
+  color: var(--color-accent-700);
+  padding-inline: 4px;
+}
+.btn-ghost:hover {
+  color: var(--color-accent);
+}
+.btn-block {
+  width: 100%;
+}
+.btn-on-dark {
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  color: #fff;
+}
+.btn-on-dark:hover {
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+}
+
+/* — surfaces — */
+.surface-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: var(--color-surface);
+  border-radius: 28px;
+  overflow: hidden;
+}
+.screen {
+  background: var(--color-bg);
+  border-radius: 40px;
+  box-shadow: 0 2px 6px rgba(16, 21, 28, 0.05),
+    0 18px 44px rgba(16, 21, 28, 0.09);
+  overflow: hidden;
+}
+
+/* — tags — */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+  padding: 4px 12px;
+  border-radius: 999px;
+}
+.tag-accent {
+  background: var(--color-accent-100);
+  color: var(--color-accent-800);
+}
+.tag-mint {
+  background: var(--color-mint-100);
+  color: var(--color-mint-800);
+}
+.tag-outline {
+  border: 1px solid var(--color-divider);
+  color: #5b6572;
+}
+
+/* — kicker — */
+.kicker {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-accent-700);
+}
+
+/* — forms — */
+.field > label {
+  display: block;
+  font-size: 13px;
+  margin-bottom: 6px;
+  color: #5b6572;
+}
+.input {
+  width: 100%;
+  min-height: 46px;
+  padding: 10px 18px;
+  font: inherit;
+  font-size: 15px;
+  color: var(--color-text);
+  caret-color: var(--color-accent);
+  background: var(--color-surface);
+  border: 1px solid var(--color-divider);
+  border-radius: 999px;
+}
+textarea.input {
+  min-height: 120px;
+  border-radius: 20px;
+  resize: vertical;
+}
+.input:hover {
+  border-color: rgba(16, 21, 28, 0.28);
+}
+.input:focus-visible {
+  border-color: var(--color-accent);
+  outline: none;
+}
+
+/* — segmented control (ES/EN, sí/no) — */
+.seg {
+  display: inline-flex;
+  overflow: hidden;
+  border: 1px solid var(--color-divider);
+  border-radius: 999px;
+}
+.seg-opt {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  font-size: 13px;
+  cursor: pointer;
+}
+.seg-opt input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+.seg-opt + .seg-opt {
+  border-left: 1px solid var(--color-divider);
+}
+.seg-opt:has(input:checked) {
+  background: var(--color-accent);
+  color: #fff;
+}
+.seg-opt:not(:has(input:checked)):hover {
+  background: rgba(16, 21, 28, 0.05);
+}
+
+/* — image placeholders (the canvas <image-slot> equivalent) — */
+.media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: #e6e9ee;
+  color: #8a93a0;
+  font-size: 13px;
+  text-align: center;
+  padding: 16px;
+}
 }

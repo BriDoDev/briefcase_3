@@ -1,0 +1,26 @@
+---
+const { project } = Astro.props;
+---
+
+<a
+  href={project.url}
+  target="_blank"
+  rel="noopener noreferrer"
+  class="transition-shadow surface-card group hover:shadow-md"
+>
+  <div class="overflow-hidden aspect-[16/10] bg-canvas">
+    <img
+      src={project.image}
+      alt={project.name}
+      loading="lazy"
+      class="object-cover w-full h-full transition-transform duration-300 group-hover:scale-[1.03]"
+    />
+  </div>
+  <div class="flex flex-col gap-2 p-7">
+    <h3 class="text-lg font-semibold tracking-tight text-ink">{project.name}</h3>
+    <p class="text-sm text-muted line-clamp-4">{project.description}</p>
+    <span class="mt-1 text-sm font-semibold text-accent-700">
+      Abrir el proyecto →
+    </span>
+  </div>
+</a>

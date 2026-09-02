@@ -1,0 +1,77 @@
+---
+import cases from "../collections/cases.json";
+import CaseCard from "../components/case-card.astro";
+import Media from "../components/media.astro";
+import Layout from "../layouts/main.astro";
+
+const featured = cases.find((item) => item.featured);
+const rest = cases.filter((item) => !item.featured);
+---
+
+<Layout title="Casos de éxito">
+  <section class="px-4 pt-6 sm:px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="flex flex-col gap-3 max-w-3xl">
+        <h1 class="text-5xl font-semibold tracking-tighter text-ink">
+          Casos de éxito
+        </h1>
+        <p class="text-lg text-muted">
+          Un negocio real por caso: diagnóstico, desarrollo y entrega,
+          documentados de principio a fin. Sin maquetas: la herramienta existe,
+          se entrega y se prueba frente al dueño.
+        </p>
+        <p class="text-muted">
+          Escucho el dolor, aíslo el cuello de botella, construyo el sistema y
+          lo probamos en vivo. Nada está maquetado. Cada caso sale completo en
+          YouTube, y en cortes para TikTok e Instagram.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  {
+    featured && (
+      <section class="px-4 py-10 sm:px-6">
+        <div class="grid max-w-6xl gap-8 p-6 mx-auto text-white md:p-8 bg-ink-deep rounded-lg lg:grid-cols-[1.4fr_1fr] lg:items-center">
+          <div class="h-72 lg:h-96 overflow-hidden rounded-md">
+            <Media label="Portada del caso destacado" src={featured.image} />
+          </div>
+          <div class="flex flex-col gap-4 lg:pr-6">
+            <span class="tag self-start" style="background:rgba(255,255,255,0.14); color:#fff">
+              {featured.number} · {featured.status}
+            </span>
+            <h2 class="text-3xl font-semibold tracking-tighter">{featured.title}</h2>
+            <p class="text-white/75">{featured.summary}</p>
+            <a
+              href={`/casos/${featured.slug}`}
+              class="btn self-start"
+              style="background:#fff; color:var(--color-ink)"
+            >
+              Ver el caso
+            </a>
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  <section class="px-4 pb-20 sm:px-6">
+    <div class="grid max-w-6xl gap-4 mx-auto md:grid-cols-3">
+      {rest.map((item) => <CaseCard item={item} />)}
+
+      <div class="flex flex-col gap-3 p-8 bg-mint-100 rounded-md">
+        <span class="text-2xl text-mint-800">→</span>
+        <h3 class="text-lg font-semibold tracking-tight text-mint-800">
+          Propón el siguiente negocio
+        </h3>
+        <p class="text-sm text-mint-800">
+          Dime qué negocio conoces y qué hacen a mano. De ahí sale el próximo
+          caso.
+        </p>
+        <a href="/contacto" class="btn btn-primary self-start mt-1">
+          Proponer un negocio
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

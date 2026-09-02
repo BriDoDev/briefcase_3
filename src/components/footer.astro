@@ -1,110 +1,58 @@
 ---
-import Logo from "../components/logo.astro";
-import { Icon } from "astro-icon/components";
+const socials = [
+	{ name: "YouTube", url: "#" },
+	{ name: "TikTok", url: "#" },
+	{ name: "Instagram", url: "#" },
+	{ name: "LinkedIn", url: "https://www.linkedin.com/in/bridodev/" },
+	{ name: "GitHub", url: "https://github.com/bridodev" },
+];
 ---
 
-<footer
-  class="text-primary-600 dark:text-primary-400 bg-primary-50 dark:bg-primary-950 border-t-2 border-primary-900 dark:border-white"
->
-  <div class="max-w-5xl mx-auto px-6 md:px-12 py-16">
-    <!-- Main footer content -->
-    <div class="grid md:grid-cols-3 gap-12 mb-12">
-      <!-- Brand -->
-      <div class="space-y-4">
-        <Logo />
-        <p class="text-sm text-primary-500 dark:text-primary-400">
-          Product Design Strategist especializado en transformar interfaces
-          complejas en resultados de negocio medibles para SaaS y Enterprise.
+<footer class="px-4 pb-6 sm:px-6">
+  <div class="max-w-6xl mx-auto p-10 md:p-14 bg-ink-deep rounded-lg text-white">
+    <div class="flex flex-col gap-10 md:flex-row md:items-end md:justify-between">
+      <div class="flex flex-col gap-4 max-w-xl">
+        <h2 class="text-3xl md:text-4xl font-semibold tracking-tighter">
+          ¿Qué haces a mano hoy?
+        </h2>
+        <p class="text-white/70">
+          Describe el proceso que te está frenando. Contesto en menos de 48
+          horas con qué construiría y qué costaría.
         </p>
+        <div class="flex flex-col sm:flex-row gap-3 pt-2">
+          <a
+            href="/contacto"
+            class="btn"
+            style="background:#fff; color:var(--color-ink)"
+          >
+            Cuéntame tu proceso
+          </a>
+          <a href="/projects" class="btn btn-on-dark">Ver proyectos</a>
+        </div>
       </div>
 
-      <!-- Quick links -->
-      <div class="space-y-4">
-        <h3 class="font-semibold text-primary-900 dark:text-white">
-          Servicios
-        </h3>
-        <ul class="space-y-2 text-sm">
-          <li>
-            <a
-              href="/#proyectos"
-              class="hover:text-primary-900 dark:hover:text-white transition-colors"
-            >
-              Auditoría de UX & CRO
-            </a>
-          </li>
-          <li>
-            <a
-              href="/#proyectos"
-              class="hover:text-primary-900 dark:hover:text-white transition-colors"
-            >
-              Sistemas de Diseño
-            </a>
-          </li>
-          <li>
-            <a
-              href="/#proyectos"
-              class="hover:text-primary-900 dark:hover:text-white transition-colors"
-            >
-              Product Strategy
-            </a>
-          </li>
-        </ul>
-      </div>
-
-      <!-- Contact -->
-      <div class="space-y-4">
-        <h3 class="font-semibold text-primary-900 dark:text-white">Contacto</h3>
-        <ul class="space-y-2 text-sm">
-          <li>
-            <a
-              href="mailto:contacto@brian-dominguez.dev"
-              class="hover:text-primary-900 dark:hover:text-white transition-colors"
-            >
-              contacto@brian-dominguez.dev
-            </a>
-          </li>
-          <li>
-            <a
-              href="https://wa.me/5215580858318"
-              class="hover:text-primary-900 dark:hover:text-white transition-colors"
-            >
-              +52 55 8085 8318
-            </a>
-          </li>
-        </ul>
-        <p class="text-xs text-primary-400 dark:text-primary-500 pt-2">
-          Hablemos de cómo reducir tu Churn Rate o mejorar tu Conversión.
-        </p>
-      </div>
-    </div>
-
-    <!-- Divider -->
-    <div class="divider"></div>
-
-    <!-- Bottom bar -->
-    <div
-      class="flex flex-col md:flex-row justify-between items-center gap-4 pt-8"
-    >
-      <p class="text-sm text-primary-500 dark:text-primary-500">
-        © {new Date().getFullYear()} Brian Dominguez Vazquez. Todos los derechos
-        reservados.
-      </p>
-
-      <!-- Social links -->
-      <div class="flex gap-3">
-        <a
-          href="https://www.linkedin.com/in/bridodev/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="w-9 h-9 rounded-lg bg-primary-100 dark:bg-primary-800 flex items-center justify-center hover:bg-primary-200 dark:hover:bg-primary-700 transition-colors"
-          title="LinkedIn"
-        >
-          <Icon
-            name="simple-icons:linkedin"
-            class="w-4 h-4 text-primary-600 dark:text-primary-400"
-          />
+      <div class="flex flex-col gap-4 text-sm">
+        <a href="mailto:contacto@brian-dominguez.dev" class="text-white/80 hover:text-white">
+          contacto@brian-dominguez.dev
         </a>
+        <a href="https://wa.me/5215580858318" class="text-white/80 hover:text-white">
+          WhatsApp · 55 8085 8318
+        </a>
+        <div class="flex flex-wrap gap-4 pt-2">
+          {
+            socials.map((social) => (
+              <a href={social.url} class="text-white/70 hover:text-white">
+                {social.name}
+              </a>
+            ))
+          }
+        </div>
       </div>
     </div>
+
+    <p class="pt-10 mt-10 border-t border-white/10 text-xs text-white/50">
+      © {new Date().getFullYear()} Brian Domínguez Vázquez · Ingeniero de
+      software · CDMX
+    </p>
   </div>
 </footer>

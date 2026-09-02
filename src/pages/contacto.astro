@@ -1,0 +1,138 @@
+---
+import Layout from "../layouts/main.astro";
+
+// Las respuestas caen en el Google Form del sitio. Se envían desde el
+// formulario propio con un POST no-cors a /formResponse, así que el diseño
+// se mantiene y no hace falta embeber el iframe.
+const FORM_ID = "1FAIpQLScyNZGMpv74FBEcg_QRNAPfZ3JnZD7vXnTAteQXd3D78el6Bw";
+const formAction = `https://docs.google.com/forms/d/e/${FORM_ID}/formResponse`;
+
+const entries = {
+	nombre: "entry.63954688",
+	negocio: "entry.1297244024",
+	correo: "entry.1025307794",
+	whatsapp: "entry.597939590",
+	proceso: "entry.398850203",
+	grabar: "entry.1599729063",
+};
+---
+
+<Layout title="Contacto">
+  <section class="px-4 py-6 sm:px-6">
+    <div class="grid max-w-6xl gap-4 mx-auto lg:grid-cols-[1fr_1.1fr]">
+      <div class="flex flex-col gap-8">
+        <div class="flex flex-col gap-3">
+          <h1 class="text-5xl font-semibold tracking-tighter text-ink">
+            Cuéntame tu proceso
+          </h1>
+          <p class="text-lg text-muted">
+            Describe qué haces a mano hoy y cuánto tiempo te cuesta. Contesto en
+            menos de 48 horas, con qué construiría y qué costaría.
+          </p>
+        </div>
+
+        <div class="flex flex-col gap-3 p-8 bg-surface rounded-md">
+          <span class="kicker">Directo</span>
+          <a href="mailto:contacto@brian-dominguez.dev">contacto@brian-dominguez.dev</a>
+          <a href="https://wa.me/5215580858318">WhatsApp · 55 8085 8318</a>
+          <a href="https://www.linkedin.com/in/bridodev/">linkedin.com/in/bridodev</a>
+        </div>
+
+        <div class="flex flex-col gap-3 p-8 bg-mint-100 rounded-md">
+          <h2 class="text-xl font-semibold tracking-tight text-mint-800">
+            ¿Puede ser un caso documentado?
+          </h2>
+          <p class="text-sm text-mint-800">
+            Si tu negocio acepta grabar el proceso, el desarrollo puede quedar
+            documentado en video. Márcalo al lado.
+          </p>
+        </div>
+      </div>
+
+      <form
+        id="contact-form"
+        class="flex flex-col gap-5 p-8 md:p-11 bg-surface rounded-md"
+        action={formAction}
+        method="POST"
+        target="gform-sink"
+      >
+        <div class="field">
+          <label for="nombre">Tu nombre</label>
+          <input class="input" id="nombre" name={entries.nombre} type="text" required />
+        </div>
+        <div class="field">
+          <label for="negocio">Negocio y giro</label>
+          <input class="input" id="negocio" name={entries.negocio} type="text" />
+        </div>
+        <div class="grid gap-5 sm:grid-cols-2">
+          <div class="field">
+            <label for="correo">Correo</label>
+            <input class="input" id="correo" name={entries.correo} type="email" required />
+          </div>
+          <div class="field">
+            <label for="whatsapp">WhatsApp</label>
+            <input class="input" id="whatsapp" name={entries.whatsapp} type="tel" />
+          </div>
+        </div>
+        <div class="field">
+          <label for="proceso">¿Qué proceso te está frenando?</label>
+          <textarea class="input" id="proceso" name={entries.proceso} rows="5" required
+          ></textarea>
+        </div>
+        <fieldset class="flex flex-col gap-3">
+          <legend class="mb-3 text-sm text-muted">¿Aceptarías que lo grabemos?</legend>
+          <div class="seg self-start">
+            <label class="seg-opt">
+              <input type="radio" name={entries.grabar} value="Si" checked />
+              <span>Sí, adelante</span>
+            </label>
+            <label class="seg-opt">
+              <input type="radio" name={entries.grabar} value="No" />
+              <span>Prefiero que no</span>
+            </label>
+          </div>
+        </fieldset>
+
+        <div class="flex flex-wrap items-center gap-4">
+          <button type="submit" class="btn btn-primary" data-submit>Enviar</button>
+          <p class="text-sm" data-status role="status" aria-live="polite"></p>
+        </div>
+      </form>
+
+      <!-- Google Forms responde con una redirección que el navegador no puede
+           leer; el iframe absorbe esa respuesta para que la página no navegue. -->
+      <iframe name="gform-sink" title="Envío del formulario" class="hidden"></iframe>
+    </div>
+  </section>
+</Layout>
+
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("contact-form");
+    if (!form) return;
+
+    const button = form.querySelector("[data-submit]");
+    const status = form.querySelector("[data-status]");
+    let sent = false;
+
+    const sink = document.querySelector('iframe[name="gform-sink"]');
+    sink.addEventListener("load", () => {
+      // El primer load es el del iframe vacío; el segundo es la respuesta.
+      if (!sent) return;
+      status.textContent =
+        "Listo. Contesto en menos de 48 horas al correo que dejaste.";
+      status.className = "text-sm text-mint-800";
+      button.disabled = false;
+      button.textContent = "Enviar";
+      form.reset();
+      sent = false;
+    });
+
+    form.addEventListener("submit", () => {
+      sent = true;
+      button.disabled = true;
+      button.textContent = "Enviando…";
+      status.textContent = "";
+    });
+  });
+</script>

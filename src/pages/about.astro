@@ -1,284 +1,106 @@
 ---
-import Button from "../components/button.astro";
+import timeline from "../collections/timeline.json";
+import Media from "../components/media.astro";
 import Layout from "../layouts/main.astro";
-import { Icon } from "astro-icon/components";
+
+const stack = [
+	"React",
+	"TypeScript",
+	"Next.js",
+	"Astro",
+	"Tailwind",
+	"Swift",
+	"Kotlin",
+	"Node.js",
+	"Medusa",
+	".NET Core",
+	"SQL Server",
+	"Docker",
+	"Storybook",
+	"Sentry",
+];
+
+const specialties = [
+	"Pasarelas de pago",
+	"2FA y biometría",
+	"KYC",
+	"Design systems",
+	"Desarrollo asistido por IA",
+];
 ---
 
 <Layout title="Sobre mí">
-  <div class="px-6 md:px-12 py-32 max-w-5xl mx-auto space-y-24">
-    <!-- Header -->
-    <section class="text-center space-y-6">
-      <h1
-        class="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-900 dark:text-white tracking-tighter"
-      >
-        Brian Dominguez Vazquez
-      </h1>
-      <p class="text-xl md:text-2xl text-accent">
-        Product Design Strategist
-      </p>
-    </section>
-
-    <!-- Value Proposition -->
-    <section class="space-y-8">
-      <div class="divider"></div>
-
-      <div class="grid md:grid-cols-2 gap-8 md:gap-12 py-8">
-        <div class="space-y-6">
-          <h2
-            class="text-2xl md:text-3xl font-bold text-primary-900 dark:text-white tracking-tight"
-          >
-            El puente entre el Diseño y el Negocio
-          </h2>
-          <div class="space-y-4 text-primary-600 dark:text-primary-300">
-            <p>
-              Mi enfoque va más allá de la estética. Me especializo en traducir
-              objetivos de negocio en experiencias de usuario que
-              <strong class="text-primary-900 dark:text-white"
-                >generan resultados medibles</strong
-              >.
-            </p>
-            <p>
-              Con experiencia en startups y empresas enterprise, entiendo que
-              cada pixel debe justificar su existencia con datos. Ya sea
-              optimizar un funnel de conversión, reducir el churn o mejorar el
-              time-to-value de un producto SaaS.
-            </p>
-          </div>
-        </div>
-
-        <div class="space-y-6">
-          <h3 class="text-lg font-semibold text-primary-900 dark:text-white">
-            Lo que me diferencia
-          </h3>
-          <ul class="space-y-5">
-            <li class="flex items-start gap-3">
-              <div
-                class="w-5 h-5 border border-accent flex items-center justify-center flex-shrink-0 mt-0.5"
-              >
-                <svg
-                  class="w-3 h-3 text-accent"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="3"
-                    d="M5 13l4 4L19 7"></path>
-                </svg>
-              </div>
-              <div class="text-primary-600 dark:text-primary-300 text-sm sm:text-base">
-                <strong class="text-primary-900 dark:text-white block sm:inline"
-                  >Dominio técnico:</strong
-                >
-                <span class="block sm:inline">
-                  Hablo el idioma de tus desarrolladores. Puedo leer código,
-                  entender limitaciones técnicas y diseñar soluciones
-                  implementables.
-                </span>
-              </div>
-            </li>
-            <li class="flex items-start gap-3">
-              <div
-                class="w-5 h-5 border border-accent flex items-center justify-center flex-shrink-0 mt-0.5"
-              >
-                <svg
-                  class="w-3 h-3 text-accent"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="3"
-                    d="M5 13l4 4L19 7"></path>
-                </svg>
-              </div>
-              <div class="text-primary-600 dark:text-primary-300 text-sm sm:text-base">
-                <strong class="text-primary-900 dark:text-white block sm:inline"
-                  >Mentalidad de negocio:</strong
-                >
-                <span class="block sm:inline">
-                  Entiendo las métricas que importan a tus inversores: CAC, LTV,
-                  Churn Rate, NPS.
-                </span>
-              </div>
-            </li>
-            <li class="flex items-start gap-3">
-              <div
-                class="w-5 h-5 border border-accent flex items-center justify-center flex-shrink-0 mt-0.5"
-              >
-                <svg
-                  class="w-3 h-3 text-accent"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="3"
-                    d="M5 13l4 4L19 7"></path>
-                </svg>
-              </div>
-              <div class="text-primary-600 dark:text-primary-300 text-sm sm:text-base">
-                <strong class="text-primary-900 dark:text-white block sm:inline"
-                  >Entrega pragmática:</strong
-                >
-                <span class="block sm:inline">
-                  No entrego solo mockups bonitos. Entrego sistemas escalables y
-                  documentación técnica lista para desarrollo.
-                </span>
-              </div>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="divider"></div>
-    </section>
-
-    <!-- Experience -->
-    <section class="space-y-8">
-      <h2
-        class="text-2xl md:text-3xl font-bold text-primary-900 dark:text-white tracking-tight"
-      >
-        Experiencia
-      </h2>
-
-      <div class="grid gap-6">
-        <div class="card space-y-3">
-          <div class="flex justify-between items-start flex-wrap gap-2">
-            <div>
-              <h3 class="font-semibold text-primary-900 dark:text-white">
-                Product Design Lead
-              </h3>
-              <p class="text-sm text-primary-500 dark:text-primary-400">
-                Empresas SaaS B2B
-              </p>
-            </div>
-            <span class="badge">4+ años</span>
-          </div>
-          <p class="text-primary-600 dark:text-primary-300 text-sm">
-            Liderazgo de iniciativas de diseño estratégico, desde auditorías de
-            UX hasta la implementación de sistemas de diseño completos.
-            Colaboración directa con equipos de producto, ingeniería y C-level.
-          </p>
-        </div>
-
-        <div class="card space-y-3">
-          <div class="flex justify-between items-start flex-wrap gap-2">
-            <div>
-              <h3 class="font-semibold text-primary-900 dark:text-white">
-                Frontend Developer
-              </h3>
-              <p class="text-sm text-primary-500 dark:text-primary-400">
-                Stack: React, TypeScript, TailwindCSS, Astro
-              </p>
-            </div>
-            <span class="badge">Técnico</span>
-          </div>
-          <p class="text-primary-600 dark:text-primary-300 text-sm">
-            Capacidad de implementar diseños en código real. Esto permite una
-            comunicación más efectiva con equipos de desarrollo y entregas más
-            precisas.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- Tech Stack -->
-    <section class="space-y-8">
-      <h2
-        class="text-2xl md:text-3xl font-bold text-primary-900 dark:text-white tracking-tight"
-      >
-        Stack & Herramientas
-      </h2>
-
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <div class="card text-center space-y-2">
-          <span class="text-2xl">🎨</span>
-          <p class="font-medium text-primary-900 dark:text-white text-sm">
-            Figma
-          </p>
-          <p class="text-xs text-primary-500 dark:text-primary-400">
-            Design & Prototyping
-          </p>
-        </div>
-        <div class="card text-center space-y-2">
-          <span class="text-2xl">⚛️</span>
-          <p class="font-medium text-primary-900 dark:text-white text-sm">
-            React
-          </p>
-          <p class="text-xs text-primary-500 dark:text-primary-400">Frontend</p>
-        </div>
-        <div class="card text-center space-y-2">
-          <span class="text-2xl">📊</span>
-          <p class="font-medium text-primary-900 dark:text-white text-sm">
-            Analytics
-          </p>
-          <p class="text-xs text-primary-500 dark:text-primary-400">
-            Data-Driven
-          </p>
-        </div>
-        <div class="card text-center space-y-2">
-          <span class="text-2xl">🔧</span>
-          <p class="font-medium text-primary-900 dark:text-white text-sm">
-            Dev Handoff
-          </p>
-          <p class="text-xs text-primary-500 dark:text-primary-400">
-            Specs & Documentation
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="space-y-8">
-      <div class="divider"></div>
-
-      <div class="text-center space-y-6 py-8">
-        <h2
-          class="text-2xl md:text-3xl font-bold text-primary-900 dark:text-white tracking-tight"
-        >
-          ¿Trabajamos juntos?
-        </h2>
-        <p class="text-primary-500 dark:text-primary-400 max-w-xl mx-auto">
-          Si estás buscando mejorar la conversión de tu producto SaaS o
-          necesitas un sistema de diseño escalable, hablemos.
+  <section class="px-4 py-6 sm:px-6">
+    <div class="grid max-w-6xl gap-8 mx-auto lg:grid-cols-[1.2fr_1fr] lg:items-start">
+      <div class="flex flex-col gap-5">
+        <h1 class="text-5xl font-semibold tracking-tighter text-ink">
+          Brian Domínguez
+        </h1>
+        <p class="text-lg text-muted">
+          Ingeniero de software frontend con más de cinco años construyendo
+          interfaces web y aplicaciones multiplataforma con React, TypeScript y
+          wrappers nativos de iOS y Android.
         </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-          <Button
-            variant="primary"
-            size="large"
-            text="Agendar Consulta"
-            link="https://wa.me/5215580858318"
-          />
-          <Button
-            variant="secondary"
-            text="contacto@brian-dominguez.dev"
-            link="mailto:contacto@brian-dominguez.dev"
-          />
+        <p class="text-muted">
+          Hoy desarrollo el ecosistema digital completo de una institución
+          financiera: app de cliente, portal público, back office de autogestión
+          y apps móviles. Lo que más hago es digitalizar procesos: trámites que
+          eran papel, pagos que eran fila, reportes que eran hojas de cálculo.
+        </p>
+        <p class="text-muted">
+          Integro herramientas de IA —Claude, agentes y servidores MCP— en mi
+          flujo de trabajo para acelerar el desarrollo y mantener las pruebas
+          automatizadas sin bajar la calidad del código. Estudio Ingeniería en
+          Desarrollo de Software en la UVEG.
+        </p>
+        <div class="flex flex-col gap-3 pt-2 sm:flex-row">
+          <a href="/contacto" class="btn btn-primary">Cuéntame tu proceso</a>
+          <a href="/cv.pdf" class="btn btn-secondary">Descargar CV</a>
         </div>
       </div>
-
-      <!-- Social Links -->
-      <div class="flex justify-center gap-4">
-        <a
-          href="https://www.linkedin.com/in/bridodev/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="w-10 h-10 rounded-lg bg-primary-100 dark:bg-primary-800 flex items-center justify-center hover:bg-primary-200 dark:hover:bg-primary-700 transition-colors"
-          title="LinkedIn"
-        >
-          <Icon
-            name="simple-icons:linkedin"
-            class="w-5 h-5 text-primary-700 dark:text-primary-300"
-          />
-        </a>
+      <div class="h-80 overflow-hidden lg:h-[420px] rounded-lg">
+        <Media label="Retrato" />
       </div>
-    </section>
-  </div>
+    </div>
+  </section>
+
+  <section class="px-4 py-10 sm:px-6">
+    <div class="grid max-w-6xl gap-4 mx-auto md:grid-cols-2">
+      <div class="flex flex-col gap-4 p-8 bg-surface rounded-md">
+        <span class="kicker">Stack</span>
+        <div class="flex flex-wrap gap-2">
+          {stack.map((tech) => <span class="tag tag-outline">{tech}</span>)}
+        </div>
+      </div>
+      <div class="flex flex-col gap-4 p-8 bg-surface rounded-md">
+        <span class="kicker">Especialidades</span>
+        <div class="flex flex-wrap gap-2">
+          {specialties.map((item) => <span class="tag tag-accent">{item}</span>)}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="px-4 py-10 pb-20 sm:px-6">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="mb-8 text-4xl font-semibold tracking-tighter text-ink">
+        Trayectoria
+      </h2>
+      <div class="flex flex-col gap-4">
+        {
+          timeline.map((entry) => (
+            <div class="grid gap-4 p-8 bg-surface rounded-md md:grid-cols-[220px_1fr]">
+              <span class="text-sm text-muted">{entry.period}</span>
+              <div class="flex flex-col gap-2">
+                <h3 class="text-lg font-semibold tracking-tight text-ink">
+                  {entry.role}
+                </h3>
+                <p class="text-sm text-muted">{entry.description}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
 </Layout>

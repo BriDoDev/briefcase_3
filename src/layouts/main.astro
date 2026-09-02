@@ -1,8 +1,8 @@
 ---
+import { SEO } from "astro-seo";
 import FloatingContact from "../components/FloatingContact.astro";
 import Footer from "../components/footer.astro";
 import Header from "../components/header.astro";
-import { SEO } from "astro-seo";
 import "aos/dist/aos.css";
 import "../assets/css/main.css";
 
@@ -13,8 +13,8 @@ const canonicalURL = new URL(Astro.url.pathname, site).toString();
 const resolvedImageWithDomain = new URL("/meta/opengraph.png", site).toString();
 
 const makeTitle = title
-  ? `${title} | Product Design Strategist`
-  : "Brian Dominguez Vazquez – Product Design Strategist";
+	? `${title} | Brian Domínguez`
+	: "Brian Domínguez – Ingeniero de software · Digitalizo negocios";
 ---
 
 <!doctype html>
@@ -26,7 +26,7 @@ const makeTitle = title
     <!-- SEO y redes sociales -->
     <SEO
       title={makeTitle}
-      description="Product Design Strategist especializado en SaaS y Enterprise. Transformo interfaces complejas en resultados de negocio medibles: sistemas de diseño escalables, auditorías de UX y optimización de conversión."
+      description="Ingeniero de software en CDMX. Encuentro el proceso manual que está frenando tu negocio y construyo la herramienta que lo resuelve: pedidos, inventario, citas, cotizaciones, cortes y reportes."
       canonical={canonicalURL}
       openGraph={{
         basic: {
@@ -36,7 +36,7 @@ const makeTitle = title
           image: resolvedImageWithDomain,
         },
         image: {
-          alt: "Brian Dominguez Vazquez – Product Design Strategist",
+          alt: "Brian Domínguez – Ingeniero de software",
         },
       }}
     />
@@ -49,7 +49,7 @@ const makeTitle = title
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <link
@@ -80,7 +80,7 @@ const makeTitle = title
   </head>
 
   <body
-    class="bg-white dark:bg-primary-950 text-primary-900 dark:text-white h-full font-sans antialiased"
+    class="bg-canvas text-ink h-full font-sans antialiased"
   >
     <Header />
     <main class="pt-20">

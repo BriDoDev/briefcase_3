@@ -1,0 +1,63 @@
+[
+	{
+		"slug": "pedidos-en-cuaderno",
+		"number": "Caso 01",
+		"status": "Próximamente",
+		"featured": true,
+		"hasDetail": true,
+		"title": "El negocio que anota los pedidos en un cuaderno",
+		"summary": "Diagnóstico, desarrollo y prueba en vivo, de principio a fin.",
+		"meta": "Ciudad de México · 12 min · YouTube, TikTok e Instagram",
+		"pain": "Los pedidos se apuntan en un cuaderno. Al cierre nadie sabe cuánto se vendió de cada cosa, y las cuentas del día tardan una hora en cuadrar.",
+		"built": "Un registro de pedidos que corre en el teléfono del mostrador, con corte del día automático y el producto más vendido a la vista.",
+		"stack": ["React", "TypeScript", "Offline first"],
+		"clips": [
+			{ "label": "Caso completo en YouTube", "url": "#" },
+			{ "label": "El diagnóstico · TikTok", "url": "#" },
+			{ "label": "La reacción · Instagram", "url": "#" }
+		],
+		"testimonial": "Espacio reservado para la cita del dueño del negocio del caso 01, con su nombre y el del local.",
+		"image": "",
+		"video": "",
+		"before": "",
+		"after": ""
+	},
+	{
+		"slug": "tu-negocio-aqui",
+		"number": "Por grabar",
+		"status": "Por grabar",
+		"featured": false,
+		"hasDetail": false,
+		"title": "Tu negocio aquí",
+		"summary": "Cuéntame qué haces a mano hoy y podemos grabarlo.",
+		"meta": "",
+		"pain": "",
+		"built": "",
+		"stack": [],
+		"clips": [],
+		"testimonial": "",
+		"image": "",
+		"video": "",
+		"before": "",
+		"after": ""
+	},
+	{
+		"slug": "propuesta-de-la-audiencia",
+		"number": "Por grabar",
+		"status": "Por grabar",
+		"featured": false,
+		"hasDetail": false,
+		"title": "El siguiente lo propones tú",
+		"summary": "Los casos se eligen entre lo que propone la audiencia.",
+		"meta": "",
+		"pain": "",
+		"built": "",
+		"stack": [],
+		"clips": [],
+		"testimonial": "",
+		"image": "",
+		"video": "",
+		"before": "",
+		"after": ""
+	}
+]

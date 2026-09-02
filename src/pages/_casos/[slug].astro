@@ -1,0 +1,91 @@
+---
+import cases from "../../collections/cases.json";
+import Media from "../../components/media.astro";
+import Layout from "../../layouts/main.astro";
+
+export function getStaticPaths() {
+	return cases
+		.filter((item) => item.hasDetail)
+		.map((item) => ({ params: { slug: item.slug }, props: { item } }));
+}
+
+const { item } = Astro.props;
+---
+
+<Layout title={item.title}>
+  <article class="px-4 py-6 sm:px-6">
+    <div class="max-w-5xl mx-auto">
+      <header class="flex flex-col gap-4">
+        <a href="/casos" class="btn btn-ghost self-start">← Casos de éxito</a>
+        <span class="tag tag-accent self-start">{item.number}</span>
+        <h1 class="text-4xl font-semibold tracking-tighter text-ink md:text-5xl">
+          {item.title}
+        </h1>
+        <p class="text-muted">{item.meta}</p>
+      </header>
+
+      <div class="h-64 md:h-[420px] my-10 overflow-hidden rounded-lg">
+        <Media label="▶ Reproductor embebido" src={item.video} />
+      </div>
+
+      <div class="grid gap-4 md:grid-cols-2">
+        <div class="flex flex-col gap-3 p-8 bg-surface rounded-md">
+          <span class="kicker">El dolor</span>
+          <p class="text-muted">{item.pain}</p>
+        </div>
+        <div class="flex flex-col gap-3 p-8 bg-surface rounded-md">
+          <span class="kicker">Lo que construí</span>
+          <p class="text-muted">{item.built}</p>
+          <div class="flex flex-wrap gap-2 pt-1">
+            {item.stack.map((tech) => <span class="tag tag-outline">{tech}</span>)}
+          </div>
+        </div>
+      </div>
+
+      <div class="grid gap-4 mt-4 md:grid-cols-2">
+        <div class="surface-card">
+          <div class="p-6 pb-0"><span class="kicker">Antes</span></div>
+          <div class="h-56 m-6 mt-3 overflow-hidden rounded-md">
+            <Media label="Antes" src={item.before} />
+          </div>
+        </div>
+        <div class="surface-card">
+          <div class="p-6 pb-0"><span class="kicker">Después</span></div>
+          <div class="h-56 m-6 mt-3 overflow-hidden rounded-md">
+            <Media label="Después" src={item.after} />
+          </div>
+        </div>
+      </div>
+
+      <div class="grid gap-4 mt-4 md:grid-cols-2">
+        <div class="flex flex-col gap-4 p-8 bg-surface rounded-md">
+          <span class="kicker">Cortes del caso</span>
+          <div class="flex flex-col gap-3 text-sm">
+            {item.clips.map((clip) => <a href={clip.url}>{clip.label}</a>)}
+          </div>
+        </div>
+        <div class="flex flex-col gap-3 p-8 bg-surface rounded-md">
+          <span class="kicker">Testimonio</span>
+          <p class="text-muted-soft">{item.testimonial}</p>
+        </div>
+      </div>
+
+      <div
+        class="flex flex-col gap-4 p-10 mt-4 md:flex-row md:items-center md:justify-between bg-accent-100 rounded-md"
+      >
+        <div class="flex flex-col gap-2">
+          <h2 class="text-2xl font-semibold tracking-tight text-accent-900">
+            ¿Te suena tu negocio?
+          </h2>
+          <p class="text-sm text-accent-800">
+            Si tienes un proceso parecido, puedo construir la versión de tu
+            operación.
+          </p>
+        </div>
+        <a href="/contacto" class="btn btn-primary self-start shrink-0">
+          Cuéntame tu proceso
+        </a>
+      </div>
+    </div>
+  </article>
+</Layout>

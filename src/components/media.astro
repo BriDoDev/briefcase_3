@@ -1,0 +1,16 @@
+---
+const {
+	label = "Imagen",
+	src = "",
+	alt = "",
+	class: className = "",
+} = Astro.props;
+---
+
+{
+  src ? (
+    <img src={src} alt={alt || label} class:list={["w-full h-full object-cover", className]} />
+  ) : (
+    <div class:list={["media", className]}>{label}</div>
+  )
+}

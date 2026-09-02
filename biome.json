@@ -8,6 +8,9 @@
 		"clientKind": "git",
 		"useIgnoreFile": true
 	},
+	"files": {
+		"ignore": ["design/**"]
+	},
 	"linter": {
 		"enabled": true,
 		"rules": {
