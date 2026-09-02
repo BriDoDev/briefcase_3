@@ -1,5 +1,5 @@
 ---
-const { project } = Astro.props;
+const { project, label = "Abrir el proyecto →" } = Astro.props;
 ---
 
 <a
@@ -19,8 +19,6 @@ const { project } = Astro.props;
   <div class="flex flex-col gap-2 p-7">
     <h3 class="text-lg font-semibold tracking-tight text-ink">{project.name}</h3>
     <p class="text-sm text-muted line-clamp-4">{project.description}</p>
-    <span class="mt-1 text-sm font-semibold text-accent-700">
-      Abrir el proyecto →
-    </span>
+    <span class="mt-1 text-sm font-semibold text-accent-700">{label}</span>
   </div>
 </a>

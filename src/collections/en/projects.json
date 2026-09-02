@@ -1,0 +1,39 @@
+[
+	{
+		"name": "Mamás Autónomas",
+		"description": "Landing page that connects single mothers so they can build mutual support networks. It makes the first contact easier and encourages them to trade services such as childcare, rides or help around the house within a solidarity community.",
+		"image": "/assets/images/projects/mamasAutonomas.png",
+		"url": "https://mamasautonomas.com/",
+		"style": "text-white"
+	},
+	{
+		"name": "Pinwheel",
+		"description": "Presentation site for a SaaS company focused on capturing leads and explaining the product's value. It uses a clear structure, benefit sections, testimonials and a prominent call to action to convert interested visitors.",
+		"image": "/assets/images/projects/pinwheel.png",
+		"url": "https://pinwheel-bdv.netlify.app/"
+	},
+	{
+		"name": "Back Office",
+		"description": "User back office built with React, TypeScript, MUI and Tailwind CSS. It manages roles and user data with secure JWT authentication. Responsive, accessible and modern interface, focused on operational efficiency and usability.",
+		"image": "/assets/images/projects/bo.png",
+		"url": "https://bo-bdv.netlify.app/login"
+	},
+	{
+		"name": "SIMEEX",
+		"description": "Corporate website built with Astro, focused on communicating SIMEEX's services: end-to-end solutions in metalworking, steel structures and weld inspection. It implements SEO best practices, multilingual support with i18next and modern visual effects to reinforce the brand identity.",
+		"image": "/assets/images/projects/simeex.png",
+		"url": "https://simeex.com.mx/"
+	},
+	{
+		"name": "SaaS",
+		"description": "Presents a digital service with benefit, pricing and CTA sections. Focused on conversion, with a modern responsive UI. Built with React and Tailwind CSS, following UX best practices.",
+		"image": "/assets/images/projects/saas.png",
+		"url": "https://saas-bdv.netlify.app/"
+	},
+	{
+		"name": "Material UI Design System",
+		"description": "Showcase of custom components built on top of Material UI. This design system brings together tokens, theming and consistent visual patterns to speed up frontend development on a scalable, coherent base.",
+		"image": "/assets/images/projects/design-system.jpg",
+		"url": "https://www.figma.com/design/U94MGv2nJPPvYL3YnfE3cH/Design-System-Material-UI?node-id=55343-13516&t=AorVyOQR2gcMCuzx-1"
+	}
+]

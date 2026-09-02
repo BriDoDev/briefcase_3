@@ -307,8 +307,16 @@ textarea.input {
 .seg-opt + .seg-opt {
   border-left: 1px solid var(--color-divider);
 }
-.seg-opt:has(input:checked) {
+.seg-opt:has(input:checked),
+.seg-opt-active {
   background: var(--color-accent);
+  color: #fff;
+}
+a.seg-opt {
+  text-decoration: none;
+  color: var(--color-text);
+}
+a.seg-opt-active {
   color: #fff;
 }
 .seg-opt:not(:has(input:checked)):hover {

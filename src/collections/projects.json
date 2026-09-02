@@ -29,11 +29,5 @@
 		"description": "Presenta un servicio digital con secciones de beneficios, precios y CTA. Enfocada en conversión, UI moderna y responsive. Construida con React y Tailwind CSS, siguiendo buenas prácticas de UX.",
 		"image": "/assets/images/projects/saas.png",
 		"url": "https://saas-bdv.netlify.app/"
-	},
-	{
-		"name": "Material UI Design System",
-		"description": "Showcase de componentes personalizados construidos sobre Material UI. Este sistema de diseño integra tokens, theming y patrones visuales consistentes para acelerar el desarrollo frontend con una base escalable y coherente.",
-		"image": "/assets/images/projects/design-system.jpg",
-		"url": "https://www.figma.com/design/U94MGv2nJPPvYL3YnfE3cH/Design-System-Material-UI?node-id=55343-13516&t=AorVyOQR2gcMCuzx-1"
 	}
 ]

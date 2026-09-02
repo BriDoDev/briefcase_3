@@ -1,56 +1,8 @@
 ---
-import portfolio from "../collections/projects.json";
-import work from "../collections/work.json";
-import ProjectCard from "../components/project-card.astro";
-import WorkCard from "../components/work-card.astro";
+import ProjectsPage from "../components/pages/projects.astro";
 import Layout from "../layouts/main.astro";
 ---
 
-<Layout title="Proyectos">
-  <section class="px-4 pt-6 sm:px-6">
-    <div class="flex flex-col max-w-3xl gap-3 mx-auto max-w-6xl">
-      <h1 class="text-5xl font-semibold tracking-tighter text-ink">Proyectos</h1>
-      <p class="text-lg text-muted">
-        Sitios y aplicaciones que puedes abrir y recorrer, y el software en
-        producción que vive detrás de un login.
-      </p>
-    </div>
-  </section>
-
-  <!-- Portafolio: lo que se puede abrir -->
-  <section class="px-4 py-10 sm:px-6">
-    <div class="max-w-6xl mx-auto">
-      <div class="flex flex-col gap-2 mb-8 max-w-2xl">
-        <h2 class="text-4xl font-semibold tracking-tighter text-ink">
-          Portafolio
-        </h2>
-        <p class="text-muted">
-          Trabajo publicado. Cada tarjeta abre el proyecto en vivo.
-        </p>
-      </div>
-
-      <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-        {portfolio.map((project) => <ProjectCard project={project} />)}
-      </div>
-    </div>
-  </section>
-
-  <!-- Producción: lo que vive detrás de un login -->
-  <section class="px-4 py-10 pb-20 sm:px-6">
-    <div class="max-w-6xl mx-auto">
-      <div class="flex flex-col gap-2 mb-8 max-w-2xl">
-        <h2 class="text-4xl font-semibold tracking-tighter text-ink">
-          Software en producción
-        </h2>
-        <p class="text-muted">
-          No son ejercicios. La mayoría vive detrás de un login, así que aquí
-          está el alcance y las decisiones técnicas.
-        </p>
-      </div>
-
-      <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-        {work.map((item) => <WorkCard item={item} />)}
-      </div>
-    </div>
-  </section>
+<Layout title="Proyectos" page="projects">
+	<ProjectsPage />
 </Layout>

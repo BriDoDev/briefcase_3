@@ -1,4 +1,10 @@
 ---
+import { getLangFromUrl, routes, useTranslations } from "../i18n/ui";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const r = routes[lang];
+
 const socials = [
 	{ name: "YouTube", url: "#" },
 	{ name: "TikTok", url: "#" },
@@ -13,21 +19,20 @@ const socials = [
     <div class="flex flex-col gap-10 md:flex-row md:items-end md:justify-between">
       <div class="flex flex-col gap-4 max-w-xl">
         <h2 class="text-3xl md:text-4xl font-semibold tracking-tighter">
-          ¿Qué haces a mano hoy?
+          {t.footer.title}
         </h2>
         <p class="text-white/70">
-          Describe el proceso que te está frenando. Contesto en menos de 48
-          horas con qué construiría y qué costaría.
+          {t.footer.body}
         </p>
         <div class="flex flex-col sm:flex-row gap-3 pt-2">
           <a
-            href="/contacto"
+            href={r.contact}
             class="btn"
             style="background:#fff; color:var(--color-ink)"
           >
-            Cuéntame tu proceso
+            {t.nav.cta}
           </a>
-          <a href="/projects" class="btn btn-on-dark">Ver proyectos</a>
+          <a href={r.projects} class="btn btn-on-dark">{t.common.seeProjects}</a>
         </div>
       </div>
 
@@ -51,8 +56,7 @@ const socials = [
     </div>
 
     <p class="pt-10 mt-10 border-t border-white/10 text-xs text-white/50">
-      © {new Date().getFullYear()} Brian Domínguez Vázquez · Ingeniero de
-      software · CDMX
+      © {new Date().getFullYear()} Brian Domínguez Vázquez · {t.footer.rights}
     </p>
   </div>
 </footer>

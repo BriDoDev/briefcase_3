@@ -1,0 +1,32 @@
+[
+	{
+		"kicker": "Starting point",
+		"title": "Process diagnosis",
+		"description": "A visit to your business to watch the operation as it happens. You leave with the bottleneck identified, a proposal for what to build first and an estimate.",
+		"bullets": [
+			"Walkthrough and interviews",
+			"Map of the current process",
+			"Proposal and estimate"
+		]
+	},
+	{
+		"kicker": "Most common",
+		"title": "Custom tool",
+		"description": "The system you are missing, built for your operation: orders, inventory, appointments, quotes, daily closings and reports. It works on the phone at the counter and on the computer in the office.",
+		"bullets": [
+			"Interface design",
+			"Development and testing",
+			"Training and support"
+		]
+	},
+	{
+		"kicker": "Full product",
+		"title": "Portal, app and mobile",
+		"description": "Public site, customer app and iOS/Android applications, with a payment gateway, two-factor authentication, biometrics and identity verification.",
+		"bullets": [
+			"Payments and integrations",
+			"Self-service back office",
+			"Publishing to the stores"
+		]
+	}
+]

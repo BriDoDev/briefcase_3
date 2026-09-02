@@ -1,0 +1,22 @@
+[
+	{
+		"step": "01",
+		"title": "Listen",
+		"description": "You tell me what you do by hand and how much time it costs you. If it helps, I come and see it."
+	},
+	{
+		"step": "02",
+		"title": "Agree",
+		"description": "Scope, timeline and price in writing before a single line of code gets written."
+	},
+	{
+		"step": "03",
+		"title": "Build",
+		"description": "Progress you can use from the first week, not a single delivery at the very end."
+	},
+	{
+		"step": "04",
+		"title": "Ship and test",
+		"description": "We test it against your real operation, I train whoever will use it, and support stays in place."
+	}
+]

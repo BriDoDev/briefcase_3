@@ -1,6 +1,0 @@
-[
-	{ "name": "Inicio", "url": "/" },
-	{ "name": "Proyectos", "url": "/projects" },
-	{ "name": "Servicios", "url": "/servicios" },
-	{ "name": "Sobre mí", "url": "/about" }
-]

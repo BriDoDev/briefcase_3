@@ -1,0 +1,55 @@
+---
+import { getContent } from "../../i18n/content";
+import { getLangFromUrl, useTranslations } from "../../i18n/ui";
+import ProjectCard from "../project-card.astro";
+import WorkCard from "../work-card.astro";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const { portfolio, work } = getContent(lang);
+---
+
+<section class="px-4 pt-6 sm:px-6">
+	<div class="flex flex-col gap-3 mx-auto max-w-6xl">
+		<h1 class="text-5xl font-semibold tracking-tighter text-ink">
+			{t.projects.title}
+		</h1>
+		<p class="max-w-3xl text-lg text-muted">{t.projects.lead}</p>
+	</div>
+</section>
+
+<!-- Portafolio: lo que se puede abrir -->
+<section class="px-4 py-10 sm:px-6">
+	<div class="mx-auto max-w-6xl">
+		<div class="flex flex-col gap-2 mb-8 max-w-2xl">
+			<h2 class="text-4xl font-semibold tracking-tighter text-ink">
+				{t.projects.portfolioTitle}
+			</h2>
+			<p class="text-muted">{t.projects.portfolioLead}</p>
+		</div>
+
+		<div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+			{
+				portfolio.map((project) => (
+					<ProjectCard project={project} label={t.common.openProject} />
+				))
+			}
+		</div>
+	</div>
+</section>
+
+<!-- Producción: lo que vive detrás de un login -->
+<section class="px-4 py-10 pb-20 sm:px-6">
+	<div class="mx-auto max-w-6xl">
+		<div class="flex flex-col gap-2 mb-8 max-w-2xl">
+			<h2 class="text-4xl font-semibold tracking-tighter text-ink">
+				{t.projects.productionTitle}
+			</h2>
+			<p class="text-muted">{t.projects.productionLead}</p>
+		</div>
+
+		<div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+			{work.map((item) => <WorkCard item={item} />)}
+		</div>
+	</div>
+</section>

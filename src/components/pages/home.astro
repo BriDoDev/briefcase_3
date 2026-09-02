@@ -1,0 +1,131 @@
+---
+import { getContent } from "../../i18n/content";
+import { getLangFromUrl, routes, useTranslations } from "../../i18n/ui";
+import Media from "../media.astro";
+import ProjectCard from "../project-card.astro";
+import WorkCard from "../work-card.astro";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const { portfolio, work, services } = getContent(lang);
+const r = routes[lang];
+
+const socials = [
+	{ name: "YouTube", url: "#" },
+	{ name: "TikTok", url: "#" },
+	{ name: "Instagram", url: "#" },
+	{ name: "LinkedIn", url: "https://www.linkedin.com/in/bridodev/" },
+	{ name: "GitHub", url: "https://github.com/bridodev" },
+];
+---
+
+<!-- Hero -->
+<section class="px-4 pt-6 sm:px-6">
+	<div
+		class="grid gap-10 p-10 mx-auto max-w-6xl text-white md:p-14 bg-ink-deep rounded-lg lg:grid-cols-[1.15fr_1fr] lg:items-center"
+	>
+		<div class="flex flex-col gap-5">
+			<span class="text-xs tracking-[0.12em] uppercase text-white/60">
+				{t.home.kicker}
+			</span>
+			<h1 class="text-5xl font-semibold tracking-tighter md:text-6xl">
+				{t.home.title}
+			</h1>
+			<p class="max-w-xl text-lg text-white/75">{t.home.intro}</p>
+			<div class="flex flex-col gap-3 pt-2 sm:flex-row">
+				<a href={r.contact} class="btn" style="background:#fff; color:var(--color-ink)">
+					{t.nav.cta}
+				</a>
+				<a href={r.projects} class="btn btn-on-dark">{t.common.seeProjects}</a>
+			</div>
+			<div class="flex flex-wrap gap-5 pt-4 text-sm">
+				{
+					socials.map((social) => (
+						<a href={social.url} class="text-white/70 hover:text-white">
+							{social.name}
+						</a>
+					))
+				}
+			</div>
+		</div>
+		<div class="overflow-hidden h-64 lg:h-96 rounded-md">
+			<Media
+				src="/assets/images/profile.jpg"
+				alt={t.common.photoAlt}
+				class="object-top"
+			/>
+		</div>
+	</div>
+</section>
+
+<!-- Métricas -->
+<section class="px-4 py-12 sm:px-6">
+	<div class="grid gap-4 mx-auto max-w-6xl sm:grid-cols-2 lg:grid-cols-4">
+		{
+			t.home.stats.map((stat) => (
+				<div class="flex flex-col gap-1 p-7 bg-surface rounded-md">
+					<span class="text-2xl font-semibold tracking-tight text-ink">
+						{stat.value}
+					</span>
+					<span class="text-sm text-muted">{stat.label}</span>
+				</div>
+			))
+		}
+	</div>
+</section>
+
+<!-- Servicios -->
+<section class="px-4 py-12 sm:px-6">
+	<div class="mx-auto max-w-6xl">
+		<div class="flex flex-col gap-4 mb-8 md:flex-row md:items-end md:justify-between">
+			<div class="flex flex-col gap-2 max-w-2xl">
+				<h2 class="text-4xl font-semibold tracking-tighter text-ink">
+					{t.home.servicesTitle}
+				</h2>
+				<p class="text-muted">{t.home.servicesLead}</p>
+			</div>
+			<a href={r.services} class="self-start btn btn-ghost">{t.home.servicesLink}</a>
+		</div>
+		<div class="grid gap-4 md:grid-cols-3">
+			{
+				services.map((service) => (
+					<div class="flex flex-col gap-3 p-8 bg-surface rounded-md">
+						<span class="kicker">{service.kicker}</span>
+						<h3 class="text-xl font-semibold tracking-tight text-ink">
+							{service.title}
+						</h3>
+						<p class="text-sm text-muted">{service.description}</p>
+					</div>
+				))
+			}
+		</div>
+	</div>
+</section>
+
+<!-- Proyectos -->
+<section class="px-4 py-12 pb-20 sm:px-6">
+	<div class="mx-auto max-w-6xl">
+		<div class="flex flex-col gap-4 mb-8 md:flex-row md:items-end md:justify-between">
+			<div class="flex flex-col gap-2 max-w-2xl">
+				<h2 class="text-4xl font-semibold tracking-tighter text-ink">
+					{t.home.workTitle}
+				</h2>
+				<p class="text-muted">{t.home.workLead}</p>
+			</div>
+			<a href={r.projects} class="self-start btn btn-ghost">{t.common.allProjects}</a>
+		</div>
+
+		<div class="grid gap-4 md:grid-cols-3">
+			{
+				portfolio
+					.slice(0, 3)
+					.map((project) => <ProjectCard project={project} label={t.common.openProject} />)
+			}
+		</div>
+
+		<h3 class="mt-10 mb-4 kicker">{t.home.productionKicker}</h3>
+		<div class="grid gap-4 md:grid-cols-3">
+			{work.slice(0, 3).map((item) => <WorkCard item={item} />)}
+		</div>
+	</div>
+</section>

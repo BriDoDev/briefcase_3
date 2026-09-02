@@ -1,0 +1,81 @@
+---
+import { getContent } from "../../i18n/content";
+import { getLangFromUrl, routes, useTranslations } from "../../i18n/ui";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const { services, process } = getContent(lang);
+const r = routes[lang];
+---
+
+<section class="px-4 pt-6 sm:px-6">
+	<div class="flex flex-col gap-3 mx-auto max-w-6xl">
+		<h1 class="text-5xl font-semibold tracking-tighter text-ink">
+			{t.services.title}
+		</h1>
+		<p class="max-w-3xl text-lg text-muted">{t.services.lead}</p>
+	</div>
+</section>
+
+<section class="px-4 py-10 sm:px-6">
+	<div class="grid gap-4 mx-auto max-w-6xl md:grid-cols-3">
+		{
+			services.map((service) => (
+				<div class="flex flex-col gap-3 p-8 bg-surface rounded-md">
+					<span class="kicker">{service.kicker}</span>
+					<h2 class="text-xl font-semibold tracking-tight text-ink">
+						{service.title}
+					</h2>
+					<p class="text-sm text-muted">{service.description}</p>
+					<ul class="flex flex-col gap-2 pt-2 text-sm text-muted-strong">
+						{service.bullets.map((bullet) => <li>· {bullet}</li>)}
+					</ul>
+				</div>
+			))
+		}
+	</div>
+</section>
+
+<section class="px-4 py-10 sm:px-6">
+	<div class="mx-auto max-w-6xl">
+		<div class="flex flex-col gap-2 mb-8 max-w-2xl">
+			<h2 class="text-4xl font-semibold tracking-tighter text-ink">
+				{t.services.processTitle}
+			</h2>
+			<p class="text-muted">{t.services.processLead}</p>
+		</div>
+		<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+			{
+				process.map((step) => (
+					<div class="flex flex-col gap-3 p-8 bg-surface rounded-md">
+						<span class="text-sm font-semibold text-accent-700">{step.step}</span>
+						<h3 class="text-lg font-semibold tracking-tight text-ink">
+							{step.title}
+						</h3>
+						<p class="text-sm text-muted">{step.description}</p>
+					</div>
+				))
+			}
+		</div>
+	</div>
+</section>
+
+<section class="px-4 py-10 pb-20 sm:px-6">
+	<div class="grid gap-4 mx-auto max-w-6xl md:grid-cols-2">
+		<div class="flex flex-col gap-3 justify-center p-11 bg-surface rounded-md">
+			<h2 class="text-3xl font-semibold tracking-tighter text-ink">
+				{t.services.recordTitle}
+			</h2>
+			<p class="max-w-md text-muted">{t.services.recordBody}</p>
+		</div>
+		<div class="flex flex-col gap-4 justify-center p-11 bg-mint-100 rounded-md">
+			<h3 class="text-xl font-semibold tracking-tight text-mint-800">
+				{t.services.ctaTitle}
+			</h3>
+			<p class="text-sm text-mint-800">{t.services.ctaBody}</p>
+			<a href={r.contact} class="self-start btn btn-primary">
+				{t.services.ctaButton}
+			</a>
+		</div>
+	</div>
+</section>

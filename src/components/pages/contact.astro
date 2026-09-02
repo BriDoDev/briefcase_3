@@ -1,0 +1,138 @@
+---
+import { getLangFromUrl, useTranslations } from "../../i18n/ui";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+// Las respuestas caen en el Google Form del sitio. Se envían desde el
+// formulario propio con un POST al iframe oculto, así que el diseño se
+// mantiene y no hace falta embeber el formulario de Google.
+const FORM_ID = "1FAIpQLScyNZGMpv74FBEcg_QRNAPfZ3JnZD7vXnTAteQXd3D78el6Bw";
+const formAction = `https://docs.google.com/forms/d/e/${FORM_ID}/formResponse`;
+
+const entries = {
+	nombre: "entry.63954688",
+	negocio: "entry.1297244024",
+	correo: "entry.1025307794",
+	whatsapp: "entry.597939590",
+	proceso: "entry.398850203",
+	grabar: "entry.1599729063",
+};
+---
+
+<section class="px-4 py-6 sm:px-6">
+	<div class="grid gap-4 mx-auto max-w-6xl lg:grid-cols-[1fr_1.1fr]">
+		<div class="flex flex-col gap-8">
+			<div class="flex flex-col gap-3">
+				<h1 class="text-5xl font-semibold tracking-tighter text-ink">
+					{t.contact.title}
+				</h1>
+				<p class="text-lg text-muted">{t.contact.lead}</p>
+			</div>
+
+			<div class="flex flex-col gap-3 p-8 bg-surface rounded-md">
+				<span class="kicker">{t.contact.directKicker}</span>
+				<a href="mailto:contacto@brian-dominguez.dev">contacto@brian-dominguez.dev</a>
+				<a href="https://wa.me/5215580858318">WhatsApp · 55 8085 8318</a>
+				<a href="https://www.linkedin.com/in/bridodev/">linkedin.com/in/bridodev</a>
+			</div>
+
+			<div class="flex flex-col gap-3 p-8 bg-mint-100 rounded-md">
+				<h2 class="text-xl font-semibold tracking-tight text-mint-800">
+					{t.contact.recordTitle}
+				</h2>
+				<p class="text-sm text-mint-800">{t.contact.recordBody}</p>
+			</div>
+		</div>
+
+		<form
+			id="contact-form"
+			class="flex flex-col gap-5 p-8 md:p-11 bg-surface rounded-md"
+			action={formAction}
+			method="POST"
+			target="gform-sink"
+			data-sending={t.contact.sending}
+			data-sent={t.contact.sent}
+			data-submit-label={t.contact.submit}
+		>
+			<div class="field">
+				<label for="nombre">{t.contact.fields.name}</label>
+				<input class="input" id="nombre" name={entries.nombre} type="text" required />
+			</div>
+			<div class="field">
+				<label for="negocio">{t.contact.fields.business}</label>
+				<input class="input" id="negocio" name={entries.negocio} type="text" />
+			</div>
+			<div class="grid gap-5 sm:grid-cols-2">
+				<div class="field">
+					<label for="correo">{t.contact.fields.email}</label>
+					<input class="input" id="correo" name={entries.correo} type="email" required />
+				</div>
+				<div class="field">
+					<label for="whatsapp">{t.contact.fields.whatsapp}</label>
+					<input class="input" id="whatsapp" name={entries.whatsapp} type="tel" />
+				</div>
+			</div>
+			<div class="field">
+				<label for="proceso">{t.contact.fields.problem}</label>
+				<textarea class="input" id="proceso" name={entries.proceso} rows="5" required
+				></textarea>
+			</div>
+			<fieldset class="flex flex-col gap-3">
+				<legend class="mb-3 text-sm text-muted">{t.contact.fields.record}</legend>
+				<div class="seg self-start">
+					<label class="seg-opt">
+						<input type="radio" name={entries.grabar} value="Si" checked />
+						<span>{t.contact.fields.recordYes}</span>
+					</label>
+					<label class="seg-opt">
+						<input type="radio" name={entries.grabar} value="No" />
+						<span>{t.contact.fields.recordNo}</span>
+					</label>
+				</div>
+			</fieldset>
+
+			<div class="flex flex-wrap gap-4 items-center">
+				<button type="submit" class="btn btn-primary" data-submit>
+					{t.contact.submit}
+				</button>
+				<p class="text-sm" data-status role="status" aria-live="polite"></p>
+			</div>
+		</form>
+
+		<!-- Google Forms responde con una redirección que el navegador no puede
+		     leer; el iframe absorbe esa respuesta para que la página no navegue. -->
+		<iframe name="gform-sink" title={t.contact.iframeTitle} class="hidden"></iframe>
+	</div>
+</section>
+
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("contact-form");
+    if (!form) return;
+
+    const button = form.querySelector("[data-submit]");
+    const status = form.querySelector("[data-status]");
+    const label = form.dataset.submitLabel;
+    let sent = false;
+
+    const sink = document.querySelector('iframe[name="gform-sink"]');
+    sink.addEventListener("load", () => {
+      // El primer load es el del iframe vacío; el segundo es la respuesta.
+      if (!sent) return;
+      status.textContent = form.dataset.sent;
+      status.className = "text-sm text-mint-800";
+      button.disabled = false;
+      button.textContent = label;
+      form.reset();
+      sent = false;
+    });
+
+    form.addEventListener("submit", () => {
+      sent = true;
+      button.disabled = true;
+      button.textContent = form.dataset.sending;
+      status.textContent = "";
+    });
+  });
+</script>

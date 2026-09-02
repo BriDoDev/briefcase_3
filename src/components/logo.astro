@@ -1,5 +1,9 @@
+---
+const { href = "/" } = Astro.props;
+---
+
 <a
-  href="/"
+  href={href}
   class="flex items-center text-xl font-semibold tracking-tighter text-ink"
 >
   brian<span class="text-accent">.</span>

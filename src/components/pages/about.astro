@@ -1,0 +1,73 @@
+---
+import { getContent } from "../../i18n/content";
+import { getLangFromUrl, routes, useTranslations } from "../../i18n/ui";
+import Media from "../media.astro";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const { timeline, stack } = getContent(lang);
+const r = routes[lang];
+---
+
+<section class="px-4 py-6 sm:px-6">
+	<div class="grid gap-8 mx-auto max-w-6xl lg:grid-cols-[1.2fr_1fr] lg:items-start">
+		<div class="flex flex-col gap-5">
+			<h1 class="text-5xl font-semibold tracking-tighter text-ink">
+				{t.about.title}
+			</h1>
+			<p class="text-lg text-muted">{t.about.lead}</p>
+			{t.about.body.map((paragraph) => <p class="text-muted">{paragraph}</p>)}
+			<div class="flex flex-col gap-3 pt-2 sm:flex-row">
+				<a href={r.contact} class="btn btn-primary">{t.nav.cta}</a>
+				<a href="/cv.pdf" class="btn btn-secondary">{t.about.downloadCv}</a>
+			</div>
+		</div>
+		<div class="overflow-hidden h-80 lg:h-[420px] rounded-lg">
+			<Media
+				src="/assets/images/profile.jpg"
+				alt={t.about.portraitAlt}
+				class="object-top"
+			/>
+		</div>
+	</div>
+</section>
+
+<section class="px-4 py-10 sm:px-6">
+	<div class="grid gap-4 mx-auto max-w-6xl md:grid-cols-2">
+		<div class="flex flex-col gap-4 p-8 bg-surface rounded-md">
+			<span class="kicker">{t.about.stackKicker}</span>
+			<div class="flex flex-wrap gap-2">
+				{stack.map((tech) => <span class="tag tag-outline">{tech}</span>)}
+			</div>
+		</div>
+		<div class="flex flex-col gap-4 p-8 bg-surface rounded-md">
+			<span class="kicker">{t.about.specialtiesKicker}</span>
+			<div class="flex flex-wrap gap-2">
+				{t.about.specialties.map((item) => <span class="tag tag-accent">{item}</span>)}
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="px-4 py-10 pb-20 sm:px-6">
+	<div class="mx-auto max-w-6xl">
+		<h2 class="mb-8 text-4xl font-semibold tracking-tighter text-ink">
+			{t.about.timelineTitle}
+		</h2>
+		<div class="flex flex-col gap-4">
+			{
+				timeline.map((entry) => (
+					<div class="grid gap-4 p-8 bg-surface rounded-md md:grid-cols-[220px_1fr]">
+						<span class="text-sm text-muted">{entry.period}</span>
+						<div class="flex flex-col gap-2">
+							<h3 class="text-lg font-semibold tracking-tight text-ink">
+								{entry.role}
+							</h3>
+							<p class="text-sm text-muted">{entry.description}</p>
+						</div>
+					</div>
+				))
+			}
+		</div>
+	</div>
+</section>

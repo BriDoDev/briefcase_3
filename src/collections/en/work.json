@@ -1,0 +1,38 @@
+[
+	{
+		"kicker": "FinTech · Nov 2025 – present",
+		"title": "Customer app with a payment gateway",
+		"description": "Mercado Pago with card tokenization, 3D Secure and PDF receipts; alternative methods through BBVA, PayCash, PuntoRed and GestoPago. Two-factor authentication, biometrics, session control and CURP/RFC validation.",
+		"stack": ["React", "Redux Toolkit", "Tailwind"]
+	},
+	{
+		"kicker": "Public portal",
+		"title": "Corporate site from scratch",
+		"description": "Landing page, product microsites, contact forms and a branch locator with Google Maps. Lighthouse optimization, WebP images and SEO, consuming the in-house CMS.",
+		"stack": ["React", "Vite", "TypeScript"]
+	},
+	{
+		"kicker": "Back office",
+		"title": "Self-service CMS",
+		"description": "WYSIWYG editor, banner and FAQ management, media library, brand configuration, roles and permissions with an audit trail, and operations dashboards integrating Power BI.",
+		"stack": ["React", "RBAC", "Power BI"]
+	},
+	{
+		"kicker": "Mobile",
+		"title": "iOS and Android apps",
+		"description": "Maintenance and evolution of the native apps and of their communication layer with the web application, including version management and releases on the App Store and Google Play.",
+		"stack": ["Swift", "Kotlin", "WebView"]
+	},
+	{
+		"kicker": "E-commerce",
+		"title": "Storefront with Medusa and Stripe",
+		"description": "Next.js store with Medusa and Stripe, localized to Mexican Spanish and with a design system documented in Storybook.",
+		"stack": ["Next.js", "Medusa", "Stripe"]
+	},
+	{
+		"kicker": "Process digitization",
+		"title": "Internal invoicing, 80% less time",
+		"description": "Optimization of the internal invoicing process of a .NET suite on SQL Server, and standardization of the frontend with a design system alongside design and QA.",
+		"stack": [".NET Core", "SQL Server", "DevExpress"]
+	}
+]
