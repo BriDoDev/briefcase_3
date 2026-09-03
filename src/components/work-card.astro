@@ -1,8 +1,8 @@
 ---
-const { item } = Astro.props;
+const { item, ...rest } = Astro.props;
 ---
 
-<article class="flex flex-col gap-3 p-8 bg-surface rounded-md">
+<article class="flex flex-col gap-3 p-8 bg-surface rounded-md lift" {...rest}>
   <span class="kicker">{item.kicker}</span>
   <h3 class="text-lg font-semibold tracking-tight text-ink">{item.title}</h3>
   <p class="text-sm text-muted">{item.description}</p>

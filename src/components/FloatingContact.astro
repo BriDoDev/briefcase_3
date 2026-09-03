@@ -33,34 +33,53 @@ import { Icon } from "astro-icon/components";
   <button
     type="button"
     id="fab-toggle"
-    class="relative z-10 flex items-center justify-center w-14 h-14 rounded-pill bg-accent text-white font-semibold shadow-md hover:bg-accent-700 transition-colors"
+    class="relative z-10 flex items-center justify-center w-14 h-14 rounded-pill bg-accent text-white font-semibold shadow-md hover:bg-accent-700 hover:scale-105 transition-all duration-200"
     aria-label="Contacto"
+    aria-expanded="false"
+    aria-controls="fab-options"
   >
     <span class="material-icons text-xl">chat</span>
   </button>
 </div>
 
-<script is:inline>
-  const fabToggle = document.getElementById("fab-toggle");
-  const fabOptions = document.getElementById("fab-options");
-  const fabWrapper = document.getElementById("fab-wrapper");
+<script>
+  // Bundled (not inline) so this module runs once and keeps `controller`
+  // between view transitions; the listeners are rebound on every page load.
+  let controller: AbortController | undefined;
 
-  let isOpen = false;
+  const setupFab = () => {
+    controller?.abort();
+    controller = new AbortController();
+    const { signal } = controller;
 
-  fabToggle.addEventListener("click", () => {
-    isOpen = !isOpen;
-    fabOptions.classList.toggle("opacity-100", isOpen);
-    fabOptions.classList.toggle("scale-100", isOpen);
-    fabOptions.classList.toggle("opacity-0", !isOpen);
-    fabOptions.classList.toggle("scale-0", !isOpen);
-    fabOptions.classList.toggle("pointer-events-none", !isOpen);
-  });
+    const fabToggle = document.getElementById("fab-toggle");
+    const fabOptions = document.getElementById("fab-options");
+    const fabWrapper = document.getElementById("fab-wrapper");
+    if (!fabToggle || !fabOptions || !fabWrapper) return;
 
-  document.addEventListener("click", (e) => {
-    if (!fabWrapper.contains(e.target)) {
-      isOpen = false;
-      fabOptions.classList.add("opacity-0", "scale-0", "pointer-events-none");
-      fabOptions.classList.remove("opacity-100", "scale-100");
-    }
-  });
+    const setOpen = (open: boolean) => {
+      fabOptions.classList.toggle("opacity-100", open);
+      fabOptions.classList.toggle("scale-100", open);
+      fabOptions.classList.toggle("opacity-0", !open);
+      fabOptions.classList.toggle("scale-0", !open);
+      fabOptions.classList.toggle("pointer-events-none", !open);
+      fabToggle.setAttribute("aria-expanded", String(open));
+    };
+
+    fabToggle.addEventListener(
+      "click",
+      () => setOpen(fabOptions.classList.contains("opacity-0")),
+      { signal },
+    );
+
+    document.addEventListener(
+      "click",
+      (e) => {
+        if (!fabWrapper.contains(e.target as Node)) setOpen(false);
+      },
+      { signal },
+    );
+  };
+
+  document.addEventListener("astro:page-load", setupFab);
 </script>

@@ -336,4 +336,120 @@ a.seg-opt-active {
   text-align: center;
   padding: 16px;
 }
+
+/* — animated underline for the header navigation — */
+.nav-link {
+  position: relative;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  bottom: -6px;
+  height: 2px;
+  border-radius: 2px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 220ms var(--ease-out-soft);
+}
+.nav-link:hover::after,
+.nav-link[aria-current="page"]::after {
+  transform: scaleX(1);
+}
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   Motion — scroll reveals, micro-interactions and view transitions.
+   Reveals are gated behind `.motion-ready`, a class the inline head script only
+   adds when JavaScript runs, so the page stays fully visible without it.
+   ══════════════════════════════════════════════════════════════════════ */
+
+:root {
+  --ease-out-soft: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --reveal-duration: 480ms;
+  --reveal-distance: 12px;
+}
+
+/* — scroll reveal — */
+.motion-ready [data-reveal] {
+  opacity: 0;
+  transform: translate3d(0, var(--reveal-distance), 0);
+  transition: opacity var(--reveal-duration) var(--ease-out-soft)
+      var(--reveal-delay, 0ms),
+    transform var(--reveal-duration) var(--ease-out-soft)
+      var(--reveal-delay, 0ms);
+}
+
+.motion-ready [data-reveal].is-revealed {
+  opacity: 1;
+  transform: none;
+}
+
+/* — hero parallax: the frame clips, the image inside drifts — */
+.parallax-frame > :is(img, .media) {
+  transform: translate3d(0, var(--parallax-y, 0px), 0) scale(1.08);
+  will-change: transform;
+}
+
+/* — micro-interactions — */
+.lift,
+.surface-card {
+  transition: transform 200ms var(--ease-out-soft),
+    box-shadow 200ms var(--ease-out-soft);
+}
+.lift:hover,
+.surface-card:hover {
+  transform: translateY(-4px);
+}
+
+.btn {
+  transition: background-color 0.15s ease, color 0.15s ease,
+    border-color 0.15s ease, transform 200ms var(--ease-out-soft);
+}
+.btn-primary:hover,
+.btn-secondary:hover,
+.btn-on-dark:hover {
+  transform: translateY(-1px);
+}
+.btn:active {
+  transform: translateY(1px);
+}
+/* Ghost buttons end in an arrow, so they nudge sideways instead of upwards. */
+.btn-ghost:hover {
+  transform: translateX(3px);
+}
+
+.tag {
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+:where(a, button, [tabindex]):focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+/* — view transitions — */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 260ms;
+  animation-timing-function: var(--ease-out-soft);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .motion-ready [data-reveal] {
+    opacity: 1;
+    transform: none;
+  }
+  .parallax-frame > :is(img, .media) {
+    transform: none;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

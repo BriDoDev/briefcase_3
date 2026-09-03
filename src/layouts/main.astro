@@ -1,10 +1,10 @@
 ---
+import { ViewTransitions } from "astro:transitions";
 import { SEO } from "astro-seo";
 import FloatingContact from "../components/FloatingContact.astro";
 import Footer from "../components/footer.astro";
 import Header from "../components/header.astro";
 import { getLangFromUrl, routes, useTranslations } from "../i18n/ui";
-import "aos/dist/aos.css";
 import "../assets/css/main.css";
 
 const { title = "", page } = Astro.props;
@@ -83,14 +83,42 @@ const makeTitle = title
       rel="stylesheet"
     />
 
-    <!-- Modo oscuro (evita parpadeo inicial) -->
+    <ViewTransitions />
+
+    <!--
+      Flags on <html>: dark mode (avoids the initial flash) and `motion-ready`,
+      which lets the stylesheet hide the elements that JavaScript will reveal.
+      View transitions replace the root attributes, so both are re-applied after
+      every swap.
+    -->
     <script is:inline>
-      if (typeof Storage !== "undefined") {
-        if (localStorage.getItem("dark_mode") === "true") {
-          document.documentElement.classList.add("dark");
-        }
-      }
+      (() => {
+        const applyRootFlags = () => {
+          const root = document.documentElement;
+          try {
+            root.classList.toggle(
+              "dark",
+              localStorage.getItem("dark_mode") === "true",
+            );
+          } catch {
+            // Storage can be unavailable in private mode; light theme is fine.
+          }
+          root.classList.add("motion-ready");
+        };
+
+        applyRootFlags();
+        document.addEventListener("astro:after-swap", applyRootFlags);
+      })();
     </script>
+
+    <noscript>
+      <style>
+        [data-reveal] {
+          opacity: 1 !important;
+          transform: none !important;
+        }
+      </style>
+    </noscript>
 
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-FEPRLMTYFE"
@@ -108,13 +136,13 @@ const makeTitle = title
   <body
     class="bg-canvas text-ink h-full font-sans antialiased"
   >
-    <Header page={page ?? "home"} />
+    <Header page={page ?? "home"} transition:animate="none" />
     <main class="pt-20">
       <slot />
     </main>
-    <Footer />
-    <FloatingContact />
+    <Footer transition:animate="none" />
+    <FloatingContact transition:animate="none" />
 
-    <script src="../assets/js/aos-init.js"></script>
+    <script src="../assets/js/motion.js"></script>
   </body>
 </html>

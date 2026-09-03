@@ -22,22 +22,22 @@ const entries = {
 
 <section class="px-4 py-6 sm:px-6">
 	<div class="grid gap-4 mx-auto max-w-6xl lg:grid-cols-[1fr_1.1fr]">
-		<div class="flex flex-col gap-8">
-			<div class="flex flex-col gap-3">
+		<div class="flex flex-col gap-8" data-reveal-group>
+			<div class="flex flex-col gap-3" data-reveal>
 				<h1 class="text-5xl font-semibold tracking-tighter text-ink">
 					{t.contact.title}
 				</h1>
 				<p class="text-lg text-muted">{t.contact.lead}</p>
 			</div>
 
-			<div class="flex flex-col gap-3 p-8 bg-surface rounded-md">
+			<div class="flex flex-col gap-3 p-8 bg-surface rounded-md" data-reveal>
 				<span class="kicker">{t.contact.directKicker}</span>
 				<a href="mailto:contacto@brian-dominguez.dev">contacto@brian-dominguez.dev</a>
 				<a href="https://wa.me/5215580858318">WhatsApp · 55 8085 8318</a>
 				<a href="https://www.linkedin.com/in/bridodev/">linkedin.com/in/bridodev</a>
 			</div>
 
-			<div class="flex flex-col gap-3 p-8 bg-mint-100 rounded-md">
+			<div class="flex flex-col gap-3 p-8 bg-mint-100 rounded-md" data-reveal>
 				<h2 class="text-xl font-semibold tracking-tight text-mint-800">
 					{t.contact.recordTitle}
 				</h2>
@@ -48,6 +48,7 @@ const entries = {
 		<form
 			id="contact-form"
 			class="flex flex-col gap-5 p-8 md:p-11 bg-surface rounded-md"
+			data-reveal
 			action={formAction}
 			method="POST"
 			target="gform-sink"
@@ -106,33 +107,53 @@ const entries = {
 	</div>
 </section>
 
-<script is:inline>
-  document.addEventListener("DOMContentLoaded", () => {
-    const form = document.getElementById("contact-form");
-    if (!form) return;
+<script>
+  // Bundled (not inline) so this module runs once and keeps `controller`
+  // between view transitions; the listeners are rebound on every page load.
+  let controller: AbortController | undefined;
 
-    const button = form.querySelector("[data-submit]");
-    const status = form.querySelector("[data-status]");
-    const label = form.dataset.submitLabel;
+  const setupForm = () => {
+    controller?.abort();
+    controller = new AbortController();
+    const { signal } = controller;
+
+    const form = document.querySelector<HTMLFormElement>("#contact-form");
+    const sink = document.querySelector('iframe[name="gform-sink"]');
+    if (!form || !sink) return;
+
+    const button = form.querySelector<HTMLButtonElement>("[data-submit]");
+    const status = form.querySelector<HTMLElement>("[data-status]");
+    if (!button || !status) return;
+
+    const label = form.dataset.submitLabel ?? "";
     let sent = false;
 
-    const sink = document.querySelector('iframe[name="gform-sink"]');
-    sink.addEventListener("load", () => {
-      // El primer load es el del iframe vacío; el segundo es la respuesta.
-      if (!sent) return;
-      status.textContent = form.dataset.sent;
-      status.className = "text-sm text-mint-800";
-      button.disabled = false;
-      button.textContent = label;
-      form.reset();
-      sent = false;
-    });
+    sink.addEventListener(
+      "load",
+      () => {
+        // El primer load es el del iframe vacío; el segundo es la respuesta.
+        if (!sent) return;
+        status.textContent = form.dataset.sent;
+        status.className = "text-sm text-mint-800";
+        button.disabled = false;
+        button.textContent = label;
+        form.reset();
+        sent = false;
+      },
+      { signal },
+    );
 
-    form.addEventListener("submit", () => {
-      sent = true;
-      button.disabled = true;
-      button.textContent = form.dataset.sending;
-      status.textContent = "";
-    });
-  });
+    form.addEventListener(
+      "submit",
+      () => {
+        sent = true;
+        button.disabled = true;
+        button.textContent = form.dataset.sending;
+        status.textContent = "";
+      },
+      { signal },
+    );
+  };
+
+  document.addEventListener("astro:page-load", setupForm);
 </script>

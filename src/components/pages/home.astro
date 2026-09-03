@@ -24,31 +24,39 @@ const socials = [
 	<div
 		class="grid gap-10 p-10 mx-auto max-w-6xl text-white md:p-14 bg-ink-deep rounded-lg lg:grid-cols-[1.15fr_1fr] lg:items-center"
 	>
-		<div class="flex flex-col gap-5">
-			<span class="text-xs tracking-[0.12em] uppercase text-white/60">
+		<div class="flex flex-col gap-5" data-reveal-group>
+			<span class="text-xs tracking-[0.12em] uppercase text-white/60" data-reveal>
 				{t.home.kicker}
 			</span>
-			<h1 class="text-5xl font-semibold tracking-tighter md:text-6xl">
+			<h1 class="text-5xl font-semibold tracking-tighter md:text-6xl" data-reveal>
 				{t.home.title}
 			</h1>
-			<p class="max-w-xl text-lg text-white/75">{t.home.intro}</p>
-			<div class="flex flex-col gap-3 pt-2 sm:flex-row">
+			<p class="max-w-xl text-lg text-white/75" data-reveal>{t.home.intro}</p>
+			<div class="flex flex-col gap-3 pt-2 sm:flex-row" data-reveal>
 				<a href={r.contact} class="btn" style="background:#fff; color:var(--color-ink)">
 					{t.nav.cta}
 				</a>
 				<a href={r.projects} class="btn btn-on-dark">{t.common.seeProjects}</a>
 			</div>
-			<div class="flex flex-wrap gap-5 pt-4 text-sm">
+			<div class="flex flex-wrap gap-5 pt-4 text-sm" data-reveal>
 				{
 					socials.map((social) => (
-						<a href={social.url} class="text-white/70 hover:text-white">
+						<a
+							href={social.url}
+							class="text-white/70 transition-colors hover:text-white"
+						>
 							{social.name}
 						</a>
 					))
 				}
 			</div>
 		</div>
-		<div class="overflow-hidden h-64 lg:h-96 rounded-md">
+		<div
+			class="overflow-hidden h-64 lg:h-96 rounded-md parallax-frame"
+			data-parallax
+			data-reveal
+			transition:name="portrait"
+		>
 			<Media
 				src="/assets/images/profile.jpg"
 				alt={t.common.photoAlt}
@@ -60,11 +68,14 @@ const socials = [
 
 <!-- Métricas -->
 <section class="px-4 py-12 sm:px-6">
-	<div class="grid gap-4 mx-auto max-w-6xl sm:grid-cols-2 lg:grid-cols-4">
+	<div
+		class="grid gap-4 mx-auto max-w-6xl sm:grid-cols-2 lg:grid-cols-4"
+		data-reveal-group
+	>
 		{
 			t.home.stats.map((stat) => (
-				<div class="flex flex-col gap-1 p-7 bg-surface rounded-md">
-					<span class="text-2xl font-semibold tracking-tight text-ink">
+				<div class="flex flex-col gap-1 p-7 bg-surface rounded-md lift" data-reveal>
+					<span class="text-2xl font-semibold tracking-tight text-ink" data-counter>
 						{stat.value}
 					</span>
 					<span class="text-sm text-muted">{stat.label}</span>
@@ -77,7 +88,10 @@ const socials = [
 <!-- Servicios -->
 <section class="px-4 py-12 sm:px-6">
 	<div class="mx-auto max-w-6xl">
-		<div class="flex flex-col gap-4 mb-8 md:flex-row md:items-end md:justify-between">
+		<div
+			class="flex flex-col gap-4 mb-8 md:flex-row md:items-end md:justify-between"
+			data-reveal
+		>
 			<div class="flex flex-col gap-2 max-w-2xl">
 				<h2 class="text-4xl font-semibold tracking-tighter text-ink">
 					{t.home.servicesTitle}
@@ -86,10 +100,10 @@ const socials = [
 			</div>
 			<a href={r.services} class="self-start btn btn-ghost">{t.home.servicesLink}</a>
 		</div>
-		<div class="grid gap-4 md:grid-cols-3">
+		<div class="grid gap-4 md:grid-cols-3" data-reveal-group>
 			{
 				services.map((service) => (
-					<div class="flex flex-col gap-3 p-8 bg-surface rounded-md">
+					<div class="flex flex-col gap-3 p-8 bg-surface rounded-md lift" data-reveal>
 						<span class="kicker">{service.kicker}</span>
 						<h3 class="text-xl font-semibold tracking-tight text-ink">
 							{service.title}
@@ -105,7 +119,10 @@ const socials = [
 <!-- Proyectos -->
 <section class="px-4 py-12 pb-20 sm:px-6">
 	<div class="mx-auto max-w-6xl">
-		<div class="flex flex-col gap-4 mb-8 md:flex-row md:items-end md:justify-between">
+		<div
+			class="flex flex-col gap-4 mb-8 md:flex-row md:items-end md:justify-between"
+			data-reveal
+		>
 			<div class="flex flex-col gap-2 max-w-2xl">
 				<h2 class="text-4xl font-semibold tracking-tighter text-ink">
 					{t.home.workTitle}
@@ -115,17 +132,19 @@ const socials = [
 			<a href={r.projects} class="self-start btn btn-ghost">{t.common.allProjects}</a>
 		</div>
 
-		<div class="grid gap-4 md:grid-cols-3">
+		<div class="grid gap-4 md:grid-cols-3" data-reveal-group>
 			{
 				portfolio
 					.slice(0, 3)
-					.map((project) => <ProjectCard project={project} label={t.common.openProject} />)
+					.map((project) => (
+						<ProjectCard project={project} label={t.common.openProject} data-reveal />
+					))
 			}
 		</div>
 
-		<h3 class="mt-10 mb-4 kicker">{t.home.productionKicker}</h3>
-		<div class="grid gap-4 md:grid-cols-3">
-			{work.slice(0, 3).map((item) => <WorkCard item={item} />)}
+		<h3 class="mt-10 mb-4 kicker" data-reveal>{t.home.productionKicker}</h3>
+		<div class="grid gap-4 md:grid-cols-3" data-reveal-group>
+			{work.slice(0, 3).map((item) => <WorkCard item={item} data-reveal />)}
 		</div>
 	</div>
 </section>
