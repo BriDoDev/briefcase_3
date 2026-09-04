@@ -9,7 +9,7 @@ const { project, label = "Abrir el proyecto →", ...rest } = Astro.props;
   class="surface-card group hover:shadow-md"
   {...rest}
 >
-  <div class="overflow-hidden aspect-[16/10] bg-canvas">
+  <div class="overflow-hidden aspect-[16/10] bg-canvas" data-cursor-label={label}>
     <img
       src={project.image}
       alt={project.name}

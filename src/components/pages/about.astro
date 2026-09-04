@@ -2,6 +2,7 @@
 import { getContent } from "../../i18n/content";
 import { getLangFromUrl, routes, useTranslations } from "../../i18n/ui";
 import Media from "../media.astro";
+import StackMarquee from "../stack-marquee.astro";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -22,7 +23,7 @@ const r = routes[lang];
 				</p>
 			))}
 			<div class="flex flex-col gap-3 pt-2 sm:flex-row" data-reveal>
-				<a href={r.contact} class="btn btn-primary">{t.nav.cta}</a>
+				<a href={r.contact} class="btn btn-primary" data-magnetic>{t.nav.cta}</a>
 				<a href="/cv.pdf" class="btn btn-secondary">{t.about.downloadCv}</a>
 			</div>
 		</div>
@@ -43,13 +44,18 @@ const r = routes[lang];
 
 <section class="px-4 py-10 sm:px-6">
 	<div class="grid gap-4 mx-auto max-w-6xl md:grid-cols-2" data-reveal-group>
-		<div class="flex flex-col gap-4 p-8 bg-surface rounded-md lift" data-reveal>
-			<span class="kicker">{t.about.stackKicker}</span>
-			<div class="flex flex-wrap gap-2">
-				{stack.map((tech) => <span class="tag tag-outline">{tech}</span>)}
-			</div>
+		<div
+			class="flex flex-col gap-4 justify-center py-8 overflow-hidden bg-surface rounded-md"
+			data-reveal
+		>
+			<span class="px-8 kicker">{t.about.stackKicker}</span>
+			<StackMarquee items={stack} />
 		</div>
-		<div class="flex flex-col gap-4 p-8 bg-surface rounded-md lift" data-reveal>
+		<div
+			class="flex flex-col gap-4 p-8 bg-surface rounded-md lift spotlight-card"
+			data-reveal
+			data-spotlight
+		>
 			<span class="kicker">{t.about.specialtiesKicker}</span>
 			<div class="flex flex-wrap gap-2">
 				{t.about.specialties.map((item) => <span class="tag tag-accent">{item}</span>)}
@@ -63,19 +69,21 @@ const r = routes[lang];
 		<h2 class="mb-8 text-4xl font-semibold tracking-tighter text-ink" data-reveal>
 			{t.about.timelineTitle}
 		</h2>
-		<div class="flex flex-col gap-4" data-reveal-group>
+		<div class="timeline flex flex-col gap-4" data-reveal-group>
 			{
 				timeline.map((entry) => (
-					<div
-						class="grid gap-4 p-8 bg-surface rounded-md md:grid-cols-[220px_1fr] lift"
-						data-reveal
-					>
-						<span class="text-sm text-muted">{entry.period}</span>
-						<div class="flex flex-col gap-2">
-							<h3 class="text-lg font-semibold tracking-tight text-ink">
-								{entry.role}
-							</h3>
-							<p class="text-sm text-muted">{entry.description}</p>
+					<div class="timeline__entry" data-reveal>
+						<div
+							class="grid gap-4 p-8 bg-surface rounded-md md:grid-cols-[220px_1fr] lift spotlight-card"
+							data-spotlight
+						>
+							<span class="text-sm text-muted">{entry.period}</span>
+							<div class="flex flex-col gap-2">
+								<h3 class="text-lg font-semibold tracking-tight text-ink">
+									{entry.role}
+								</h3>
+								<p class="text-sm text-muted">{entry.description}</p>
+							</div>
 						</div>
 					</div>
 				))

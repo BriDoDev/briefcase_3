@@ -1,6 +1,7 @@
 ---
 import { getLangFromUrl, routes, useTranslations } from "../i18n/ui";
 import Logo from "./logo.astro";
+import ThemeToggle from "./theme-toggle.astro";
 
 const { page = "home" } = Astro.props;
 
@@ -19,7 +20,7 @@ const isActive = (key) => key === page;
 
 <header id="header" class="fixed top-0 z-50 w-full px-4 pt-4 sm:px-6">
 	<div
-		class="flex items-center py-3 pl-7 pr-4 mx-auto max-w-6xl rounded-pill shadow-sm select-none gap-7 bg-surface"
+		class="header-pill flex items-center py-3 pl-7 pr-4 mx-auto max-w-6xl rounded-pill shadow-sm select-none gap-7 bg-surface"
 	>
 		<Logo href={routes[lang].home} />
 
@@ -63,6 +64,8 @@ const isActive = (key) => key === page;
 					>
 				</div>
 			*/}
+
+			<ThemeToggle />
 
 			<a href={routes[lang].contact} class="hidden btn btn-primary sm:inline-flex">
 				{t.nav.cta}
@@ -111,6 +114,10 @@ const isActive = (key) => key === page;
 			<a href={routes[lang].contact} class="mt-3 btn btn-primary btn-block">
 				{t.nav.cta}
 			</a>
+			<div class="flex items-center pt-4">
+				<ThemeToggle />
+			</div>
+
 			{/*
 				TODO: restore the ES/EN switcher here too (see the desktop one above).
 

@@ -21,7 +21,11 @@ const r = routes[lang];
 	<div class="grid gap-4 mx-auto max-w-6xl md:grid-cols-3" data-reveal-group>
 		{
 			services.map((service) => (
-				<div class="flex flex-col gap-3 p-8 bg-surface rounded-md lift" data-reveal>
+				<div
+					class="flex flex-col gap-3 p-8 bg-surface rounded-md lift spotlight-card"
+					data-reveal
+					data-spotlight
+				>
 					<span class="kicker">{service.kicker}</span>
 					<h2 class="text-xl font-semibold tracking-tight text-ink">
 						{service.title}
@@ -47,7 +51,14 @@ const r = routes[lang];
 		<div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4" data-reveal-group>
 			{
 				process.map((step) => (
-					<div class="flex flex-col gap-3 p-8 bg-surface rounded-md lift" data-reveal>
+					<div
+						class="process-step flex flex-col gap-3 p-8 bg-surface rounded-md lift spotlight-card"
+						data-reveal
+						data-spotlight
+					>
+						<span class="process-step__number" aria-hidden="true">
+							{step.step}
+						</span>
 						<span class="text-sm font-semibold text-accent-700">{step.step}</span>
 						<h3 class="text-lg font-semibold tracking-tight text-ink">
 							{step.title}
@@ -73,7 +84,7 @@ const r = routes[lang];
 				{t.services.ctaTitle}
 			</h3>
 			<p class="text-sm text-mint-800">{t.services.ctaBody}</p>
-			<a href={r.contact} class="self-start btn btn-primary">
+			<a href={r.contact} class="self-start btn btn-primary" data-magnetic>
 				{t.services.ctaButton}
 			</a>
 		</div>

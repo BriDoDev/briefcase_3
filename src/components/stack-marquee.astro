@@ -1,0 +1,51 @@
+---
+import { Icon } from "astro-icon/components";
+
+const { items = [], class: className = "" } = Astro.props;
+
+/**
+ * simple-icons slugs for the stack. Every current entry of `esStack`/`enStack`
+ * in src/i18n/content.js resolves here; anything unmapped degrades to a plain
+ * text chip rather than breaking the build.
+ */
+const ICON_SLUGS = {
+	React: "react",
+	TypeScript: "typescript",
+	"Next.js": "nextdotjs",
+	Astro: "astro",
+	Tailwind: "tailwindcss",
+	Swift: "swift",
+	Kotlin: "kotlin",
+	"Node.js": "nodedotjs",
+	Medusa: "medusa",
+	".NET Core": "dotnet",
+	"SQL Server": "microsoftsqlserver",
+	Docker: "docker",
+	Storybook: "storybook",
+	Sentry: "sentry",
+};
+
+// Long lists should not scroll faster than short ones.
+const duration = `${Math.max(items.length * 3, 24)}s`;
+---
+
+<div class:list={["marquee", className]} style={`--marquee-duration:${duration}`}>
+  <div class="marquee__track">
+    {
+      // The second group is the seamless loop: the track travels exactly -50%,
+      // so the copy lands where the original started.
+      [false, true].map((isClone) => (
+        <div class="marquee__group" aria-hidden={isClone ? "true" : undefined}>
+          {items.map((item) => (
+            <span class="marquee__item">
+              {ICON_SLUGS[item] && (
+                <Icon name={`simple-icons:${ICON_SLUGS[item]}`} />
+              )}
+              {item}
+            </span>
+          ))}
+        </div>
+      ))
+    }
+  </div>
+</div>

@@ -56,24 +56,52 @@ const entries = {
 			data-sent={t.contact.sent}
 			data-submit-label={t.contact.submit}
 		>
-			<div class="field">
+			<div class="field field--float">
 				<label for="nombre">{t.contact.fields.name}</label>
-				<input class="input" id="nombre" name={entries.nombre} type="text" required />
+				<input
+					class="input"
+					id="nombre"
+					name={entries.nombre}
+					type="text"
+					placeholder=" "
+					required
+				/>
 			</div>
-			<div class="field">
+			<div class="field field--float">
 				<label for="negocio">{t.contact.fields.business}</label>
-				<input class="input" id="negocio" name={entries.negocio} type="text" />
+				<input
+					class="input"
+					id="negocio"
+					name={entries.negocio}
+					type="text"
+					placeholder=" "
+				/>
 			</div>
 			<div class="grid gap-5 sm:grid-cols-2">
-				<div class="field">
+				<div class="field field--float">
 					<label for="correo">{t.contact.fields.email}</label>
-					<input class="input" id="correo" name={entries.correo} type="email" required />
+					<input
+						class="input"
+						id="correo"
+						name={entries.correo}
+						type="email"
+						placeholder=" "
+						required
+					/>
 				</div>
-				<div class="field">
+				<div class="field field--float">
 					<label for="whatsapp">{t.contact.fields.whatsapp}</label>
-					<input class="input" id="whatsapp" name={entries.whatsapp} type="tel" />
+					<input
+						class="input"
+						id="whatsapp"
+						name={entries.whatsapp}
+						type="tel"
+						placeholder=" "
+					/>
 				</div>
 			</div>
+			{/* The textarea keeps its label above: a floating label over a tall
+			    multi-line box reads as misplaced rather than as a hint. */}
 			<div class="field">
 				<label for="proceso">{t.contact.fields.problem}</label>
 				<textarea class="input" id="proceso" name={entries.proceso} rows="5" required
@@ -94,10 +122,29 @@ const entries = {
 			</fieldset>
 
 			<div class="flex flex-wrap gap-4 items-center">
-				<button type="submit" class="btn btn-primary" data-submit>
+				<button type="submit" class="btn btn-primary" data-submit data-magnetic>
 					{t.contact.submit}
 				</button>
-				<p class="text-sm" data-status role="status" aria-live="polite"></p>
+				<p
+					class="form-status text-sm"
+					data-status
+					role="status"
+					aria-live="polite"
+				>
+					<svg
+						class="form-check"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2.5"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						aria-hidden="true"
+					>
+						<path d="M4 12.5 9.5 18 20 6.5"></path>
+					</svg>
+					<span data-status-text></span>
+				</p>
 			</div>
 		</form>
 
@@ -123,7 +170,8 @@ const entries = {
 
     const button = form.querySelector<HTMLButtonElement>("[data-submit]");
     const status = form.querySelector<HTMLElement>("[data-status]");
-    if (!button || !status) return;
+    const statusText = form.querySelector<HTMLElement>("[data-status-text]");
+    if (!button || !status || !statusText) return;
 
     const label = form.dataset.submitLabel ?? "";
     let sent = false;
@@ -133,8 +181,8 @@ const entries = {
       () => {
         // El primer load es el del iframe vacío; el segundo es la respuesta.
         if (!sent) return;
-        status.textContent = form.dataset.sent;
-        status.className = "text-sm text-mint-800";
+        statusText.textContent = form.dataset.sent ?? "";
+        status.classList.add("is-sent", "text-mint-800");
         button.disabled = false;
         button.textContent = label;
         form.reset();
@@ -148,8 +196,9 @@ const entries = {
       () => {
         sent = true;
         button.disabled = true;
-        button.textContent = form.dataset.sending;
-        status.textContent = "";
+        button.textContent = form.dataset.sending ?? "";
+        statusText.textContent = "";
+        status.classList.remove("is-sent", "text-mint-800");
       },
       { signal },
     );

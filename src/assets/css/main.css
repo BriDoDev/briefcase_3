@@ -132,22 +132,98 @@ p {
    .dc.html applies on top of it: pill radii on controls, 24px on cards).
    ══════════════════════════════════════════════════════════════════════ */
 
+/*
+  Single source of truth for the v3 palette: the Tailwind brand tokens in
+  tailwind.config.mjs point at these variables, so `.dark` below re-themes the
+  utilities and the component layer at once.
+
+  The ramps are semantic, not literal: accent-700/800 are the *readable on the
+  page background* blues, so they darken in light mode and lighten in dark mode.
+*/
 :root {
+  color-scheme: light;
+
   --color-bg: #f6f7f9;
   --color-surface: #ffffff;
   --color-text: #10151c;
   --color-ink: #0d1520;
   --color-ink-2: #16202e;
+
+  --color-muted: #5b6572;
+  --color-muted-strong: #3f4a58;
+  --color-muted-soft: #8a93a0;
+
   --color-accent: #1f4fd8;
+  --color-accent-light: #3f6bea;
+  --color-accent-dark: #1a44bd;
   --color-accent-100: #eef2ff;
   --color-accent-200: #dbe4ff;
+  --color-accent-300: #b8c8ff;
+  --color-accent-400: #7d9bff;
+  --color-accent-500: #3f6bea;
+  --color-accent-600: #1a44bd;
   --color-accent-700: #16389c;
   --color-accent-800: #122c78;
   --color-accent-900: #0d1f52;
+
   --color-mint: #7fe3c0;
   --color-mint-100: #e6fbf3;
   --color-mint-800: #14523f;
+
   --color-divider: rgba(16, 21, 28, 0.1);
+  --color-divider-strong: rgba(16, 21, 28, 0.28);
+  --color-hover-soft: rgba(16, 21, 28, 0.05);
+  --color-media: #e6e9ee;
+  --spot-card: rgba(31, 79, 216, 0.08);
+  --color-on-accent: #ffffff;
+
+  --shadow-sm: 0 1px 2px rgba(16, 21, 28, 0.05), 0 6px 18px rgba(16, 21, 28, 0.05);
+  --shadow-md: 0 2px 6px rgba(16, 21, 28, 0.05), 0 18px 44px rgba(16, 21, 28, 0.09);
+  --shadow-lg: 0 30px 80px rgba(16, 21, 28, 0.16);
+}
+
+.dark {
+  color-scheme: dark;
+
+  --color-bg: #0b0f14;
+  --color-surface: #141a22;
+  --color-text: #e8ecf1;
+  /* Lighter than the page in dark mode: the hero and footer panels have to
+     stay readable as raised blocks, not dissolve into the background. */
+  --color-ink: #1b2430;
+  --color-ink-2: #212c3a;
+
+  --color-muted: #9aa5b3;
+  --color-muted-strong: #c2cad4;
+  --color-muted-soft: #6b7684;
+
+  --color-accent: #5b83f0;
+  --color-accent-light: #7d9bff;
+  --color-accent-dark: #3f6bea;
+  --color-accent-100: #182444;
+  --color-accent-200: #1e2d55;
+  --color-accent-300: #2b3f75;
+  --color-accent-400: #4661a8;
+  --color-accent-500: #7d9bff;
+  --color-accent-600: #91aaff;
+  --color-accent-700: #a8c0ff;
+  --color-accent-800: #c7d6ff;
+  --color-accent-900: #dce6ff;
+
+  --color-mint: #7fe3c0;
+  --color-mint-100: #10362b;
+  --color-mint-800: #9ff0d3;
+
+  --color-divider: rgba(232, 236, 241, 0.14);
+  --color-divider-strong: rgba(232, 236, 241, 0.34);
+  --color-hover-soft: rgba(232, 236, 241, 0.08);
+  --color-media: #1c242e;
+  --spot-card: rgba(125, 155, 255, 0.1);
+  --color-on-accent: #0b0f14;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4), 0 6px 18px rgba(0, 0, 0, 0.32);
+  --shadow-md: 0 2px 6px rgba(0, 0, 0, 0.42), 0 18px 44px rgba(0, 0, 0, 0.44);
+  --shadow-lg: 0 30px 80px rgba(0, 0, 0, 0.6);
 }
 
 @layer components {
@@ -172,17 +248,17 @@ p {
 }
 .btn-primary {
   background: var(--color-accent);
-  color: #fff;
+  color: var(--color-on-accent);
 }
 .btn-primary:hover {
   background: var(--color-accent-700);
-  color: #fff;
+  color: var(--color-on-accent);
 }
 .btn-secondary {
   border-color: var(--color-divider);
 }
 .btn-secondary:hover {
-  background: rgba(16, 21, 28, 0.05);
+  background: var(--color-hover-soft);
 }
 .btn-ghost {
   color: var(--color-accent-700);
@@ -215,8 +291,7 @@ p {
 .screen {
   background: var(--color-bg);
   border-radius: 40px;
-  box-shadow: 0 2px 6px rgba(16, 21, 28, 0.05),
-    0 18px 44px rgba(16, 21, 28, 0.09);
+  box-shadow: var(--shadow-md);
   overflow: hidden;
 }
 
@@ -239,7 +314,7 @@ p {
 }
 .tag-outline {
   border: 1px solid var(--color-divider);
-  color: #5b6572;
+  color: var(--color-muted);
 }
 
 /* — kicker — */
@@ -255,7 +330,7 @@ p {
   display: block;
   font-size: 13px;
   margin-bottom: 6px;
-  color: #5b6572;
+  color: var(--color-muted);
 }
 .input {
   width: 100%;
@@ -275,7 +350,7 @@ textarea.input {
   resize: vertical;
 }
 .input:hover {
-  border-color: rgba(16, 21, 28, 0.28);
+  border-color: var(--color-divider-strong);
 }
 .input:focus-visible {
   border-color: var(--color-accent);
@@ -310,17 +385,17 @@ textarea.input {
 .seg-opt:has(input:checked),
 .seg-opt-active {
   background: var(--color-accent);
-  color: #fff;
+  color: var(--color-on-accent);
 }
 a.seg-opt {
   text-decoration: none;
   color: var(--color-text);
 }
 a.seg-opt-active {
-  color: #fff;
+  color: var(--color-on-accent);
 }
 .seg-opt:not(:has(input:checked)):hover {
-  background: rgba(16, 21, 28, 0.05);
+  background: var(--color-hover-soft);
 }
 
 /* — image placeholders (the canvas <image-slot> equivalent) — */
@@ -330,8 +405,8 @@ a.seg-opt-active {
   justify-content: center;
   width: 100%;
   height: 100%;
-  background: #e6e9ee;
-  color: #8a93a0;
+  background: var(--color-media);
+  color: var(--color-muted-soft);
   font-size: 13px;
   text-align: center;
   padding: 16px;
@@ -436,12 +511,403 @@ a.seg-opt-active {
   animation-timing-function: var(--ease-out-soft);
 }
 
+/* — theme toggle — */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  color: var(--color-muted-strong);
+}
+.theme-toggle__track {
+  position: relative;
+  display: block;
+  width: 46px;
+  height: 26px;
+  border-radius: 999px;
+  border: 1px solid var(--color-divider);
+  background: var(--color-bg);
+  transition: border-color 200ms var(--ease-out-soft);
+}
+.theme-toggle:hover .theme-toggle__track {
+  border-color: var(--color-divider-strong);
+}
+.theme-toggle__thumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  display: grid;
+  place-items: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 999px;
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+  transition: transform 280ms var(--ease-out-soft);
+}
+.theme-toggle[aria-pressed="true"] .theme-toggle__thumb {
+  transform: translateX(20px);
+}
+.theme-toggle svg {
+  position: absolute;
+  width: 13px;
+  height: 13px;
+  transition: opacity 200ms var(--ease-out-soft),
+    transform 280ms var(--ease-out-soft);
+}
+.theme-toggle__moon {
+  opacity: 0;
+  transform: rotate(-60deg) scale(0.6);
+}
+.theme-toggle[aria-pressed="true"] .theme-toggle__sun {
+  opacity: 0;
+  transform: rotate(60deg) scale(0.6);
+}
+.theme-toggle[aria-pressed="true"] .theme-toggle__moon {
+  opacity: 1;
+  transform: none;
+}
+
+/* — reactive header —
+   `is-compact` and `is-hidden` are driven by the scroll tick in motion.js;
+   `--scroll-progress` rides along on the same frame. */
+#header {
+  transition: transform 320ms var(--ease-out-soft);
+}
+#header.is-hidden {
+  transform: translateY(calc(-100% - 8px));
+}
+.header-pill {
+  position: relative;
+  transition: padding-block 240ms var(--ease-out-soft),
+    box-shadow 240ms var(--ease-out-soft);
+}
+#header.is-compact .header-pill {
+  padding-block: 8px;
+  box-shadow: var(--shadow-md);
+}
+.header-pill::after {
+  content: "";
+  position: absolute;
+  inset-inline: 26px;
+  bottom: 0;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--color-accent);
+  transform: scaleX(var(--scroll-progress, 0));
+  transform-origin: left center;
+  opacity: 0;
+  transition: opacity 240ms var(--ease-out-soft);
+  pointer-events: none;
+}
+#header.is-compact .header-pill::after {
+  opacity: 1;
+}
+
+/* — spotlight that tracks the pointer — */
+[data-spotlight] {
+  position: relative;
+  isolation: isolate;
+}
+[data-spotlight]::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: radial-gradient(
+    260px circle at var(--mx, 50%) var(--my, 50%),
+    var(--spot-color, rgba(255, 255, 255, 0.14)),
+    transparent 70%
+  );
+  opacity: var(--spot-opacity, 0);
+  transition: opacity 320ms var(--ease-out-soft);
+  pointer-events: none;
+}
+.spotlight-card {
+  --spot-color: var(--spot-card);
+}
+/* Without a real cursor the glow would never move, so it just sits there. */
+@media (hover: none) {
+  .hero-glow::before {
+    --mx: 30%;
+    --my: 25%;
+    opacity: 0.9;
+  }
+}
+
+/* — magnetic buttons —
+   Composed into one transform so the existing hover lift and active press
+   still read on top of the magnet offset. */
+.btn[data-magnetic] {
+  transform: translate3d(var(--magnet-x, 0px), var(--magnet-y, 0px), 0);
+  transition: background-color 0.15s ease, color 0.15s ease,
+    border-color 0.15s ease, transform 260ms var(--ease-out-soft);
+}
+.btn[data-magnetic]:hover {
+  transform: translate3d(
+    var(--magnet-x, 0px),
+    calc(var(--magnet-y, 0px) - 1px),
+    0
+  );
+}
+.btn[data-magnetic]:active {
+  transform: translate3d(
+    var(--magnet-x, 0px),
+    calc(var(--magnet-y, 0px) + 1px),
+    0
+  );
+}
+
+/* — cursor label on the project cards —
+   Built and positioned by motion.js; the static label stays in the markup. */
+.cursor-label {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 60;
+  margin: -14px 0 0 16px;
+  padding: 8px 15px;
+  border-radius: 999px;
+  background: var(--color-accent);
+  color: var(--color-on-accent);
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 180ms var(--ease-out-soft);
+}
+.cursor-label.is-visible {
+  opacity: 1;
+}
+
+/* — stack marquee — */
+.marquee {
+  position: relative;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 7%,
+    #000 93%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 7%,
+    #000 93%,
+    transparent
+  );
+}
+.marquee__track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll var(--marquee-duration, 42s) linear infinite;
+}
+.marquee:hover .marquee__track,
+.marquee:focus-within .marquee__track {
+  animation-play-state: paused;
+}
+.marquee__group {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: 44px;
+  padding-inline: 22px;
+}
+.marquee__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  white-space: nowrap;
+  color: var(--color-muted-strong);
+}
+.marquee__item svg {
+  width: 20px;
+  height: 20px;
+  color: var(--color-muted-soft);
+}
+@keyframes marquee-scroll {
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+/* — timeline rail —
+   The filled segments hang off `.is-revealed`, the class the reveal observer
+   already sets, so no second observer is needed. */
+.timeline {
+  position: relative;
+}
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 7px;
+  top: 24px;
+  bottom: 24px;
+  width: 2px;
+  border-radius: 999px;
+  background: var(--color-divider);
+}
+.timeline__entry {
+  position: relative;
+  padding-left: 36px;
+}
+.timeline__entry::before {
+  content: "";
+  position: absolute;
+  left: 7px;
+  top: 24px;
+  bottom: -16px;
+  width: 2px;
+  border-radius: 999px;
+  background: var(--color-accent);
+  transform: scaleY(0);
+  transform-origin: top center;
+  transition: transform 700ms var(--ease-out-soft) var(--reveal-delay, 0ms);
+}
+.timeline__entry:last-child::before {
+  bottom: auto;
+  height: 24px;
+}
+.timeline__entry.is-revealed::before {
+  transform: scaleY(1);
+}
+.timeline__entry::after {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 24px;
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  background: var(--color-surface);
+  border: 2px solid var(--color-divider);
+  transition: border-color 400ms var(--ease-out-soft)
+      calc(var(--reveal-delay, 0ms) + 220ms),
+    transform 400ms var(--ease-out-soft) calc(var(--reveal-delay, 0ms) + 220ms);
+}
+.timeline__entry.is-revealed::after {
+  border-color: var(--color-accent);
+  transform: scale(1.2);
+}
+
+/* — process step numerals — */
+.process-step {
+  position: relative;
+  overflow: hidden;
+}
+.process-step__number {
+  position: absolute;
+  top: -14px;
+  right: 10px;
+  font-size: 92px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  color: var(--color-accent);
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 700ms var(--ease-out-soft) var(--reveal-delay, 0ms),
+    transform 700ms var(--ease-out-soft) var(--reveal-delay, 0ms);
+}
+.process-step.is-revealed .process-step__number {
+  opacity: 0.1;
+  transform: none;
+}
+
+/* — contact form feedback — */
+.field--float {
+  position: relative;
+  padding-top: 22px;
+}
+.field--float > label {
+  position: absolute;
+  top: 33px;
+  left: 19px;
+  margin: 0;
+  font-size: 15px;
+  color: var(--color-muted);
+  pointer-events: none;
+  transform-origin: left center;
+  transition: transform 220ms var(--ease-out-soft),
+    color 220ms var(--ease-out-soft);
+}
+.field--float:has(.input:focus) > label,
+.field--float:has(.input:not(:placeholder-shown)) > label {
+  transform: translate(-4px, -34px) scale(0.82);
+  color: var(--color-accent);
+}
+.form-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.form-check {
+  flex: none;
+  width: 18px;
+  height: 18px;
+  opacity: 0;
+  transition: opacity 200ms var(--ease-out-soft);
+}
+.form-check path {
+  stroke-dasharray: 26;
+  stroke-dashoffset: 26;
+}
+.form-status.is-sent .form-check {
+  opacity: 1;
+}
+.form-status.is-sent .form-check path {
+  animation: draw-check 520ms var(--ease-out-soft) forwards;
+}
+@keyframes draw-check {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .motion-ready [data-reveal] {
     opacity: 1;
     transform: none;
   }
   .parallax-frame > :is(img, .media) {
+    transform: none;
+  }
+  /* The global animation kill below would freeze the marquee mid-travel, so it
+     falls back to a static wrapped list instead. */
+  .marquee {
+    overflow: visible;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+  .marquee__track {
+    animation: none !important;
+    width: 100%;
+  }
+  .marquee__group {
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 14px;
+  }
+  .marquee__group[aria-hidden="true"] {
+    display: none;
+  }
+  .timeline__entry::before {
+    transform: scaleY(1);
+  }
+  .process-step__number {
+    opacity: 0.1;
+    transform: none;
+  }
+  #header.is-hidden {
     transform: none;
   }
   *,

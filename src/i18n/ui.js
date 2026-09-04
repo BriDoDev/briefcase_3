@@ -47,6 +47,9 @@ export const ui = {
 			cta: "Cuéntame tu proceso",
 			openMenu: "Abrir menú",
 			language: "Idioma",
+			theme: "Cambiar tema",
+			themeToLight: "Cambiar a tema claro",
+			themeToDark: "Cambiar a tema oscuro",
 		},
 		common: {
 			seeProjects: "Ver proyectos",
@@ -166,6 +169,9 @@ export const ui = {
 			cta: "Tell me your process",
 			openMenu: "Open menu",
 			language: "Language",
+			theme: "Switch theme",
+			themeToLight: "Switch to light theme",
+			themeToDark: "Switch to dark theme",
 		},
 		common: {
 			seeProjects: "See projects",

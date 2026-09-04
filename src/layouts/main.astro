@@ -70,6 +70,7 @@ const makeTitle = title
     }
 
     <!-- Iconografía y fuentes -->
+    <meta name="theme-color" content="#f6f7f9" />
     <link rel="icon" type="image/png" href="/assets/favicon.png" />
     <link rel="stylesheet" href="https://use.typekit.net/lap0far.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -95,15 +96,17 @@ const makeTitle = title
       (() => {
         const applyRootFlags = () => {
           const root = document.documentElement;
+          let dark = false;
           try {
-            root.classList.toggle(
-              "dark",
-              localStorage.getItem("dark_mode") === "true",
-            );
+            dark = localStorage.getItem("dark_mode") === "true";
           } catch {
             // Storage can be unavailable in private mode; light theme is fine.
           }
+          root.classList.toggle("dark", dark);
           root.classList.add("motion-ready");
+
+          const meta = document.querySelector('meta[name="theme-color"]');
+          if (meta) meta.content = dark ? "#0b0f14" : "#f6f7f9";
         };
 
         applyRootFlags();
