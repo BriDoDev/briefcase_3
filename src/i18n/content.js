@@ -1,9 +1,11 @@
+import enGames from "../collections/en/games.json";
 import enProcess from "../collections/en/process.json";
 import enProjects from "../collections/en/projects.json";
 import enServices from "../collections/en/services.json";
 import enStack from "../collections/en/stack.json";
 import enTimeline from "../collections/en/timeline.json";
 import enWork from "../collections/en/work.json";
+import esGames from "../collections/games.json";
 import esProcess from "../collections/process.json";
 import esProjects from "../collections/projects.json";
 import esServices from "../collections/services.json";
@@ -35,6 +37,7 @@ const content = {
 		process: esProcess,
 		timeline: esTimeline,
 		stack: esStack,
+		games: esGames,
 	},
 	en: {
 		portfolio: enProjects,
@@ -43,6 +46,7 @@ const content = {
 		process: enProcess,
 		timeline: enTimeline,
 		stack: enStack,
+		games: enGames,
 	},
 };
 

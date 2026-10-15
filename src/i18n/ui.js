@@ -6,6 +6,7 @@ export const routes = {
 	es: {
 		home: "/",
 		projects: "/projects",
+		games: "/juegos",
 		services: "/servicios",
 		contact: "/contacto",
 		about: "/about",
@@ -13,6 +14,7 @@ export const routes = {
 	en: {
 		home: "/en/",
 		projects: "/en/projects",
+		games: "/en/games",
 		services: "/en/services",
 		contact: "/en/contact",
 		about: "/en/about",
@@ -42,6 +44,7 @@ export const ui = {
 		nav: {
 			home: "Inicio",
 			projects: "Proyectos",
+			games: "Juegos",
 			services: "Servicios",
 			about: "Sobre mí",
 			cta: "Cuéntame tu proceso",
@@ -55,6 +58,8 @@ export const ui = {
 			seeProjects: "Ver proyectos",
 			allProjects: "Ver todos los proyectos →",
 			openProject: "Abrir el proyecto →",
+			playOnItch: "Jugar en itch.io →",
+			seeScreenshots: "Ver capturas",
 			photoAlt: "Brian Domínguez",
 		},
 		home: {
@@ -79,6 +84,17 @@ export const ui = {
 			workLead:
 				"Trabajo publicado que puedes abrir, y el software en producción que vive detrás de un login.",
 			productionKicker: "Software en producción",
+			gamesTitle: "Juegos que diseño y programo",
+			gamesLead:
+				"Proyectos propios, fuera del trabajo con clientes: del primer prototipo al build publicado.",
+			gamesLink: "Ver juegos →",
+		},
+		games: {
+			title: "Juegos",
+			lead: "Lo que construyo fuera del trabajo con clientes: juegos completos, del diseño al build publicado. Los diseño y programo yo, en Godot.",
+			galleryTitle: "Capturas de la",
+			versionLabel: "Versión",
+			upcoming: "Próximamente",
 		},
 		projects: {
 			title: "Proyectos",
@@ -164,6 +180,7 @@ export const ui = {
 		nav: {
 			home: "Home",
 			projects: "Projects",
+			games: "Games",
 			services: "Services",
 			about: "About",
 			cta: "Tell me your process",
@@ -177,6 +194,8 @@ export const ui = {
 			seeProjects: "See projects",
 			allProjects: "See all projects →",
 			openProject: "Open the project →",
+			playOnItch: "Play on itch.io →",
+			seeScreenshots: "See screenshots",
 			photoAlt: "Brian Domínguez",
 		},
 		home: {
@@ -201,6 +220,17 @@ export const ui = {
 			workLead:
 				"Published work you can open, and the production software that lives behind a login.",
 			productionKicker: "Software in production",
+			gamesTitle: "Games I design and build",
+			gamesLead:
+				"My own projects, outside client work: from the first prototype to the published build.",
+			gamesLink: "See games →",
+		},
+		games: {
+			title: "Games",
+			lead: "What I build outside of client work: complete games, from design to the published build. I design and program them myself, in Godot.",
+			galleryTitle: "Screenshots from",
+			versionLabel: "Version",
+			upcoming: "Coming soon",
 		},
 		projects: {
 			title: "Projects",

@@ -1,0 +1,38 @@
+[
+	{
+		"slug": "ashline",
+		"name": "Ashline",
+		"kicker": "Video game · Roguelite RPG",
+		"tagline": "Lead an expedition of three heroes through fog-covered realms.",
+		"description": "You explore a procedural world in pausable real time, gather wood and gold, wipe out nests and head back to the settlement to forge better gear. Combat is turn-based, winter and the night hunters keep the pressure on, and every realm ends with a boss.",
+		"version": "3.1.0",
+		"platforms": ["Windows"],
+		"upcomingPlatforms": ["Android"],
+		"stack": ["Godot 4", "GDScript"],
+		"url": "https://briandvstudios.itch.io/ashline",
+		"cover": "/assets/images/games/ashline/cover.webp",
+		"coverAlt": "Ashline cover art: three heroes by a campfire in the forest",
+		"screenshots": [
+			{
+				"src": "/assets/images/games/ashline/02-world.webp",
+				"alt": "The world by day, with the party exploring near the settlement"
+			},
+			{
+				"src": "/assets/images/games/ashline/04-battle.webp",
+				"alt": "Turn-based combat with the skill bar"
+			},
+			{
+				"src": "/assets/images/games/ashline/05-boss.webp",
+				"alt": "Fighting the realm boss"
+			},
+			{
+				"src": "/assets/images/games/ashline/03-party.webp",
+				"alt": "Choosing the party of heroes"
+			},
+			{
+				"src": "/assets/images/games/ashline/01-menu.webp",
+				"alt": "Ashline main menu"
+			}
+		]
+	}
+]

@@ -1,0 +1,76 @@
+---
+const { game, t, detailHref, ...rest } = Astro.props;
+
+// Platforms announced but not shipped yet; move them to `platforms` on release.
+const upcoming = game.upcomingPlatforms ?? [];
+---
+
+<article
+  class="grid gap-6 p-5 text-white bg-ink-deep rounded-lg lift md:grid-cols-2 md:items-center"
+  {...rest}
+>
+  <a
+    href={game.url}
+    target="_blank"
+    rel="noopener noreferrer"
+    class="block overflow-hidden aspect-[630/500] rounded-md group"
+    data-cursor-label={t.common.playOnItch}
+  >
+    <img
+      src={game.cover}
+      alt={game.coverAlt}
+      loading="lazy"
+      class="object-cover w-full h-full transition-transform duration-500 ease-out group-hover:scale-[1.04]"
+    />
+  </a>
+  <div class="flex flex-col gap-4 px-3 pb-4 md:px-6 md:pb-0">
+    <span class="text-xs tracking-[0.12em] uppercase text-mint">{game.kicker}</span>
+    <h3 class="text-4xl font-semibold tracking-tighter">{game.name}</h3>
+    <p class="text-lg text-white/90">{game.tagline}</p>
+    <p class="text-sm leading-relaxed text-white/70">{game.description}</p>
+    <div class="flex flex-wrap gap-2">
+      {
+        [...game.stack, ...game.platforms].map((tag) => (
+          <span class="tag bg-white/15 text-white">{tag}</span>
+        ))
+      }
+      {
+        upcoming.map((platform) => (
+          <span class="tag border border-white/25 text-white/60">
+            {platform} · {t.games.upcoming}
+          </span>
+        ))
+      }
+    </div>
+    <span class="text-sm text-white/60">
+      {
+        [
+          `${t.games.versionLabel} ${game.version}`,
+          ...game.platforms,
+          ...upcoming.map(
+            (platform) => `${platform} ${t.games.upcoming.toLowerCase()}`,
+          ),
+        ].join(" · ")
+      }
+    </span>
+    <div class="flex flex-col gap-3 pt-1 sm:flex-row">
+      <a
+        href={game.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn"
+        style="background:#fff; color:var(--color-ink)"
+        data-magnetic
+      >
+        {t.common.playOnItch}
+      </a>
+      {
+        detailHref && (
+          <a href={detailHref} class="btn btn-on-dark" data-magnetic>
+            {t.common.seeScreenshots}
+          </a>
+        )
+      }
+    </div>
+  </div>
+</article>

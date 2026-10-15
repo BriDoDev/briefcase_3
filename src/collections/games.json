@@ -1,0 +1,38 @@
+[
+	{
+		"slug": "ashline",
+		"name": "Ashline",
+		"kicker": "Videojuego · Roguelite RPG",
+		"tagline": "Lidera una expedición de tres héroes por reinos cubiertos de niebla.",
+		"description": "Exploras un mundo procedural en tiempo real pausable, recolectas madera y oro, erradicas nidos y vuelves al asentamiento a forjar mejor equipo. El combate es por turnos, el invierno y los cazadores nocturnos aprietan, y cada reino termina con un jefe.",
+		"version": "3.1.0",
+		"platforms": ["Windows"],
+		"upcomingPlatforms": ["Android"],
+		"stack": ["Godot 4", "GDScript"],
+		"url": "https://briandvstudios.itch.io/ashline",
+		"cover": "/assets/images/games/ashline/cover.webp",
+		"coverAlt": "Portada de Ashline: tres héroes junto a una fogata en el bosque",
+		"screenshots": [
+			{
+				"src": "/assets/images/games/ashline/02-world.webp",
+				"alt": "El mundo de día, con el grupo explorando cerca del asentamiento"
+			},
+			{
+				"src": "/assets/images/games/ashline/04-battle.webp",
+				"alt": "Combate por turnos con la barra de habilidades"
+			},
+			{
+				"src": "/assets/images/games/ashline/05-boss.webp",
+				"alt": "Combate contra el jefe del reino"
+			},
+			{
+				"src": "/assets/images/games/ashline/03-party.webp",
+				"alt": "Selección del grupo de héroes"
+			},
+			{
+				"src": "/assets/images/games/ashline/01-menu.webp",
+				"alt": "Menú principal de Ashline"
+			}
+		]
+	}
+]

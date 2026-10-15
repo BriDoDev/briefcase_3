@@ -55,7 +55,7 @@
 
   <div style="display:flex; align-items:baseline; gap:20px; max-width:1000px; flex-wrap:wrap">
     <h2 style="font-size:34px; margin:0; letter-spacing:-0.03em">Brian Domínguez — marca y sitio v3</h2>
-    <p style="margin:0; font-size:15px; color:#5b6572">Azul profundo, esquinas suaves, superficies flotantes. Sistema <a href="#3a">3a</a> · <a href="#3b">3b</a> Inicio · <a href="#3c">3c</a> Casos de éxito · <a href="#3d">3d</a> Caso · <a href="#3e">3e</a> Proyectos · <a href="#3f">3f</a> Sobre mí · <a href="#3g">3g</a> Servicios · <a href="#3h">3h</a> Contacto · <a href="#3i">3i</a> Inicio móvil · <a href="#3j">3j</a> Contacto móvil.</p>
+    <p style="margin:0; font-size:15px; color:#5b6572">Azul profundo, esquinas suaves, superficies flotantes. Sistema <a href="#3a">3a</a> · <a href="#3b">3b</a> Inicio · <a href="#3c">3c</a> Casos de éxito · <a href="#3d">3d</a> Caso · <a href="#3e">3e</a> Proyectos · <a href="#3k">3k</a> Juegos · <a href="#3f">3f</a> Sobre mí · <a href="#3g">3g</a> Servicios · <a href="#3h">3h</a> Contacto · <a href="#3i">3i</a> Inicio móvil · <a href="#3j">3j</a> Contacto móvil.</p>
   </div>
 
   <div style="display:flex; flex-wrap:wrap; align-items:flex-start; gap:80px">
@@ -165,6 +165,7 @@
             <a href="#3b" style="color:var(--color-accent-700); font-weight:600" aria-current="page">Inicio</a>
             <a href="#3c" style="color:#3f4a58">Casos de éxito</a>
             <a href="#3e" style="color:#3f4a58">Proyectos</a>
+            <a href="#3k" style="color:#3f4a58">Juegos</a>
             <a href="#3g" style="color:#3f4a58">Servicios</a>
             <a href="#3f" style="color:#3f4a58">Sobre mí</a>
             <div class="seg" style="border-color:var(--color-divider)">
@@ -298,6 +299,35 @@
           </div>
         </div>
 
+        <div style="padding:16px 56px 24px; display:flex; align-items:flex-end; justify-content:space-between; gap:32px">
+          <div style="display:flex; flex-direction:column; gap:10px; max-width:60ch">
+            <h2 style="font-size:46px; margin:0; letter-spacing:-0.04em; font-weight:600">Juegos que diseño y programo</h2>
+            <p style="margin:0; font-size:17px; color:#5b6572">Proyectos propios, fuera del trabajo con clientes: del primer prototipo al build publicado.</p>
+          </div>
+          <a class="btn btn-ghost" href="#3k" style="font-size:15px; color:var(--color-accent-700)">Ver juegos →</a>
+        </div>
+        <div style="padding:0 24px 32px">
+          <div style="border-radius:36px; overflow:hidden; background:var(--color-ink); color:#fff; display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr)">
+            <div style="padding:20px; min-width:0">
+              <div style="aspect-ratio:630/500; border-radius:24px; overflow:hidden">
+                <image-slot id="v3-ashline-cover" shape="rect" src="assets/ashline/cover.webp" placeholder="Portada de Ashline"></image-slot>
+              </div>
+            </div>
+            <div style="display:flex; flex-direction:column; justify-content:center; gap:16px; padding:40px 48px 40px 24px; min-width:0">
+              <span style="font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--color-mint)">Videojuego · Roguelite RPG</span>
+              <h3 style="font-size:44px; margin:0; letter-spacing:-0.04em; font-weight:600">Ashline</h3>
+              <p style="margin:0; font-size:19px; color:rgba(255,255,255,0.88)">Lidera una expedición de tres héroes por reinos cubiertos de niebla.</p>
+              <p style="margin:0; font-size:15px; line-height:1.6; color:rgba(255,255,255,0.72)">Exploras un mundo procedural en tiempo real pausable, recolectas madera y oro, erradicas nidos y vuelves al asentamiento a forjar mejor equipo. El combate es por turnos, el invierno y los cazadores nocturnos aprietan, y cada reino termina con un jefe.</p>
+              <div style="display:flex; gap:8px; flex-wrap:wrap"><span class="tag" style="background:rgba(255,255,255,0.14); color:#fff">Godot 4</span><span class="tag" style="background:rgba(255,255,255,0.14); color:#fff">GDScript</span><span class="tag" style="background:rgba(255,255,255,0.14); color:#fff">Windows</span><span class="tag" style="border:1px solid rgba(255,255,255,0.25); color:rgba(255,255,255,0.6)">Android · Próximamente</span></div>
+              <span style="font-size:13px; color:rgba(255,255,255,0.6)">Versión 3.1.0 · Windows · Android próximamente</span>
+              <div style="display:flex; gap:12px; flex-wrap:wrap">
+                <a class="btn" href="https://briandvstudios.itch.io/ashline" style="background:#fff; color:var(--color-ink); padding:14px 24px">Jugar en itch.io →</a>
+                <a class="btn" href="#3k" style="border:1px solid rgba(255,255,255,0.35); color:#fff; padding:14px 24px">Ver capturas</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <sc-if value="{{ mostrarTestimonios }}" hint-placeholder-val="{{ true }}">
         <div style="padding:16px 56px 24px">
           <h2 style="font-size:46px; margin:0; letter-spacing:-0.04em; font-weight:600">Lo que dicen</h2>
@@ -363,6 +393,7 @@
             <a href="#3b" style="color:#3f4a58">Inicio</a>
             <a href="#3c" style="color:var(--color-accent-700); font-weight:600" aria-current="page">Casos de éxito</a>
             <a href="#3e" style="color:#3f4a58">Proyectos</a>
+            <a href="#3k" style="color:#3f4a58">Juegos</a>
             <a href="#3g" style="color:#3f4a58">Servicios</a>
             <a href="#3f" style="color:#3f4a58">Sobre mí</a>
             <a class="btn" href="#3h" style="background:var(--color-accent); color:#fff; padding:12px 22px">Cuéntame tu proceso</a>
@@ -435,6 +466,7 @@
             <a href="#3b" style="color:#3f4a58">Inicio</a>
             <a href="#3c" style="color:var(--color-accent-700); font-weight:600" aria-current="page">Casos de éxito</a>
             <a href="#3e" style="color:#3f4a58">Proyectos</a>
+            <a href="#3k" style="color:#3f4a58">Juegos</a>
             <a href="#3g" style="color:#3f4a58">Servicios</a>
             <a href="#3f" style="color:#3f4a58">Sobre mí</a>
             <a class="btn" href="#3h" style="background:var(--color-accent); color:#fff; padding:12px 22px">Cuéntame tu proceso</a>
@@ -514,6 +546,7 @@
             <a href="#3b" style="color:#3f4a58">Inicio</a>
             <a href="#3c" style="color:#3f4a58">Casos de éxito</a>
             <a href="#3e" style="color:var(--color-accent-700); font-weight:600" aria-current="page">Proyectos</a>
+            <a href="#3k" style="color:#3f4a58">Juegos</a>
             <a href="#3g" style="color:#3f4a58">Servicios</a>
             <a href="#3f" style="color:#3f4a58">Sobre mí</a>
             <a class="btn" href="#3h" style="background:var(--color-accent); color:#fff; padding:12px 22px">Cuéntame tu proceso</a>
@@ -564,6 +597,70 @@
       </div>
     </div>
 
+    <!-- ═══ 3k — JUEGOS ═══ -->
+    <div id="3k" style="display:flex; flex-direction:column; gap:14px">
+      <div style="display:flex; align-items:center; gap:10px">
+        <span style="display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px; border-radius:999px; background:var(--color-accent); color:#fff; font-size:12px; font-weight:600">3k</span>
+        <span style="font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:#5b6572">Juegos</span>
+      </div>
+      <div data-screen-label="Juegos" style="width:1280px; background:var(--color-bg); border-radius:40px; box-shadow:var(--shadow-md); overflow:hidden">
+        <div style="padding:20px 24px">
+          <nav class="nav" style="padding:14px 16px 14px 28px; gap:28px; border-radius:999px; background:var(--color-surface); box-shadow:var(--shadow-sm)">
+            <span class="nav-brand" style="letter-spacing:-0.03em; font-weight:600">brian<span style="color:var(--color-accent)">.</span></span>
+            <a href="#3b" style="color:#3f4a58">Inicio</a>
+            <a href="#3c" style="color:#3f4a58">Casos de éxito</a>
+            <a href="#3e" style="color:#3f4a58">Proyectos</a>
+            <a href="#3k" style="color:var(--color-accent-700); font-weight:600" aria-current="page">Juegos</a>
+            <a href="#3g" style="color:#3f4a58">Servicios</a>
+            <a href="#3f" style="color:#3f4a58">Sobre mí</a>
+            <a class="btn" href="#3h" style="background:var(--color-accent); color:#fff; padding:12px 22px">Cuéntame tu proceso</a>
+          </nav>
+        </div>
+        <div style="padding:24px 56px 32px; display:flex; flex-direction:column; gap:16px">
+          <h1 style="font-size:66px; margin:0; letter-spacing:-0.045em; font-weight:600">Juegos</h1>
+          <p style="margin:0; font-size:19px; color:#5b6572; max-width:60ch">Lo que construyo fuera del trabajo con clientes: juegos completos, del diseño al build publicado. Los diseño y programo yo, en Godot.</p>
+        </div>
+        <div style="padding:0 24px 24px">
+          <div style="border-radius:36px; overflow:hidden; background:var(--color-ink); color:#fff; display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr)">
+            <div style="padding:20px; min-width:0">
+              <div style="aspect-ratio:630/500; border-radius:24px; overflow:hidden">
+                <image-slot id="v3-juegos-ashline-cover" shape="rect" src="assets/ashline/cover.webp" placeholder="Portada de Ashline"></image-slot>
+              </div>
+            </div>
+            <div style="display:flex; flex-direction:column; justify-content:center; gap:16px; padding:40px 48px 40px 24px; min-width:0">
+              <span style="font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--color-mint)">Videojuego · Roguelite RPG</span>
+              <h2 style="font-size:44px; margin:0; letter-spacing:-0.04em; font-weight:600">Ashline</h2>
+              <p style="margin:0; font-size:19px; color:rgba(255,255,255,0.88)">Lidera una expedición de tres héroes por reinos cubiertos de niebla.</p>
+              <p style="margin:0; font-size:15px; line-height:1.6; color:rgba(255,255,255,0.72)">Exploras un mundo procedural en tiempo real pausable, recolectas madera y oro, erradicas nidos y vuelves al asentamiento a forjar mejor equipo. El combate es por turnos, el invierno y los cazadores nocturnos aprietan, y cada reino termina con un jefe.</p>
+              <div style="display:flex; gap:8px; flex-wrap:wrap"><span class="tag" style="background:rgba(255,255,255,0.14); color:#fff">Godot 4</span><span class="tag" style="background:rgba(255,255,255,0.14); color:#fff">GDScript</span><span class="tag" style="background:rgba(255,255,255,0.14); color:#fff">Windows</span><span class="tag" style="border:1px solid rgba(255,255,255,0.25); color:rgba(255,255,255,0.6)">Android · Próximamente</span></div>
+              <span style="font-size:13px; color:rgba(255,255,255,0.6)">Versión 3.1.0 · Windows · Android próximamente</span>
+              <a class="btn" href="https://briandvstudios.itch.io/ashline" style="align-self:flex-start; background:#fff; color:var(--color-ink); padding:14px 24px">Jugar en itch.io →</a>
+            </div>
+          </div>
+        </div>
+        <div style="padding:16px 56px 20px">
+          <h2 style="font-size:38px; margin:0; letter-spacing:-0.035em; font-weight:600">Capturas de la 3.1.0</h2>
+        </div>
+        <div style="padding:0 24px 32px; display:grid; grid-template-columns:repeat(2,1fr); gap:16px">
+          <div style="grid-column:span 2; aspect-ratio:16/9; border-radius:28px; overflow:hidden">
+            <image-slot id="v3-ashline-shot-1" shape="rect" src="assets/ashline/02-world.webp" placeholder="El mundo de día"></image-slot>
+          </div>
+          <div style="aspect-ratio:16/9; border-radius:28px; overflow:hidden">
+            <image-slot id="v3-ashline-shot-2" shape="rect" src="assets/ashline/04-battle.webp" placeholder="Combate con habilidades"></image-slot>
+          </div>
+          <div style="aspect-ratio:16/9; border-radius:28px; overflow:hidden">
+            <image-slot id="v3-ashline-shot-3" shape="rect" src="assets/ashline/05-boss.webp" placeholder="Combate contra el jefe"></image-slot>
+          </div>
+          <div style="aspect-ratio:16/9; border-radius:28px; overflow:hidden">
+            <image-slot id="v3-ashline-shot-4" shape="rect" src="assets/ashline/03-party.webp" placeholder="Selección de grupo"></image-slot>
+          </div>
+          <div style="aspect-ratio:16/9; border-radius:28px; overflow:hidden">
+            <image-slot id="v3-ashline-shot-5" shape="rect" src="assets/ashline/01-menu.webp" placeholder="Menú principal"></image-slot>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- ═══ 3f — SOBRE MÍ ═══ -->
     <div id="3f" style="display:flex; flex-direction:column; gap:14px">
       <div style="display:flex; align-items:center; gap:10px">
@@ -577,6 +674,7 @@
             <a href="#3b" style="color:#3f4a58">Inicio</a>
             <a href="#3c" style="color:#3f4a58">Casos de éxito</a>
             <a href="#3e" style="color:#3f4a58">Proyectos</a>
+            <a href="#3k" style="color:#3f4a58">Juegos</a>
             <a href="#3g" style="color:#3f4a58">Servicios</a>
             <a href="#3f" style="color:var(--color-accent-700); font-weight:600" aria-current="page">Sobre mí</a>
             <a class="btn" href="#3h" style="background:var(--color-accent); color:#fff; padding:12px 22px">Cuéntame tu proceso</a>
@@ -653,6 +751,7 @@
             <a href="#3b" style="color:#3f4a58">Inicio</a>
             <a href="#3c" style="color:#3f4a58">Casos de éxito</a>
             <a href="#3e" style="color:#3f4a58">Proyectos</a>
+            <a href="#3k" style="color:#3f4a58">Juegos</a>
             <a href="#3g" style="color:var(--color-accent-700); font-weight:600" aria-current="page">Servicios</a>
             <a href="#3f" style="color:#3f4a58">Sobre mí</a>
             <a class="btn" href="#3h" style="background:var(--color-accent); color:#fff; padding:12px 22px">Cuéntame tu proceso</a>
@@ -751,6 +850,7 @@
             <a href="#3b" style="color:#3f4a58">Inicio</a>
             <a href="#3c" style="color:#3f4a58">Casos de éxito</a>
             <a href="#3e" style="color:#3f4a58">Proyectos</a>
+            <a href="#3k" style="color:#3f4a58">Juegos</a>
             <a href="#3g" style="color:#3f4a58">Servicios</a>
             <a href="#3f" style="color:#3f4a58">Sobre mí</a>
             <a class="btn" href="#3h" style="background:var(--color-accent); color:#fff; padding:12px 22px" aria-current="page">Cuéntame tu proceso</a>
@@ -863,6 +963,23 @@
               <span class="tag" style="align-self:flex-start; background:var(--color-accent-100); color:var(--color-accent-800)">Caso 01 · Próximamente</span>
               <h4 style="margin:0; letter-spacing:-0.02em">El negocio que anota los pedidos en un cuaderno</h4>
               <p style="margin:0; font-size:14px; color:#5b6572">Diagnóstico, desarrollo y prueba en vivo.</p>
+            </div>
+          </div>
+        </div>
+        <div style="padding:14px 26px 12px">
+          <h2 style="font-size:30px; margin:0; letter-spacing:-0.04em; font-weight:600">Juegos que diseño y programo</h2>
+        </div>
+        <div style="padding:0 14px 14px">
+          <div style="border-radius:26px; background:var(--color-surface); overflow:hidden">
+            <div style="aspect-ratio:630/500; min-width:0; overflow:hidden">
+              <image-slot id="v3-movil-ashline" shape="rect" src="assets/ashline/cover.webp" placeholder="Portada de Ashline"></image-slot>
+            </div>
+            <div style="padding:22px; display:flex; flex-direction:column; gap:10px">
+              <span style="font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--color-accent-700)">Videojuego · Roguelite RPG</span>
+              <h4 style="margin:0; letter-spacing:-0.02em">Ashline</h4>
+              <p style="margin:0; font-size:14px; color:#5b6572">Lidera una expedición de tres héroes por reinos cubiertos de niebla.</p>
+              <span style="font-size:12px; color:#8a93a0">Windows · Android próximamente</span>
+              <a class="btn btn-block" href="https://briandvstudios.itch.io/ashline" style="margin:0; min-height:50px; background:var(--color-accent); color:#fff">Jugar en itch.io →</a>
             </div>
           </div>
         </div>

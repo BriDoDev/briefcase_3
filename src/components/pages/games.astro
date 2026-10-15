@@ -1,0 +1,55 @@
+---
+import { getContent } from "../../i18n/content";
+import { getLangFromUrl, useTranslations } from "../../i18n/ui";
+import GameFeature from "../game-feature.astro";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const { games } = getContent(lang);
+---
+
+<section class="px-4 pt-6 sm:px-6">
+	<div class="flex flex-col gap-3 mx-auto max-w-6xl" data-reveal>
+		<h1 class="text-5xl font-semibold tracking-tighter text-ink">
+			{t.games.title}
+		</h1>
+		<p class="max-w-3xl text-lg text-muted">{t.games.lead}</p>
+	</div>
+</section>
+
+{
+	games.map((game) => (
+		<section class="px-4 py-10 pb-20 sm:px-6">
+			<div class="flex flex-col gap-10 mx-auto max-w-6xl">
+				<GameFeature game={game} t={t} data-reveal />
+
+				<div class="flex flex-col gap-6">
+					<h2 class="text-3xl font-semibold tracking-tighter text-ink" data-reveal>
+						{t.games.galleryTitle} {game.version}
+					</h2>
+					<div class="grid gap-4 md:grid-cols-2" data-reveal-group>
+						{game.screenshots.map((shot, index) => (
+							<a
+								href={shot.src}
+								target="_blank"
+								rel="noopener noreferrer"
+								class:list={[
+									"block overflow-hidden aspect-video rounded-md bg-canvas group lift",
+									index === 0 && "md:col-span-2",
+								]}
+								data-reveal
+							>
+								<img
+									src={shot.src}
+									alt={shot.alt}
+									loading="lazy"
+									class="object-cover w-full h-full transition-transform duration-500 ease-out group-hover:scale-[1.03]"
+								/>
+							</a>
+						))}
+					</div>
+				</div>
+			</div>
+		</section>
+	))
+}
