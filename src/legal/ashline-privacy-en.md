@@ -1,6 +1,6 @@
 ## Ashline privacy policy
 
-*Last updated: October 19, 2026.*
+*Last updated: October 21, 2026.*
 
 Ashline is a single-player game. It works offline and asks for no account, name or email. This policy explains the only data the game can send: the optional anonymous logs.
 
@@ -10,14 +10,17 @@ Only if you agree, in the first-launch dialog or later in Settings ("Share anony
 If you agree, the following is sent:
 - **Random identifiers**: an install identifier (a UUID generated on your device, unrelated to you or your device) and a session identifier.
 - **Game version** and **platform** (for example: windows, macos, android).
-- **Run log**, when an expedition ends or is abandoned: the seed, the party's classes, the contracts, the game speed and language selected, the realm reached, the outcome, and gameplay data (levels, gear, resources, battles, finds, deaths, what defeated you).
+- **Sessions**: the start and end time (UTC) of each play session and its length, how many sessions you have played, the date of your first logged session and of your consent, the screen type (phone, tablet or PC) and a frames-per-second summary (performance).
+- **Run log**, when an expedition ends or is abandoned: a random run identifier, the seed, the UTC start time, the party's classes, the contracts, the game speed and language selected, the realm reached, the outcome, and gameplay data (levels, gear, resources, battles with their enemies and levels, progress through realms, lairs and bosses, finds, deaths, what defeated you).
 - **Error reports** from the game: error kind, message, stack trace and error context, grouped by repetition.
-- **Crash reports**: at launch, if the previous session did not end cleanly, the tail of that session's technical log.
+- **Crash reports**: at launch, if the previous session did not end cleanly, the tail of that session's technical log and the identifier of the run in progress.
+
+Everything is sent encrypted (HTTPS).
 
 Before sending, the game replaces file paths from your machine and your user, computer and login names with placeholders.
 
 ### What is not sent
-Name, email, account, location, contacts, app list, advertising identifiers, serial numbers or any identifier of your device. There is no advertising and no tracking.
+Name, email, account, location, contacts, app list, advertising identifiers, serial numbers, device or processor model, or any identifier of your device. There is no advertising and no tracking.
 
 As with any internet connection, the hosting service technically receives your IP address when it receives a request. Ashline does not store it in its tables or use it.
 
@@ -34,10 +37,18 @@ Logs are kept for **12 months** from receipt and then deleted.
 There are no third parties beyond hosting: logs are received and stored on **Supabase**, acting as a hosting provider. They are not sent to any other service.
 
 ### Your rights and contact
-To ask for the logs tied to your install to be deleted, or for any question, write to **contacto@brian-dominguez.dev**. To find them, include your install identifier (found in the `state.cfg` file in the `player_logs` folder of the game's data).
+To ask for the logs tied to your install to be deleted, or for any question, write to **contacto@brian-dominguez.dev**. To find them, include your install identifier (shown in Settings → Game → "Install ID").
+
+<h3 id="delete-data">How to delete your data (Ashline)</h3>
+
+1. In Ashline open **Settings → Game** and copy your **Install ID** (shown if you agreed to share logs).
+2. Email **contacto@brian-dominguez.dev** with the subject "Delete my Ashline data" and paste your Install ID.
+3. Within 30 days at most we delete **everything** tied to that ID: run logs, sessions, error and crash reports. No copy is kept. We confirm by email.
+
+If you only want to stop sending data, turn off "Share anonymous logs" in Settings: the logs pending on your device are deleted at once. Without a request, data is deleted automatically 12 months after receipt.
 
 ### Children
-Ashline is not directed at children under 13 and sending is optional. We do not knowingly collect children's data.
+Ashline is meant for players 16 and older because of its content (horror and violence) and is not directed at children under 13. Sending is optional. We do not knowingly collect children's data.
 
 ### Changes
 If this policy changes, it will be published here with a new date.
